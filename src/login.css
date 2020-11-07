@@ -30,10 +30,22 @@
 }
 
 .loginButton {
-  padding: 0px 16px;
+  border: none;
+  padding: 10px 16px;
   background-color: #b153fd;
   color: white;
   border-radius: 50px;
   max-width: 100px;
   font-size: 16px;
+}
+
+.signinButton {
+  padding: 10px 16px;
+  background-color: white;
+  border-radius: 50px;
+  max-width: 100px;
+  font-size: 16px;
+  color: #b153fd;
+  border-width: 10px;
+  border: #b153fd;
 }
