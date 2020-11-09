@@ -1,10 +1,9 @@
 import React, {useContext} from "react";
-import {AuthContext} from "../auth/Auth";
+import {AuthContext} from "../../auth/Auth";
 import { Redirect } from "react-router-dom";
-import '../App.css'
-import db from "../base";
-import logo from '../images/PhilConLogo1.png';
-import "../login.css"
+import db from "../common/base";
+import logo from '../common/images/PhilConLogo1.png';
+import "./login.css"
 
 const Login = ({history}) => {
 

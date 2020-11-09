@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import db from "../base";
+import db from "../routes/common/base";
 
 export const AuthContext = React.createContext();
 

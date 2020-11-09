@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import db from "../base"
-import "../App.css"
+import db from "../common/base"
+
 
 class Home extends Component {
 

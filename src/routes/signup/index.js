@@ -1,6 +1,6 @@
 import React from "react";
-import db from "../base"
-import '../App.css'
+import db from "../common/base"
+
 
 const SignUp = ({history}) => {
     const redirectLogIn = () => {

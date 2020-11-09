@@ -1,9 +1,9 @@
 import './App.css';
-import Login from './routes/LogIn';
-import Home from "./routes/Home"
-import SignUp from "./routes/SignUp"
-import PrivateRoute from "./auth/PrivateRoute"
-import { AuthProvider } from "./auth/Auth"
+import Login from '../login/index';
+import Home from "../home/index"
+import SignUp from "../signup/index"
+import PrivateRoute from "../../auth/PrivateRoute"
+import { AuthProvider } from "../../auth/Auth"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 
 function App() {
