@@ -1,5 +1,43 @@
+.parent {
+  height: 100vh;
+  width: 100%;
+  background-image: url(./background.svg);
+  background-size: cover;
+}
+
+.title {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
 .logo {
   max-width: 200px;
+}
+
+.loginContainer {
+  background-color: white;
+  width: 70vw;
+  margin: auto;
+  border-radius: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 35vw);
+  box-shadow: 0px 8px 16px rgba(17, 17, 17, 0.04);
+}
+.loginInfo {
+  margin: auto;
+  height: 50vh;
+}
+.handshake {
+  height: 100%;
+  width: 30vw;
+  padding: auto;
+}
+
+.handshake svg {
+  padding-top: 5vh;
 }
 
 .EmailAndPass {
