@@ -9,7 +9,7 @@ import googleLogo from '../common/images/googleLogo.png'
 
 const Login = ({history}) => {
 
-
+    {/*
     const handleLogin = (event) => {
         event.preventDefault()
         const {email, password } = event.target.elements;
@@ -22,6 +22,12 @@ const Login = ({history}) => {
             alert(error)
         }
     }
+
+    const redirectSignUp = () => {
+        history.push("/signup")
+    }
+    */}
+
     const handleLoginWithGoogle = () => {
     try{
             db
@@ -32,10 +38,8 @@ const Login = ({history}) => {
             alert(error);
         }
     }
-
-    const redirectSignUp = () => {
-        history.push("/signup")
-    }
+    
+    
     const { currentUser } = useContext(AuthContext);
       if (currentUser) {
         return <Redirect to="/" />;
@@ -43,7 +47,7 @@ const Login = ({history}) => {
     return (
         <div className="parent">
             <div className="title">
-            <img src={logo} className="logo" />
+            <img src={logo} className="logo" alt="PhilConnect Logo"/>
             <h1>
             Philanthropy Connect
             </h1>
@@ -52,7 +56,7 @@ const Login = ({history}) => {
             <div className="loginContainer">
                 <div className="loginInfo">
                     <h1>Log In</h1>
-                    <button className="googleLogin" onClick={handleLoginWithGoogle}>
+                    <button className="googleLogin" alt="Google Logo" onClick={handleLoginWithGoogle}>
                         <img src={googleLogo}/>
                         <p1> Continue with Google </p1>
                     </button>
