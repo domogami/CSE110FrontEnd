@@ -9,25 +9,6 @@ import googleLogo from '../common/images/googleLogo.png'
 
 const Login = ({history}) => {
 
-    {/*
-    const handleLogin = (event) => {
-        event.preventDefault()
-        const {email, password } = event.target.elements;
-        
-        try{
-            db.auth().signInWithEmailAndPassword(email.value,password.value);
-            history.push("/");
-        }
-        catch (error) {
-            alert(error)
-        }
-    }
-
-    const redirectSignUp = () => {
-        history.push("/signup")
-    }
-    */}
-
     const handleLoginWithGoogle = () => {
     try{
             db
