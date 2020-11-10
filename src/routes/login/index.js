@@ -10,7 +10,7 @@ import facebookLogo from '../common/images/facebookLogo.png'
 
 const Login = ({history}) => {
     
-    {/*const handleLogin = (event) => {
+    /*const handleLogin = (event) => {
         event.preventDefault()
         const {email, password } = event.target.elements;
         
@@ -21,11 +21,11 @@ const Login = ({history}) => {
         catch (error) {
             alert(error)
         }
-    }*/}
+    }
 
-    {/*const redirectSignUp = () => {
+    const redirectSignUp = () => {
         history.push("/signup")
-    }*/}
+    }*/
     
 
     const handleLoginWithGoogle = () => {
@@ -88,7 +88,6 @@ const Login = ({history}) => {
                             <button className="signinButton" onClick={redirectSignUp}>Sign Up</button>
                         </form>
                     */}
-                    
                 </div>
                 <div className="handshake">
                 <Handshake />
