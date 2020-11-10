@@ -1,12 +1,14 @@
 import React, {useContext} from "react";
 import {AuthContext} from "../../auth/Auth";
 import { Redirect } from "react-router-dom";
-import db from "../common/base";
+import db, {provider2} from "../common/base";
 import logo from '../common/images/logo.svg';
 import "./login.css"
 import Handshake from './handshake'
+import googleLogo from '../common/images/googleLogo.png'
 
 const Login = ({history}) => {
+
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -19,7 +21,16 @@ const Login = ({history}) => {
         catch (error) {
             alert(error)
         }
-    
+    }
+    const handleLoginWithGoogle = () => {
+    try{
+            db
+                .auth()
+                .signInWithPopup(provider2);
+                history.push("/");
+        } catch (error){
+            alert(error);
+        }
     }
 
     const redirectSignUp = () => {
@@ -41,18 +52,25 @@ const Login = ({history}) => {
             <div className="loginContainer">
                 <div className="loginInfo">
                     <h1>Log In</h1>
-                    <form onSubmit={handleLogin} className="EmailAndPass">
-                        <label className="fieldLabel">
-                            Email
-                            <input className="entryField" name="email" type="email" placeholder="ggillespie@eng.ucsd.edu" />
-                        </label>
-                        <label className="fieldLabel">
-                            Password
-                            <input className="entryField" name="password" type="password" placeholder="··········" />
-                        </label>
-                        <button className="loginButton" type="submit">Log In</button>
-                    </form>
-                    <button className="signinButton" onClick={redirectSignUp}>Sign Up</button>
+                    <button className="googleLogin" onClick={handleLoginWithGoogle}>
+                        <img src={googleLogo}/>
+                        <p1> Continue with Google </p1>
+                    </button>
+                    {/* LOGIN HERE NOT IMPLEMENTED (NICE TO HAVE)
+                        <form onSubmit={handleLogin} className="EmailAndPass">
+                            <label className="fieldLabel">
+                                <p>Email</p>
+                                <input className="entryField" name="email" type="email" placeholder="ggillespie@eng.ucsd.edu" />
+                            </label>
+                            <label className="fieldLabel">
+                                <p>Password</p>
+                                <input className="entryField" name="password" type="password" placeholder="··········" />
+                            </label>
+                            <button className="loginButton" type="submit">Log In</button>
+                            <button className="signinButton" onClick={redirectSignUp}>Sign Up</button>
+                        </form>
+                    */}
+                    
                 </div>
                 <div className="handshake">
                 <Handshake />
