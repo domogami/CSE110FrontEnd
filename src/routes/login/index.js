@@ -56,8 +56,8 @@ const Login = ({history}) => {
             <div className="loginContainer">
                 <div className="loginInfo">
                     <h1>Log In</h1>
-                    <button className="googleLogin" alt="Google Logo" onClick={handleLoginWithGoogle}>
-                        <img src={googleLogo}/>
+                    <button className="googleLogin" onClick={handleLoginWithGoogle}>
+                        <img src={googleLogo} alt="Google Logo" />
                         <p1> Continue with Google </p1>
                     </button>
                     {/* LOGIN HERE NOT IMPLEMENTED (NICE TO HAVE)
