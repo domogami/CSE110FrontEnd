@@ -70,6 +70,35 @@
   color: #b153fd;
 }
 
+.facebookLogin {
+  background: none;
+  border: none;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  align-items: center;
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 25px;
+  transition: all 0.2s ease-in-out;
+}
+
+.facebookLogin:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 0 10px #d9d9d9;
+}
+
+.facebookLogin img {
+  max-width: 50px;
+  margin: auto 10px;
+}
+
+.facebookLogin p1 {
+  font-size: 20px;
+  margin: auto;
+  font-weight: 600;
+  color: #b153fd;
+}
+
 .EmailAndPass {
   display: grid;
   grid-template-columns: 1fr;

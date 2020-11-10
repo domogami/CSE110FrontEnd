@@ -1,13 +1,32 @@
 import React, {useContext} from "react";
 import {AuthContext} from "../../auth/Auth";
 import { Redirect } from "react-router-dom";
-import db, {provider2} from "../common/base";
+import db, {provider, provider2} from "../common/base";
 import logo from '../common/images/logo.svg';
 import "./login.css"
 import Handshake from './handshake'
 import googleLogo from '../common/images/googleLogo.png'
+import facebookLogo from '../common/images/facebookLogo.png'
 
 const Login = ({history}) => {
+    
+    {/*const handleLogin = (event) => {
+        event.preventDefault()
+        const {email, password } = event.target.elements;
+        
+        try{
+            db.auth().signInWithEmailAndPassword(email.value,password.value);
+            history.push("/");
+        }
+        catch (error) {
+            alert(error)
+        }
+    }*/}
+
+    {/*const redirectSignUp = () => {
+        history.push("/signup")
+    }*/}
+    
 
     const handleLoginWithGoogle = () => {
     try{
@@ -19,7 +38,17 @@ const Login = ({history}) => {
             alert(error);
         }
     }
-    
+
+    const handleLoginWithFb = ( ) => {
+        try{
+             db
+                .auth()
+                .signInWithPopup(provider);
+                history.push("/");
+        } catch (error){
+            alert(error);
+        }
+       }
     
     const { currentUser } = useContext(AuthContext);
       if (currentUser) {
@@ -40,6 +69,10 @@ const Login = ({history}) => {
                     <button className="googleLogin" onClick={handleLoginWithGoogle}>
                         <img src={googleLogo} alt="Google Logo" />
                         <p1> Continue with Google </p1>
+                    </button>
+                    <button className="facebookLogin" onClick={handleLoginWithFb}>
+                        <img src={facebookLogo} alt="facebook Logo" />
+                        <p1> Continue with Facebook </p1>
                     </button>
                     {/* LOGIN HERE NOT IMPLEMENTED (NICE TO HAVE)
                         <form onSubmit={handleLogin} className="EmailAndPass">
