@@ -18,18 +18,23 @@
 }
 
 .loginContainer {
+  padding: 20px;
   background-color: white;
   width: 70vw;
-  margin: auto;
+  margin: 0 auto;
   border-radius: 50px;
   display: grid;
   grid-template-columns: repeat(auto-fit, 35vw);
-  box-shadow: 0px 8px 16px rgba(17, 17, 17, 0.04);
+  box-shadow: 8px 16px 16px rgba(17, 17, 17, 0.08);
 }
 
 .loginInfo {
   margin: auto;
   height: 50vh;
+}
+
+.aboutLogin p1 {
+  font-weight: 600;
 }
 
 .handshake {
@@ -42,7 +47,11 @@
   padding-top: 5vh;
 }
 
-.googleLogin {
+.signInWith {
+  padding: 5px;
+}
+
+.Login {
   background: none;
   border: none;
   display: grid;
@@ -52,47 +61,19 @@
   padding: 10px;
   border-radius: 25px;
   transition: all 0.2s ease-in-out;
+  padding: 20px;
 }
-.googleLogin:hover {
+.Login:hover {
   transform: translateY(-5px) scale(1.1);
   box-shadow: 0 0 10px #d9d9d9;
 }
 
-.googleLogin img {
+.Login img {
   max-width: 50px;
   margin: auto 10px;
 }
 
-.googleLogin p1 {
-  font-size: 20px;
-  margin: auto;
-  font-weight: 600;
-  color: #b153fd;
-}
-
-.facebookLogin {
-  background: none;
-  border: none;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  align-items: center;
-  max-width: 300px;
-  padding: 10px;
-  border-radius: 25px;
-  transition: all 0.2s ease-in-out;
-}
-
-.facebookLogin:hover {
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 0 10px #d9d9d9;
-}
-
-.facebookLogin img {
-  max-width: 50px;
-  margin: auto 10px;
-}
-
-.facebookLogin p1 {
+.Login p1 {
   font-size: 20px;
   margin: auto;
   font-weight: 600;
@@ -154,4 +135,36 @@
 .loginInfo h1 {
   text-align: left;
   font-size: 40px;
+}
+
+@media only screen and (max-width: 900px) {
+  .aboutLogin {
+    display: none;
+  }
+  .loginContainer {
+    padding-top: 50px;
+    background-color: white;
+    width: 70vw;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: 1fr 0fr;
+  }
+  .title {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .title h1 {
+    font-size: 35px;
+    font-weight: 800;
+  }
+  .logo {
+    max-width: 100px;
+    margin: auto;
+    margin-right: 0;
+  }
 }

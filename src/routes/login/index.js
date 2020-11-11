@@ -67,27 +67,26 @@ const Login = ({history}) => {
     return (
         <div className="parent">
             <div className="title">
-            <img src={logo} className="logo" alt="PhilConnect Logo"/>
-            <h1>
-            Philanthropy Connect
-            </h1>
+                <img src={logo} className="logo" alt="PhilConnect Logo"/>
+                <h1> Philanthropy Connect </h1>
             </div>
-
             <div className="loginContainer">
                 <div className="loginInfo">
                     <h1>Log In</h1>
-                    <button className="googleLogin" onClick={handleLoginWithGoogle}>
-                        <img src={googleLogo} alt="Google Logo" />
-                        <p1> Continue with Google </p1>
-                    </button>
-                    <button className="facebookLogin" onClick={handleLoginWithFb}>
-                        <img src={facebookLogo} alt="facebook Logo" />
-                        <p1> Continue with Facebook </p1>
-                    </button>
-                    <button className="facebookLogin" onClick={handleLoginWithApple}>
-                        <img src={appleLogo} alt="Apple Logo" />
-                        <p1> Continue with Apple </p1>
-                    </button>
+                    <div className="signInWith" >
+                        <button className="Login" onClick={handleLoginWithGoogle}>
+                            <img src={googleLogo} alt="Google Logo" />
+                            <p1> Continue with Google </p1>
+                        </button>
+                        <button className="Login" onClick={handleLoginWithFb}>
+                            <img src={facebookLogo} alt="facebook Logo" />
+                            <p1> Continue with Facebook </p1>
+                        </button>
+                        <button className="Login" onClick={handleLoginWithApple}>
+                            <img src={appleLogo} alt="Apple Logo" />
+                            <p1> Continue with Apple </p1>
+                        </button>
+                    </div>
                     {/* LOGIN HERE NOT IMPLEMENTED (NICE TO HAVE)
                         <form onSubmit={handleLogin} className="EmailAndPass">
                             <label className="fieldLabel">
@@ -103,8 +102,11 @@ const Login = ({history}) => {
                         </form>
                     */}
                 </div>
-                <div className="handshake">
-                <Handshake />
+                <div className="aboutLogin">
+                    <p1>Connect with organizations in need!</p1>
+                    <div className="handshake">
+                        <Handshake />
+                    </div>
                 </div>
             </div>
         </div>
