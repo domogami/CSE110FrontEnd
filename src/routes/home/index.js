@@ -9,7 +9,7 @@ class Home extends Component {
             <div>
                 <h1>Home</h1>
                 <div className="sidebar">
-                
+                    {/* TODO */}
                 </div>
                 <button onClick={() => db.auth().signOut()}>Sign Out</button>
             </div>

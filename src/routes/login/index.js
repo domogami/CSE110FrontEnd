@@ -59,13 +59,14 @@ const Login = ({history}) => {
                 alert(error);
             }
         }
-    
+    // <----- If Logged In, go to Homepage ----->
     const { currentUser } = useContext(AuthContext);
       if (currentUser) {
         return <Redirect to="/" />;
       }
     return (
         <div className="parent">
+            {/* <-------- Logo and Title --------> */}
             <div className="title">
                 <img src={logo} className="logo" alt="PhilConnect Logo"/>
                 <h1> Philanthropy Connect </h1>
@@ -74,14 +75,17 @@ const Login = ({history}) => {
                 <div className="loginInfo">
                     <h1>Log In</h1>
                     <div className="signInWith" >
+                        {/* <-------- Google Login --------> */}
                         <button className="Login" onClick={handleLoginWithGoogle}>
                             <img src={googleLogo} alt="Google Logo" />
                             <p1> Continue with Google </p1>
                         </button>
+                        {/* <-------- Facebook Login --------> */}
                         <button className="Login" onClick={handleLoginWithFb}>
                             <img src={facebookLogo} alt="facebook Logo" />
                             <p1> Continue with Facebook </p1>
                         </button>
+                        {/* <-------- Apple Login --------> */}
                         <button className="Login" onClick={handleLoginWithApple}>
                             <img src={appleLogo} alt="Apple Logo" />
                             <p1> Continue with Apple </p1>
