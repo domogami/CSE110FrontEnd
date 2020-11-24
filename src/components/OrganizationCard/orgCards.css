@@ -1,0 +1,14 @@
+.orgCards {
+    background-image: url("./background.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    width: 297px;
+    height: 343px;
+
+    scale: inherit;
+}
+
+.orgText {
+    padding: 10px;
+}

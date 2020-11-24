@@ -8,6 +8,7 @@ import Handshake from './handshake'
 import googleLogo from '../common/images/googleLogo.png'
 import facebookLogo from '../common/images/facebookLogo.png'
 import appleLogo from '../common/images/appleLogo.svg'
+import {OrganizationCard} from '../../components/OrganizationCard'
 
 const Login = ({history}) => {
     
