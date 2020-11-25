@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import db from "../routes/common/base";
 
+/** @type {React.Context<{ currentUser: firebase.default.User }>} */
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({children}) => {
