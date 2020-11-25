@@ -79,17 +79,17 @@ const Login = ({history}) => {
                         {/* <-------- Google Login --------> */}
                         <button className="Login" onClick={handleLoginWithGoogle}>
                             <img src={googleLogo} alt="Google Logo" />
-                            <p1> Continue with Google </p1>
+                            <p> Continue with Google </p>
                         </button>
                         {/* <-------- Facebook Login --------> */}
                         <button className="Login" onClick={handleLoginWithFb}>
                             <img src={facebookLogo} alt="facebook Logo" />
-                            <p1> Continue with Facebook </p1>
+                            <p> Continue with Facebook </p>
                         </button>
                         {/* <-------- Apple Login --------> */}
                         <button className="Login" onClick={handleLoginWithApple}>
                             <img src={appleLogo} alt="Apple Logo" />
-                            <p1> Continue with Apple </p1>
+                            <p> Continue with Apple </p>
                         </button>
                     </div>
                     {/* LOGIN HERE NOT IMPLEMENTED (NICE TO HAVE)
@@ -108,7 +108,7 @@ const Login = ({history}) => {
                     */}
                 </div>
                 <div className="aboutLogin">
-                    <p1>Connect with organizations in need!</p1>
+                    <p>Connect with organizations in need!</p>
                     <div className="handshake">
                         <Handshake />
                     </div>

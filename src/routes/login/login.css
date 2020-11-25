@@ -33,7 +33,7 @@
   height: 50vh;
 }
 
-.aboutLogin p1 {
+.aboutLogin p {
   font-weight: 600;
 }
 
@@ -74,7 +74,7 @@
   margin: auto 10px;
 }
 
-.Login p1 {
+.Login p {
   font-size: 20px;
   margin: auto;
   font-weight: 600;
@@ -91,7 +91,7 @@
   grid-template-columns: 1fr;
 }
 
-.fieldLabel p1 {
+.fieldLabel p {
   font-size: 12px;
   text-align: left;
 }
