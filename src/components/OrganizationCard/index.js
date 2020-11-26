@@ -1,5 +1,6 @@
 // TODO 
 import React, {Component} from 'react';
+import { ReactComponent as Logo } from './background.svg'
 import "./orgCards.css"
 
 export class OrganizationCard extends Component {
@@ -13,7 +14,7 @@ export class OrganizationCard extends Component {
             showDesc: false,
             orgName: "Test",
             orgDescription: "Description",
-            color: "#000000"
+            color: "#555555"
         };
     }
 
@@ -24,6 +25,7 @@ export class OrganizationCard extends Component {
                 orgDescription: "Over",
             });
         }
+        // Event "mouseout"
         else {
             this.setState({
                 showDesc: false,
@@ -33,14 +35,15 @@ export class OrganizationCard extends Component {
     }
 
     render() {
-        return <div className="orgCards"
-                    fill="rgb(255, 0, 0)"
+        return <Logo 
+                    className="orgCards"
+                    fill={this.state.color}
                     onMouseOver={e => this.hovering(e)} 
                     onMouseOut={e => this.hovering(e)}>
                     <h2 className="orgText" style={{opacity: (this.state.showDesc ? 255 : 0)}}>
                         {this.state.orgDescription}
                     </h2>
-                </div>;
+                </Logo>;
     }
 }
 
