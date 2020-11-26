@@ -1,0 +1,8 @@
+.orgGrid {
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 297px);
+  grid-gap: 20px;
+  justify-items: center;
+  margin: auto;
+}

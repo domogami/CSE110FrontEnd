@@ -81,33 +81,6 @@
   color: #b153fd;
 }
 
-.EmailAndPass {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.fieldLabel {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.fieldLabel p {
-  font-size: 12px;
-  text-align: left;
-}
-
-.entryField {
-  max-width: 300px;
-  width: 100%;
-  height: 36px;
-  position: relative;
-  padding: 0px 16px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 400;
-}
-
 .loginButton {
   border: none;
   padding: 10px 16px;
