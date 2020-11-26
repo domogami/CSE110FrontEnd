@@ -23,7 +23,7 @@ class createProfileIndividual extends Component {
                             </label>
                             <label className="fieldLabel">
                                 <p>Last Name</p>
-                                <input className="entryField" name="last" type="text" placeholder="Gillespie" />
+                                <input className="entryField" name="last" type="email" placeholder="Gillespie" />
                             </label>
                             <label className="fieldLabel">
                                 <p>Email</p>
