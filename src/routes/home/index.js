@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Header from "../../components/header";
 import OrganizationCard from "../../components/OrganizationCard";
 import db from "../common/base"
 import "./style.css"
@@ -19,6 +20,7 @@ class Home extends Component {
 
         return (
             <div>
+                <Header/>
                 <h1>Home</h1>
                 <div className="sidebar">
                     {/* TODO */}

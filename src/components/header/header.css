@@ -1,0 +1,32 @@
+.headerTitle {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    justify-content: left;
+}
+
+.headerTitle h1 {
+    font-size: 30px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.headerLogo {
+    padding: 10px;
+    margin: auto;
+    width:50px;
+    height:50px;
+}
+
+.titleProfile {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.titleProfile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin: auto;
+    margin-right: 20px;
+}
