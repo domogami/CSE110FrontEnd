@@ -1,18 +1,18 @@
 .orgCards {
-    background-repeat: no-repeat;
-    background-size: contain;
-    border-radius: 1em;
-    width: 297px;
-    height: 343px;
-    background-color: rgb(247, 230, 230);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 1em;
+  width: 297px;
+  height: 343px;
+  background-color: rgb(247, 230, 230);
 }
 
 .orgText {
-    padding: 10px;
-    opacity: 0%;
-    transition: linear 0.5s;
+  padding: 10px;
+  opacity: 0%;
+  transition: linear 0.5s;
 }
 
 .orgCards:hover .orgText {
-    opacity: 100%;
+  opacity: 100%;
 }

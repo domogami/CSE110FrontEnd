@@ -6,6 +6,7 @@ import PrivateRoute from "../../auth/PrivateRoute"
 import { AuthProvider } from "../../auth/Auth"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import CreateProfileIndividual from '../createProfileIndividual';
+import Profile from '../profile/index';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <PrivateRoute exact path ="/" component={ Home } />
+          <Route exact path ="/profile" component={ Profile } />  
           <Route exact path ="/createProfileIndividual" component={ CreateProfileIndividual }/>
           <Route exact path ="/login" component={ Login } />
           <Route exact path ="/signup" component={ SignUp } />  
