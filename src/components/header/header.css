@@ -30,3 +30,58 @@
     margin: auto;
     margin-right: 20px;
 }
+
+.headerButton {
+    width: 35%;
+    display: grid;
+    grid-template-columns: 1fr 1.25fr 1fr;
+    grid-gap: 10px;
+}
+.headerButton .menuButton{
+    padding: 10px 5px;
+    text-decoration: none;
+    color: #B153FD;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: ease-in-out .2s;
+}
+.headerButton .menuButton p {
+    padding: 0;
+    margin: 0;
+}
+.headerButton .menuButton:hover {
+    background-color: #B153FD;
+    color: white;
+}
+
+.active {
+    color: #ffffff;
+    background-color:#B153FD;    
+}
+
+.active p {
+    color: white;
+}
+
+.headerButtonOrg {
+    width: 35%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+.headerButtonOrg .menuButton{
+    padding: 10px 5px;
+    text-decoration: none;
+    color: #B153FD;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: ease-in-out .2s;
+}
+.headerButtonOrg .menuButton p {
+    padding: 0;
+    margin: 0;
+}
+.headerButtonOrg .menuButton:hover {
+    background-color: #B153FD;
+    color: white;
+}
