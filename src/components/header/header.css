@@ -53,16 +53,13 @@
     background-color: #B153FD;
     color: white;
 }
-
 .active {
     color: #ffffff;
     background-color:#B153FD;    
 }
-
 .active p {
     color: white;
 }
-
 .headerButtonOrg {
     width: 35%;
     display: grid;
@@ -85,3 +82,4 @@
     background-color: #B153FD;
     color: white;
 }
+

@@ -1,0 +1,16 @@
+.bar {
+    border-radius: 10px;
+    border: none;
+}
+
+.maginify {
+    width: 20px;
+    height: 20px;
+    color:white;
+}
+
+.fullBar {
+    background-color: purple;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+}
