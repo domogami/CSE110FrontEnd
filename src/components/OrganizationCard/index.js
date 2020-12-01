@@ -1,5 +1,6 @@
 // TODO 
 import React, {Component} from 'react';
+import addIcon from "./+.svg";
 import "./orgCards.css"
 
 /**
@@ -21,11 +22,15 @@ export class OrganizationCard extends Component {
             <div className="orgCards"
                 style={this.state.color ? {backgroundColor: this.state.color} : {}}>
                 <h5>{this.props.doc.title}</h5>
-                <div>
+                <div className="orgTextContainer">
                     <h5 className="orgText">
                         {this.props.doc.mission}
                     </h5>
                 </div>
+                <a href={addIcon}>
+                    <img src={addIcon} alt="Add org" className="followButton">
+                    </img>
+                </a>
             </div>
         );
     }

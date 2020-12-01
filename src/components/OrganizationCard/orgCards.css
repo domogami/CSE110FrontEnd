@@ -2,17 +2,36 @@
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 1em;
-  width: 297px;
-  height: 343px;
-  background-color: rgb(247, 230, 230);
+  width: 18rem;
+  height: 21rem;
+  background-color: #f7ece6;
 }
 
 .orgText {
-  padding: 10px;
-  opacity: 0%;
+  padding: 10px 100px;
+  opacity: 50%;
   transition: linear 0.5s;
+  text-overflow: clip;
+
+  font-size: medium;
+  font-size-adjust: inherit;
+}
+
+.orgTextContainer {
+    height: 10rem;
 }
 
 .orgCards:hover .orgText {
   opacity: 100%;
+}
+
+.orgPicture {
+    z-index: 1;
+    background-image: "./+.png";
+}
+
+.followButton {
+    position: inherit;
+    left: 35%;
+    top: 10%;
 }
