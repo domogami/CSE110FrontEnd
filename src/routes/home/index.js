@@ -3,7 +3,6 @@ import Header from "../../components/header";
 import db from "../common/base"
 import "./style.css"
 
-
 class Home extends Component {
 
     render(){

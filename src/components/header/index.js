@@ -15,7 +15,7 @@ export class Header extends Component {
     render() {
         var isIndiviual = true;
         return (
-            <div>
+            <div className="headerContainer">
                 <div className="titleProfile">
                 <div className="headerTitle">
                     <img className="headerLogo" src={Logo} alt="logo"/>
@@ -29,22 +29,21 @@ export class Header extends Component {
                 </div>
 
                 {/*pageName*/}
-                <div>
-                { isIndiviual ? 
-                <div className="headerButton">
-                    <NavLink exact activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
-                    <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Find Org</p></NavLink>
-                    <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
-                </div> : 
-                    <div className="headerButtonOrg">
-                    <NavLink exact activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
-                    <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Post</p></NavLink>
-                    <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Stats</p></NavLink>
-                    <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
-                </div>
-                }
-
-                <SearchBar></SearchBar>
+                <div className="headerSearchBar">
+                    { isIndiviual ? 
+                    <div className="headerButton">
+                        <NavLink exact activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
+                        <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Find Org</p></NavLink>
+                        <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
+                    </div> : 
+                        <div className="headerButtonOrg">
+                        <NavLink exact activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
+                        <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Post</p></NavLink>
+                        <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Stats</p></NavLink>
+                        <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
+                    </div>
+                    }
+                    <SearchBar></SearchBar>
                 </div>
 
             </div>

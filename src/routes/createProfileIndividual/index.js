@@ -48,7 +48,7 @@ class createProfileIndividual extends Component {
         this.shouldRedirect = false;
 
         window.test = this;
-        API.init();
+        //API.init();
     }
 
     /**
