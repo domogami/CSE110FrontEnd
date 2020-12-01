@@ -63,7 +63,7 @@ const Login = ({history}) => {
     // <----- If Logged In, go to Homepage ----->
     const { currentUser } = useContext(AuthContext);
       if (currentUser) {
-        return <Redirect to="/" />;
+        return <Redirect to="/createProfileIndividual" />;
       }
     return (
         <div className="parent">

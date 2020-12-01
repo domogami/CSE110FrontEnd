@@ -2,17 +2,50 @@
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 1em;
-  width: 297px;
-  height: 343px;
-  background-color: rgb(247, 230, 230);
+  width: 18rem;
+  height: 21rem;
+  background-color: #f7ece6;
+}
+
+.orgTextContainer {
+  height: 10rem;
+  text-align: center;
+  position: relative;
 }
 
 .orgText {
-  padding: 10px;
+  position: absolute;
+  padding: 0px 10px 0px 10px;
+  top: -10px;
+
   opacity: 0%;
   transition: linear 0.5s;
+  text-overflow: clip;
+
+  font-size: medium;
+  font-size-adjust: inherit;
+}
+
+.orgIcon {
+  display: block;
+  margin: auto;
+  text-align: center;
+  opacity: 100%;
+  transition: linear 0.5s;
+  width: 80%;
+}
+
+.orgCards:hover .orgIcon {
+    opacity: 0%;
 }
 
 .orgCards:hover .orgText {
-  opacity: 100%;
+    opacity: 100%;
+}
+
+.followButton {
+    position: relative;
+    vertical-align: middle;
+    left: 35%;
+    top: 0%;
 }

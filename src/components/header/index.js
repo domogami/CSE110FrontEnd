@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import "./header.css";
-import Logo from "../../routes/common/images/PhilConLogo.png";
-import profilePic from "../../routes/common/images/PhilConLogo.png"
+import Logo from "../../routes/common/images/logo.svg";
+import profilePic from "../../routes/common/images/logo.svg"
 import { NavLink } from 'react-router-dom';
 import SearchBar from '../searchBar/index';
 
@@ -29,7 +29,7 @@ export class Header extends Component {
                 </div>
 
                 {/*pageName*/}
-                <div buttonSearch>
+                <div>
                 { isIndiviual ? 
                 <div className="headerButton">
                     <NavLink activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>

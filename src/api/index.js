@@ -1,6 +1,5 @@
-import { EventEmitter } from "events"
-import { useContext } from "react";
-import { AuthContext } from "../auth/Auth";
+import { EventEmitter } from "events";
+import app from "../routes/common/base";
 
 class API extends EventEmitter {
 
@@ -10,6 +9,7 @@ class API extends EventEmitter {
         this.base = `${window.location.origin}/api`;
         this.token = null;
 
+        this.auth = app.auth();
         // Profile cache
         /** @type {{[id: string]: {}}} */
         this.profiles = {};
@@ -27,24 +27,34 @@ class API extends EventEmitter {
 
     /** @returns {RequestInit} */
     createRequestInit(method = "GET", body = null) {
-        if (typeof body != "string") body = JSON.stringify(body); 
+        if (body && typeof body != "string") body = JSON.stringify(body); 
         return {
             method,
-            headers: { "Authorization": `Bearer ${this.token}` },
+            headers: { 
+                "Authorization": `Bearer ${this.token}`,
+                "Content-Type": "application/json"
+            },
             body
         };
     }
 
     async init() {
-        const { currentUser } = useContext(AuthContext);
-        if (!currentUser) return false;
-        this.token = await currentUser.getIdToken();
+        if (!this.auth.currentUser) return false;
+        this.token = await this.auth.currentUser.getIdToken();
         await this.getProfile();
         return true;
     }
 
     // magic number 5 seconds here (how long we want to cache the request)
     isRecent(timestamp) { return Date.now() - timestamp < 5000; }
+
+    async createProfile(form) {
+        let res = await fetch(`${this.base}/profile/create?type=individual`, 
+            this.createRequestInit("POST", form));
+        const json = await res.json();
+        console.log(json);
+        return res.status == 200;
+    }
 
     /**
      * @param {string} id 
@@ -66,12 +76,12 @@ class API extends EventEmitter {
 
     /** @param {string} eventID */
     async getEvent(eventID) {
-        if (this.orgEvents[id] && this.isRecent(this.orgEvents[id].timestamp)) return this.profiles[id];
+        if (this.orgEvents[eventID] && this.isRecent(this.orgEvents[eventID].timestamp)) return this.profiles[eventID];
         try {
             const res = await fetch(`${this.base}/events/${eventID}`, this.createRequestInit());
             const json = await res.json();
             json.timestamp = Date.now();
-            this.orgEvents[id] = json;
+            this.orgEvents[eventID] = json;
             return json;
         } catch (e) {
             this.emit("error", `Error in getEvent("${eventID}")`, e);
@@ -84,7 +94,7 @@ class API extends EventEmitter {
             const res = await fetch(`${this.base}/organization/rate/${orgID}`, this.createRequestInit());
             const json = await res.json();
             json.timestamp = Date.now();
-            this.ratings[id] = json;
+            this.ratings[orgID] = json;
             return json;
         } catch (e) {
             this.emit("error", `Error in getRatings("${orgID}")`, e);

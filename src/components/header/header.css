@@ -1,85 +1,88 @@
 .headerTitle {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    justify-content: left;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  justify-content: left;
+  margin-left: 20px;
 }
 
 .headerTitle h1 {
-    font-size: 30px;
-    padding: 10px;
-    margin-left: 10px;
+  font-size: 30px;
+  padding: 10px;
+  margin-left: 10px;
+  text-align: left;
 }
 
 .headerLogo {
-    padding: 10px;
-    margin: auto;
-    width:50px;
-    height:50px;
+  padding: 10px;
+  margin: auto;
+  width: 50px;
+  height: 50px;
 }
 
 .titleProfile {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .titleProfile img {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    margin: auto;
-    margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  margin: auto;
+  margin-right: 20px;
 }
 
 .headerButton {
-    width: 35%;
-    display: grid;
-    grid-template-columns: 1fr 1.25fr 1fr;
-    grid-gap: 10px;
+  width: 35%;
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr 1fr;
+  grid-gap: 10px;
+  padding: 0 40px;
 }
-.headerButton .menuButton{
-    padding: 10px 5px;
-    text-decoration: none;
-    color: #B153FD;
-    font-size: 20px;
-    border-radius: 10px;
-    transition: ease-in-out .2s;
+.headerButton .menuButton {
+  padding: 7px 5px;
+  text-decoration: none;
+  color: #b153fd;
+  font-size: 20px;
+  border-radius: 10px;
+  transition: ease-in-out 0.2s;
 }
 .headerButton .menuButton p {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 .headerButton .menuButton:hover {
-    background-color: #B153FD;
-    color: white;
+  background-color: #b153fd;
+  color: white;
 }
 .active {
-    color: #ffffff;
-    background-color:#B153FD;    
+  color: #ffffff;
+  background-color: #b153fd;
 }
 .active p {
-    color: white;
+  color: white;
 }
 .headerButtonOrg {
-    width: 35%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
+  width: 35%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
 }
-.headerButtonOrg .menuButton{
-    padding: 10px 5px;
-    text-decoration: none;
-    color: #B153FD;
-    font-size: 20px;
-    border-radius: 10px;
-    transition: ease-in-out .2s;
+.headerButtonOrg .menuButton {
+  padding: 10px 5px;
+  text-decoration: none;
+  color: #b153fd;
+  font-size: 20px;
+  border-radius: 10px;
+  transition: ease-in-out 0.2s;
 }
 .headerButtonOrg .menuButton p {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 .headerButtonOrg .menuButton:hover {
-    background-color: #B153FD;
-    color: white;
+  background-color: #b153fd;
+  color: white;
 }
-

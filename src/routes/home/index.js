@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Header from "../../components/header";
 import OrganizationCard from "../../components/OrganizationCard";
 import db from "../common/base"
+import HumaneSociety from "../common/images/HumaneSociety.jpg"
 import "./style.css"
 
 
@@ -20,18 +21,23 @@ class Home extends Component {
 
         return (
             <div>
-                <Header/>
-                <h1>Home</h1>
-                <div className="sidebar">
-                    {/* TODO */}
+                <div className="header">
+                    <Header />
                 </div>
-                <div className="orgGrid">
-                    <OrganizationCard doc={orgDoc}/>
-                    {/* <OrganizationCard />
-                    <OrganizationCard />
-                    <OrganizationCard />
-                    <OrganizationCard />
-                    <OrganizationCard /> */}
+                <div className="homeOrgView">
+                    <div className="featuredOrgCard">
+                        <img src={HumaneSociety} alt="FeaturedImage"/>
+                        <h1>Featured org</h1>
+                        <p>Together with our supporters, we take on the big fights to stop cruelty before it happens. We’re working to end puppy mills, factory farms, trophy hunts, animal testing and other cruel industries so we can achieve the vision behind our name: a humane society. And we can’t do it without you. </p>
+                    </div>
+                    <div className="orgGrid">
+                        <OrganizationCard doc={orgDoc}/>
+                        <OrganizationCard doc={orgDoc}/>
+                        <OrganizationCard doc={orgDoc}/>
+                        <OrganizationCard doc={orgDoc}/>
+                        <OrganizationCard doc={orgDoc}/>
+                        <OrganizationCard doc={orgDoc}/>
+                    </div>
                 </div>
                 <button onClick={() => db.auth().signOut()}>Sign Out</button>
             </div>
