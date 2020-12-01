@@ -7,9 +7,18 @@
   background-color: #f7ece6;
 }
 
+.orgTextContainer {
+  height: 10rem;
+  text-align: center;
+  position: relative;
+}
+
 .orgText {
-  padding: 10px 100px;
-  opacity: 50%;
+  position: absolute;
+  padding: 0px 10px 0px 10px;
+  top: -10px;
+
+  opacity: 0%;
   transition: linear 0.5s;
   text-overflow: clip;
 
@@ -17,21 +26,26 @@
   font-size-adjust: inherit;
 }
 
-.orgTextContainer {
-    height: 10rem;
+.orgIcon {
+  display: block;
+  margin: auto;
+  text-align: center;
+  opacity: 100%;
+  transition: linear 0.5s;
+  width: 80%;
+}
+
+.orgCards:hover .orgIcon {
+    opacity: 0%;
 }
 
 .orgCards:hover .orgText {
-  opacity: 100%;
-}
-
-.orgPicture {
-    z-index: 1;
-    background-image: "./+.png";
+    opacity: 100%;
 }
 
 .followButton {
-    position: inherit;
+    position: relative;
+    vertical-align: middle;
     left: 35%;
-    top: 10%;
+    top: 0%;
 }
