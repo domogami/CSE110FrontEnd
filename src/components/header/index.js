@@ -29,15 +29,15 @@ export class Header extends Component {
                 </div>
 
                 {/*pageName*/}
-                <div buttonSearch>
+                <div>
                 { isIndiviual ? 
                 <div className="headerButton">
-                    <NavLink activeClassName="active" className="menuButton" to="/home"><p>Home</p></NavLink>
+                    <NavLink activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
                     <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Find Org</p></NavLink>
                     <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
                 </div> : 
                     <div className="headerButtonOrg">
-                    <NavLink activeClassName="active" className="menuButton" to="/home"><p>Home</p></NavLink>
+                    <NavLink activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
                     <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Post</p></NavLink>
                     <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Stats</p></NavLink>
                     <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>

@@ -34,7 +34,7 @@ const Login = ({history}) => {
              db
                 .auth()
                 .signInWithPopup(provider);
-                history.push("/home");
+                history.push("/");
         } catch (error){
             alert(error);
         }
@@ -45,7 +45,7 @@ const Login = ({history}) => {
             db
                 .auth()
                 .signInWithPopup(provider2);
-                history.push("/home");
+                history.push("/");
         } catch (error){
             alert(error);
         }
@@ -55,7 +55,7 @@ const Login = ({history}) => {
                 db
                     .auth()
                     .signInWithPopup(provider3);
-                    history.push("/home");
+                    history.push("/");
             } catch (error){
                 alert(error);
             }
@@ -63,7 +63,7 @@ const Login = ({history}) => {
     // <----- If Logged In, go to Homepage ----->
     const { currentUser } = useContext(AuthContext);
       if (currentUser) {
-        return <Redirect to="/home" />;
+        return <Redirect to="/createProfileIndividual" />;
       }
     return (
         <div className="parent">

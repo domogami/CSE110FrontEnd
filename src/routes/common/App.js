@@ -16,7 +16,7 @@ function App() {
       <Router>
       <div className="App">
         <header className="App-header">
-          <PrivateRoute exact path ="/home" component={ Home } />
+          <PrivateRoute exact path ="/" component={ Home } />
           <Route exact path ="/findOrg" component={ FindOrg } />  
           <Route exact path ="/profile" component={ Profile } />  
           <Route exact path ="/createProfileIndividual" component={ CreateProfileIndividual }/>
