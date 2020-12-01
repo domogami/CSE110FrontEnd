@@ -30,7 +30,7 @@
   color: black;
 }
 .orgGrid {
-  max-width: 70vw;
+  max-width: 60vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, 297px);
   grid-gap: 40px;

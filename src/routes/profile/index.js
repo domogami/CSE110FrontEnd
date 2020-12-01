@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import db from "../common/base"
+import Header from "../../components/header/index"
 
 
 class Profile extends Component {
@@ -7,9 +7,8 @@ class Profile extends Component {
     render() {
         return (
             <div>
-                <h1>Profile</h1>
                 <div className="sidebar">
-                    {/* TODO */}
+                    <Header/>
                 </div>
             </div>
         )

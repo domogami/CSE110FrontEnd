@@ -7,6 +7,7 @@ import { AuthProvider } from "../../auth/Auth"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import CreateProfileIndividual from '../createProfileIndividual';
 import Profile from '../profile/index';
+import FindOrg from '../findOrg';
 
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
       <Router>
       <div className="App">
         <header className="App-header">
-          <PrivateRoute exact path ="/" component={ Home } />
+          <PrivateRoute exact path ="/home" component={ Home } />
+          <Route exact path ="/findOrg" component={ FindOrg } />  
           <Route exact path ="/profile" component={ Profile } />  
           <Route exact path ="/createProfileIndividual" component={ CreateProfileIndividual }/>
           <Route exact path ="/login" component={ Login } />
