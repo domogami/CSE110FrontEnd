@@ -1,0 +1,13 @@
+/*trying to pin header to top*/
+
+.wholeContainer {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+}

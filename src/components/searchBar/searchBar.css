@@ -2,31 +2,32 @@
     margin: auto auto auto 0;
     width: 95%;
 }
-.bar input{
-    border-radius: 5px;
+.bar input{ 
     border: none;    
     padding: 20;
     background-color: transparent;
-    color: white;
+    color: black;
     height: 30px;
     width: 100%;
     outline: none;
     font-size: 25px;
 }
+.bar input::placeholder{
+    color: grey;
+}
 .maginify {
     margin: auto;
     width: 30px;
     height: 30px;
-    color:white;
 }
 .fullBar {
     margin: auto;
     margin-left: 0;
-    background-color:#b153fd;
+    background-color:#EFF0F6;
     display: grid;
     grid-template-columns: 50px auto;
     justify-content: ;
-    border-radius: 10px;
-    max-width: 800px;
+    border-radius: 15px;
+    max-width: 1000px;
     height: 100%;
 }

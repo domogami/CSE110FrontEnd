@@ -1,3 +1,8 @@
+.header {
+  position: fixed;
+  top: 0;
+}
+
 .homeView {
   width: 100vw;
   display: grid;
