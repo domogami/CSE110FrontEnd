@@ -1,9 +1,15 @@
+.findOrgContainer {
+  /*display: grid;
+  grid-template-rows: 1fr 1fr;
+  */
+}
 .header {
   position: fixed;
   top: 0;
 }
 
 .OrgView {
+  /*padding-top: 200px;  // needs to be set for scrolling only*/
   display: grid;
   grid-template-columns: 1fr 3fr;
   margin-top: 20px;

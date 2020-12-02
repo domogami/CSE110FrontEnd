@@ -19,6 +19,8 @@
     margin: auto;
     width: 30px;
     height: 30px;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 .fullBar {
     margin: auto;
@@ -26,7 +28,7 @@
     background-color:#EFF0F6;
     display: grid;
     grid-template-columns: 50px auto;
-    justify-content: ;
+    /*justify-content: center;*/
     border-radius: 15px;
     max-width: 1000px;
     height: 100%;
