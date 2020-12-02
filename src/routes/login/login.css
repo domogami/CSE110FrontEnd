@@ -7,7 +7,7 @@
 
 .title {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-columns: 20% 60%;
   align-items: center;
   justify-content: center;
   margin: auto;

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import "./header.css";
 import Logo from "../../routes/common/images/logo.svg";
-import profilePic from "../../routes/common/images/logo.svg"
 import { NavLink } from 'react-router-dom';
 import SearchBar from '../searchBar/index';
+import API from "../../api/index";
 
 //logo + title + profilepic?
 //filters/ search bar part 
@@ -13,19 +13,15 @@ import SearchBar from '../searchBar/index';
 
 export class Header extends Component {
     render() {
-        var isIndiviual = true;
+        let isIndiviual = true;
         return (
             <div>
                 <div className="titleProfile">
-                <div className="headerTitle">
-                    <img className="headerLogo" src={Logo} alt="logo"/>
-
-                    <h1>
-                        Philanthrophy Connect                        
-                    </h1>                    
-                </div>
-
-                <img className="profilePic" src={profilePic} alt="profilePic"/>
+                    <div className="headerTitle">
+                        <img className="headerLogo" src={Logo} alt="logo"/>
+                        <h1>Philanthrophy Connect</h1>                    
+                    </div>
+                    <img className="profilePic" src={API.me ? API.me.picture : ""} alt="profilePic"/>
                 </div>
 
                 {/*pageName*/}

@@ -1,4 +1,5 @@
 import { EventEmitter } from "events";
+import OrganizationCard from "../components/OrganizationCard";
 import app from "../routes/common/base";
 
 class API extends EventEmitter {
@@ -11,19 +12,20 @@ class API extends EventEmitter {
 
         this.auth = app.auth();
         // Profile cache
-        /** @type {{[id: string]: {}}} */
+        /** @type {{[id: string]: IndividualDocument | OrganizationDocument}} */
         this.profiles = {};
 
         // Event cache
-        /** @type {{[orgID: string]: {}}} */
+        /** @type {{[orgID: string]: OrganizationCard}} */
         this.orgEvents = {};
 
         // Rating cache
-        /** @type {{[ratingID: string]: {}}} */
+        /** @type {{[ratingID: string]: RatingDocument}} */
         this.ratings = {};
     }
 
     get me() { return this.profiles["@me"]; }
+    get user() {  }
 
     /** @returns {RequestInit} */
     createRequestInit(method = "GET", body = null) {
@@ -51,8 +53,6 @@ class API extends EventEmitter {
     async createProfile(form) {
         let res = await fetch(`${this.base}/profile/create?type=individual`, 
             this.createRequestInit("POST", form));
-        const json = await res.json();
-        console.log(json);
         return res.status == 200;
     }
 

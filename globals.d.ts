@@ -4,7 +4,8 @@ declare type IndividualDocument = {
     cause:     string[];
     zip:       string;
     skills:    string[];
-    age:    string;
+    age:       string;
+    picture:   string;
 }
 
 declare type OrganizationDocument = {

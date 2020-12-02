@@ -3,19 +3,19 @@
   padding: 20px;
   background-color: white;
   width: 70%;
-  margin: 0 auto;
+  margin: 3% auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 35vw);
+  grid-template-columns: repeat(auto-fit, 50%);
   box-shadow: 8px 16px 16px rgba(17, 17, 17, 0.08);
 }
 
-.createProfileContainer {
-  margin: auto;
-  padding: 20px;
-}
 .createProfileContainer h1 {
   font-size: 40px;
   margin: auto;
+}
+
+.createProfileContainer h1, h2, h3, h4, h5, p {
+  margin: 3px;
 }
 
 .UIInterfaceImage {
@@ -25,11 +25,8 @@
   margin: auto;
 }
 
-.UIInterfaceImage svg {
-}
-
 .createProfileField .profileInformation .fieldLabel {
-  padding-left: 50px;
+  padding-left: 15%;
 }
 
 .createProfileField .profileInformation p {
@@ -37,7 +34,7 @@
 }
 
 .createProfileInfo p {
-  margin-top: 10px;
+  margin-top: 2px;
 }
 
 .profileInformation {
