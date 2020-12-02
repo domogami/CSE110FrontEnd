@@ -1,0 +1,50 @@
+.findOrgContainer {
+  /*display: grid;
+  grid-template-rows: 1fr 1fr;
+  */
+}
+.header {
+  position: fixed;
+  top: 0;
+}
+
+.OrgView {
+  /*padding-top: 200px;  // needs to be set for scrolling only*/
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin-top: 20px;
+}
+.featuredOrgCard {
+  width: 100%;
+  height: 100%;
+  margin-left: 40px;
+  border-radius: 1em;
+  background-color: #ded3ff;
+}
+.featuredOrgCard img {
+  width: 80%;
+  margin: 30px 20px 0 20px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 1em;
+}
+.featuredOrgCard h1 {
+  font-size: 30px;
+  text-align: left;
+  margin: 10px 40px;
+  color: black;
+}
+.featuredOrgCard p {
+  font-size: 20px;
+  text-align: left;
+  margin: 0 40px 40px 40px;
+  color: black;
+}
+.orgGrid {
+  max-width: 60vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 297px);
+  grid-gap: 40px;
+  justify-items: center;
+  margin: auto;
+}

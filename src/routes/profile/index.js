@@ -6,9 +6,9 @@ class Profile extends Component {
     
     render() {
         return (
-            <div>
+            <div className="wholeContainer">
                 <div className="sidebar">
-                    <Header/>
+                    <Header />
                 </div>
             </div>
         )
