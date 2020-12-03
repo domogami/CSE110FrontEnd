@@ -172,7 +172,7 @@ class Profile extends Component {
                             </label>
                             <label className="fieldLabel">
                                 <p>URL</p>
-                                <input className="entryField" name="URL" type="text" placeholder={orgURL}
+                                <input className="entryField" name="url" type="text" placeholder={orgURL}
                                        onChange={e => this.onFieldChangeOrg(e)}/>
                             </label>
                         </form>
