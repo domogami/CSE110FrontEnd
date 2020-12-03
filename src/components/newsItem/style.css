@@ -1,0 +1,46 @@
+.NewsItemWithDate {
+  width: 80%;
+  margin: auto;
+}
+
+.NewsItemWithDate p {
+  text-align: left;
+  margin-left: 0px;
+  height: 20px;
+}
+
+.NewsItemWithDate p {
+  font-size: 20px;
+}
+
+.NewsCard {
+  max-height: 150px;
+  background-color: white;
+  border-radius: 0.75em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 3fr 0.5fr;
+}
+
+.NewsCard img {
+  width: 130px;
+  height: 130px;
+  border-radius: 0.5em;
+  margin: auto;
+}
+
+.newsCardTimes {
+  margin: auto;
+}
+
+.NewsCardText {
+  margin: auto;
+}
+
+.NewsCardText h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.deleteNewsItem {
+  margin: auto;
+}

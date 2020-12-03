@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Search from '../../routes/common/images/searchIcon';
+import Search from '../../routes/common/images/icons/searchIcon';
 import "./searchBar.css";
 
 

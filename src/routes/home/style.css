@@ -14,12 +14,53 @@
 .homeProfileView {
   background-color: #ded3ff;
   height: 60vh;
-
   border-radius: 1em;
+}
+
+.homeProfileView h1 {
+  font-size: 30px;
+}
+.homeProfileView p {
+  font-size: 20px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.homeCausesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100px);
+}
+
+.causeTag {
+  padding: 5px 15px;
+  margin: auto;
+  background-color: white;
+  border-radius: 1em;
+}
+.causeTag p {
+  margin: auto;
+}
+
+.homeSkillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 100px);
+}
+
+.skillsTag {
+  padding: 5px 15px;
+  margin: auto;
+  background-color: white;
+  border-radius: 1em;
+}
+.skillsTag p {
+  margin: auto;
 }
 
 .newsFeed {
   background-color: #ded3ff;
   height: 60vh;
   border-radius: 1em;
+}
+.newsFeed h1 {
+  font-size: 30px;
 }
