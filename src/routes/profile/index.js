@@ -1,3 +1,4 @@
+// TODO
 import React, {Component} from "react";
 import Header from "../../components/header/index";
 import "./style.css"
@@ -52,7 +53,6 @@ const schemaOrg = {
         .required(),
 };
 
-
 class Profile extends Component {
 
     constructor(props) {
@@ -90,7 +90,7 @@ class Profile extends Component {
         this.forceUpdate();
     }
 
-    //Below functions are for submitting the new information
+    // TODO: Update information if user fills out the form and submits it
     saveFormIndividual() {
 
     }
@@ -101,19 +101,26 @@ class Profile extends Component {
 
 
     render() {
-        //Fill these in with current logged in user's information
-        const indFirstName = "Daniel";
-        const indLastName = "Kubeck";
-        const indZip = {};
 
-        const orgTitle = "American Red Cross";
-        const orgMission = {};
-        const orgContact = {};
-        const orgZip = "92037";
-        const orgURL = {};
+        // TODO: Obtain user's ID, use API getProfile() in order to obtain information and display it.
+        const isIndividual = false;
 
-        //Find a way to determine if the user is an org or an individual, used in the conditional rendering
-        const isOrg = true;
+        const indDoc = {
+            firstname: "Daniel",
+            lastname: "Kubeck",
+            zip: "92037"
+        }
+
+        const orgDoc = {
+            title: "Habitat For Humanity",
+            mission: "Fixing homelessness one family at a time",
+            cause: ["Medical"],
+            zip: "92122",
+            contact: "info@sandiegohabitat.org",
+            url: "www.sandiegohabitat.org",
+            events: ["new event"]
+        };
+
 
         return (
             <div className = "parent">
@@ -121,58 +128,58 @@ class Profile extends Component {
                     <Header/>
                 </div>
                 <div className="viewProfileContainer">
-                    { !(isOrg) &&
+                    { isIndividual &&
                     <div className="viewProfileField">
                         <h1>Profile</h1>
                         <h2>Click on a field to edit.</h2>
                         <form className="profileInformation">
                             <label className="fieldLabel">
                                 <p>First Name</p>
-                                <input className="entryField" name="firstname" type="text" placeholder={indFirstName}
+                                <input className="entryField" name="firstname" type="text" placeholder={indDoc.firstname}
                                        onChange={e => this.onFieldChangeIndividual(e)}/>
                             </label>
                             <label className="fieldLabel">
                                 <p>Last Name</p>
-                                <input className="entryField" name="lastname" type="text" placeholder={indLastName}
+                                <input className="entryField" name="lastname" type="text" placeholder={indDoc.lastname}
                                        onChange={e => this.onFieldChangeIndividual(e)}/>
                             </label>
                             <label className="fieldLabel">
                                 <p>ZIP</p>
-                                <input className="entryField" name="zip" type="text" placeholder={indZip}
+                                <input className="entryField" name="zip" type="text" placeholder={indDoc.zip}
                                        onChange={e => this.onFieldChangeIndividual(e)}/>
                             </label>
                         </form>
                         <button className="saveIndividualButton" onClick={() => this.saveFormIndividual()}>Save Profile</button>
                     </div>
                     }
-                    { isOrg &&
+                    { !(isIndividual) &&
                     <div className="viewProfileField">
                         <h1>Profile</h1>
                         <h2>Click on a field to edit.</h2>
                         <form className="profileInformation">
                             <label className="fieldLabel">
                                 <p>Organization Name</p>
-                                <input className="entryField" name="title" type="text" placeholder={orgTitle}
+                                <input className="entryField" name="title" type="text" placeholder={orgDoc.title}
                                        onChange={e => this.onFieldChangeOrg(e)}/>
                             </label>
                             <label className="fieldLabel">
                                 <p>Mission</p>
-                                <input className="entryFieldMission" name="mission" type="text" placeholder={orgMission}
+                                <input className="entryFieldMission" name="mission" type="text" placeholder={orgDoc.mission}
                                        onChange={e => this.onFieldChangeOrg(e)}/>
                             </label>
                             <label className="fieldLabel">
                                 <p>ZIP</p>
-                                <input className="entryField" name="zip" type="text" placeholder={orgZip}
+                                <input className="entryField" name="zip" type="text" placeholder={orgDoc.zip}
                                        onChange={e => this.onFieldChangeOrg(e)}/>
                             </label>
                             <label className="fieldLabel">
                                 <p>Contact</p>
-                                <input className="entryField" name="contact" type="text" placeholder={orgContact}
+                                <input className="entryField" name="contact" type="text" placeholder={orgDoc.contact}
                                        onChange={e => this.onFieldChangeOrg(e)}/>
                             </label>
                             <label className="fieldLabel">
                                 <p>URL</p>
-                                <input className="entryField" name="url" type="text" placeholder={orgURL}
+                                <input className="entryField" name="url" type="text" placeholder={orgDoc.url}
                                        onChange={e => this.onFieldChangeOrg(e)}/>
                             </label>
                         </form>
