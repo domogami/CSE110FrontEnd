@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Header from "../../components/header";
+import NewsItem from "../../components/newsItem";
 import db from "../common/base"
 import "./style.css"
 
@@ -60,7 +61,7 @@ class Home extends Component {
                     </div>
                     <div className="newsFeed">
                         <h1>News Feed</h1>
-                        
+                        <NewsItem />
                     </div>
                 </div>
                 <button onClick={() => db.auth().signOut()}>Sign Out</button>
