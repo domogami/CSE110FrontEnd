@@ -3,6 +3,9 @@ import Header from "../../components/header";
 import NewsItem from "../../components/newsItem";
 import db from "../common/base"
 import "./style.css"
+import TagIcon from "../common/images/icons/tagIcon"
+import PinIcon from "../common/images/icons/pinIcon"
+import PenIcon from "../common/images/icons/penIcon"
 
 class Home extends Component {
 
@@ -18,7 +21,9 @@ class Home extends Component {
                         <p>Alan Turing</p>
                         <p>alant@gmail.com</p>
                         <div className="locationGroup">
-                            <img alt="pin"/>
+                            <div className="PinIcon">
+                                <PinIcon />
+                            </div>
                             <p>San Diego, CA</p>
                         </div>
                         <div className="Gender">
@@ -30,14 +35,14 @@ class Home extends Component {
                         <p>Causes</p>
                         <div className="homeCausesGrid">
                             <div className="causeTag">
-                                {/* Tag */}
+                                <TagIcon />
                                 <p>Causes</p>
                             </div>
                             <div className="causeTag">
-                                {/* Tag */}
+                                <TagIcon />
                                 <p>Causes</p>
                             </div><div className="causeTag">
-                                {/* Tag */}
+                                <TagIcon />
                                 <p>Causes</p>
                             </div>
                             <p>More (3)</p>
@@ -45,19 +50,26 @@ class Home extends Component {
                         <p>Skills:</p>
                         <div className="homeSkillsGrid">
                             <div className="skillsTag">
-                                {/* Tag */}
+                                <TagIcon />
                                 <p>Causes</p>
                             </div>
                             <div className="skillsTag">
-                                {/* Tag */}
+                                <TagIcon />
                                 <p>Causes</p>
-                            </div><div className="skillsTag">
-                                {/* Tag */}
+                            </div>
+                            <div className="skillsTag">
+                                <TagIcon />
                                 <p>Causes</p>
                             </div>
                             <p>More (3)</p>
                         </div>
-                        <a href="/profile"></a>
+                        
+                        <div className="PenIcon">
+                            <a href="/profile" >
+                                <PenIcon />
+                            </a>
+                        </div>
+                        
                     </div>
                     <div className="newsFeed">
                         <h1>News Feed</h1>
