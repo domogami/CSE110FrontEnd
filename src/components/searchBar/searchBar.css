@@ -1,3 +1,13 @@
+.barFilter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.filter{
+    left: 0;
+    margin: auto;
+}
+
 .bar {
     margin: auto auto auto 0;
     width: 95%;

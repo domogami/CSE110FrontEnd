@@ -103,7 +103,7 @@ class Profile extends Component {
     render() {
 
         // TODO: Obtain user's ID, use API getProfile() in order to obtain information and display it.
-        const isIndividual = false;
+        const isIndividual = true;
 
         const indDoc = {
             firstname: "Daniel",

@@ -5,6 +5,7 @@ import profilePic from "../../routes/common/images/logo.svg"
 import { NavLink } from 'react-router-dom';
 import SearchBar from '../searchBar/index';
 
+
 //logo + title + profilepic?
 //filters/ search bar part 
 
@@ -13,7 +14,7 @@ import SearchBar from '../searchBar/index';
 
 export class Header extends Component {
     render() {
-        var isIndiviual = true;
+        var isIndiviual = true; //set based on db from backend 
         return (
             <div className="headerContainer">
                 <div className="titleProfile">
