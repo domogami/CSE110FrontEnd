@@ -20,7 +20,7 @@ class UserSelect extends Component {
 {/*TO DO: FInd a better phrase*/}
 
                     <h3>Share your events..</h3>
-                    <button classname="userButton" type="button">Organization</button>                    
+                    <button className="userButton" type="button">Organization</button>
                 </div>
                 
             </div>

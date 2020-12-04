@@ -3,7 +3,6 @@ import Header from "../../components/header";
 import OrganizationCard from "../../components/OrganizationCard";
 import HumaneSociety from "../common/images/HumaneSociety.jpg";
 import "./style.css";
-import OrganizationProfile from "../../components/organizationProfile/index.js"
 
 
 class FindOrg extends Component {
