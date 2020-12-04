@@ -2,6 +2,7 @@
   /*display: grid;
   grid-template-rows: 1fr 1fr;
   */
+  margin-top: 170px;
 }
 .header {
   position: fixed;
@@ -9,8 +10,6 @@
 }
 
 .OrgView {
-  /*padding-top: 200px;  // needs to be set for scrolling only*/
-  
   display: grid;
   grid-template-columns: 1fr 3fr;
   margin-top: 20px;
@@ -21,6 +20,7 @@
   margin-left: 40px;
   border-radius: 1em;
   background-color: #ded3ff;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
 }
 .featuredOrgCard img {
   width: 80%;

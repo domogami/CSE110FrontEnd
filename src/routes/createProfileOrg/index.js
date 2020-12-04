@@ -38,7 +38,7 @@ const schema = {
     //     .error(() => new Error("Invalid age range"))
 };
 
-class createProfileIndividual extends Component {
+class createProfileOrg extends Component {
 
     constructor(props) {
         super(props);
@@ -85,16 +85,24 @@ class createProfileIndividual extends Component {
                         <h3>{this.error}</h3>
                         <form className="profileInformation">
                             <label className="fieldLabel">
-                                <p>First Name</p>
-                                <input className="entryField" name="firstname" type="text" placeholder="Gary" onChange={e => this.onFieldChange(e)} />
+                                <p>Organization Name</p>
+                                <input className="entryField" name="title" type="text" placeholder="Red Cross" onChange={e => this.onFieldChange(e)} />
                             </label>
                             <label className="fieldLabel">
-                                <p>Last Name</p>
-                                <input className="entryField" name="lastname" type="text" placeholder="Gillespie" onChange={e => this.onFieldChange(e)} />
+                                <p>Mission</p>
+                                <input className="entryField" name="mission" type="text" placeholder="Donate Blood ..." onChange={e => this.onFieldChange(e)} />
+                            </label>
+                            <label className="fieldLabel">
+                                <p>Email</p>
+                                <input className="entryField" name="contact" type="text" placeholder="RedCross@example.com" onChange={e => this.onFieldChange(e)} />
+                            </label>
+                            <label className="fieldLabel">
+                                <p>Organization URL</p>
+                                <input className="entryField" name="url" type="text" placeholder="https://example.com" onChange={e => this.onFieldChange(e)} />
                             </label>
                             <label className="fieldLabel">
                                 <p>ZIP</p>
-                                <input className="entryField" name="zip" type="text" placeholder="xxxxx" onChange={e => this.onFieldChange(e)} />
+                                <input className="entryField" name="zip" type="text" placeholder="12345" onChange={e => this.onFieldChange(e)} />
                             </label>
                         </form>
                         <button className="createIndiviudalButton" onClick={() => this.submitForm()}>Continue</button>
@@ -105,10 +113,12 @@ class createProfileIndividual extends Component {
                             <UIInterface2 />
                         </div>
                     </div>
+                    
                 </div>
+                
             </div>
         )
     }
 };
 
-export default createProfileIndividual;
+export default createProfileOrg;
