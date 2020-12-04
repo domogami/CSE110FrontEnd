@@ -2,8 +2,9 @@
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 1em;
-  width: 10em;
-  height: 12em;
+  width: 20rem;
+  height: 23rem;
+  position: relative;
   
   background-color: #f7ece6;
 }
@@ -12,6 +13,11 @@
   height: 10rem;
   text-align: center;
   position: relative;
+}
+
+.orgTitle {
+  font-size: x-large;
+  font-weight: 1000;
 }
 
 .orgText {
@@ -23,17 +29,18 @@
   transition: linear 0.5s;
   text-overflow: clip;
 
-  font-size: medium;
+  font-size: large;
   font-size-adjust: inherit;
+  font-weight: 400;
 }
 
 .orgIcon {
   display: block;
   margin: auto;
   text-align: center;
-  opacity: 100%;
+  opacity: 1000%;
   transition: linear 0.5s;
-  width: 80%;
+  max-width: 80%;
 }
 
 .orgCards:hover .orgIcon {
@@ -46,9 +53,8 @@
 
 .followButton {
     position: absolute;
-    vertical-align:auto;
+    vertical-align: auto;
     right: 1em;
-    top: 5.5em;
-    bottom: 0px;
-    scale: 2;
+    bottom: 1em;
+    width: 15%;
 }

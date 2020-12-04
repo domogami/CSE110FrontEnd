@@ -19,7 +19,7 @@ class FindOrg extends Component {
         };
 
         return (
-            <div>
+            <div className="findOrgContainer">
                 <div className="header">
                     <Header />
                 </div>
