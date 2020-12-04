@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import addIcon from "./+.svg";
 import followedIcon from "./Focus.svg";
 import "./orgCards.css"
-import Modal from 'react-bootstrap-modal'
+import Modal from 'react-bootstrap-modal';
 
 /**
  * @extends {Component<{ doc: OrganizationDocument }>}

@@ -1,3 +1,22 @@
+.title {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+  
+.logo {
+    max-width: 200px;
+}
+
+.pgTitle{
+    box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 10px;
+    padding: 1em;
+}
+
 .userButton {
   border: none;
   background-color: #b153fd;
@@ -7,24 +26,26 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 20px;
+  font-size: 30px;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
 }
 
 .userButton:hover {
-  border: none;
-  background-color: #b153fd;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
+  background-color: #9822f8;
 }
 
-.userbutton:checked {}
+.userType {
+    box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+.userOptions {
+    display: grid;
+    grid-template-columns: 1fr 1em 1fr;
+    padding: 1em;
+    margin: auto;
+}
