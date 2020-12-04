@@ -5,8 +5,9 @@
   width: 20rem;
   height: 23rem;
   position: relative;
-  
+
   background-color: #f7ece6;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .orgTextContainer {
@@ -44,17 +45,17 @@
 }
 
 .orgCards:hover .orgIcon {
-    opacity: 0%;
+  opacity: 0%;
 }
 
 .orgCards:hover .orgText {
-    opacity: 100%;
+  opacity: 100%;
 }
 
 .followButton {
-    position: absolute;
-    vertical-align: auto;
-    right: 1em;
-    bottom: 1em;
-    width: 15%;
+  position: absolute;
+  vertical-align: auto;
+  right: 1em;
+  bottom: 1em;
+  width: 15%;
 }
