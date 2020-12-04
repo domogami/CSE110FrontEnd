@@ -1,16 +1,17 @@
 .barFilter {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 25em 1em;
 }
 
 .filter{
+    position: relative;
     left: 0;
     margin: auto;
 }
 
 .bar {
   margin: auto auto auto 0;
-  width: 95%;
+  width: 22em;
 }
 .bar input {
   border: none;
