@@ -92,11 +92,11 @@ class Profile extends Component {
 
     // TODO: Update information if user fills out the form and submits it
     saveFormIndividual() {
-
+        //API.editProfile(id, this.doc).then( REFRESH PAGE )
     }
 
     saveFormOrg() {
-
+        //API.editProfile(id, this.doc).then( REFRESH PAGE )
     }
 
 
@@ -135,12 +135,12 @@ class Profile extends Component {
                         <form className="profileInformation">
                             <label className="fieldLabel">
                                 <p>First Name</p>
-                                <input className="entryField" name="firstname" type="text" placeholder={indDoc.firstname}
+                                <input className="entryField" name="firstname" type="text" placeholder={indDoc.firstname} //this.props.doc.firstname
                                        onChange={e => this.onFieldChangeIndividual(e)}/>
                             </label>
                             <label className="fieldLabel">
                                 <p>Last Name</p>
-                                <input className="entryField" name="lastname" type="text" placeholder={indDoc.lastname}
+                                <input className="entryField" name="lastname" type="text" placeholder={indDoc.lastname} //this.props.doc.lastname
                                        onChange={e => this.onFieldChangeIndividual(e)}/>
                             </label>
                             <label className="fieldLabel">
