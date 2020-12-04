@@ -4,6 +4,9 @@ import addIcon from "./+.svg";
 import followedIcon from "./Focus.svg";
 import Modal from 'react-modal';
 import "./orgCards.css"
+import NewsItem from '../newsItem';
+import orgImage from '../../images/placeholder/HumaneSociety.jpg'
+import { PinIcon } from "../../images/icons";
 
 const customStyles = {
     content: {
@@ -64,8 +67,31 @@ export class OrganizationCard extends Component {
                     isOpen={this.state.isOpen}
                     style={customStyles}
                     contentLabel="Minimal Modal Example"
+                    className="OrgProfileModal"
                 >
-                    <button onClick={() => this.setState({ isOpen: false })}>Close Modal</button>
+              
+                    <button className="closeModal" onClick={() => this.setState({ isOpen: false })}>Close Modal</button>
+                    
+                    <div className="ModalProfileOrg">
+                        <div className="ModalProfileOrgLeft">
+                            <img src={orgImage} alt="OrgImg"/>
+                            <div className="rating">
+
+                            </div>
+                            <p>Test@example.com</p>
+                            <div className="PinIcon">
+                                <img src={PinIcon} />
+                            </div>
+                            <p>Causes:</p>
+                            <p>Skills:</p>
+                        </div>
+                        <div className="ModalProfileOrgRight">
+                            <h1>Humane Society</h1>
+                            <p>Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</p>
+                            <h2>Upcoming Events</h2>
+                            <NewsItem></NewsItem>
+                        </div>
+                    </div>
                 </Modal>
             </div>
         );

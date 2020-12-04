@@ -62,7 +62,7 @@
 }
 
 .OrgProfileModal {
-  width: 80%;
+  width: 90%;
   height: 60%;
   margin: 0 auto;
   position: absolute;
@@ -80,18 +80,16 @@
   z-index: 1;
 }
 
-.ReactModal__Overlay {
-  opacity: 0;
-  transform: translateX(-100px);
-  transition: all 500ms ease-in-out;
+.closeModal button {
+  margin-left: auto;
+  position: absolute;
+  background-color: transparent;
+  float: right;
 }
-
-.ReactModal__Overlay--after-open {
-  opacity: 1;
-  transform: translateX(0px);
+.ModalProfileOrg {
+  display: flex;
 }
-
-.ReactModal__Overlay--before-close {
-  opacity: 0;
-  transform: translateX(-100px);
+.ModalProfileOrgLeft {
+}
+.ModalProfileOrgRight {
 }
