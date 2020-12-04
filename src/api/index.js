@@ -57,7 +57,7 @@ class API extends EventEmitter {
     }
 
     get me() { return this.profiles["@me"]; };
-    get isInvidual() { return this.type == "individual"; };
+    get isIndividual() { return this.type == "individual"; };
     get isOrganization() { return this.type == "organization"; };
 
     /** @returns {RequestInit} */
