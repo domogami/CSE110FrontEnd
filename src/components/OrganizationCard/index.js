@@ -40,9 +40,9 @@ export class OrganizationCard extends Component {
                             Summary: {this.props.doc.mission}
                         </h5>
                     </div>
-                    <img onClick={e => this.updateFollow(e)} src={this.state.followed ? followedIcon : addIcon} alt="Add org" className="followButton" />
                     {this.state.isOpen ? <div><OrganizationProfile/></div> : <div></div>}
                 </div>
+                <img onClick={e => this.updateFollow(e)} src={this.state.followed ? followedIcon : addIcon} alt="Add org" className="followButton" />
             </div>
         );
     }
