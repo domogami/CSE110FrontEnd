@@ -53,7 +53,8 @@ class API extends EventEmitter {
         this.initialized = false;
         this.type = "";
 
-        window.API = this;
+        this.createProfile = this.createProfile.bind(this);
+        this.updateProfile = this.updateProfile.bind(this);
     }
 
     get me() { return this.profiles["@me"]; };
