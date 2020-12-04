@@ -83,6 +83,7 @@
   border-radius: 35px;
   margin: auto 20px 20px auto;
   z-index: 100;
+  position: relative;
 }
 
 .newsFeed {
@@ -94,4 +95,20 @@
 }
 .newsFeed h1 {
   font-size: 30px;
+}
+
+.profileEditClickArea {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0);
+  left: 0px;
+  top: 0px;
+  border-radius: 35px;
+}
+
+.iconPen {
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
