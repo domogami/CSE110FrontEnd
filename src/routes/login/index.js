@@ -1,70 +1,34 @@
-import React, {useContext} from "react";
-import {AuthContext} from "../../auth/Auth";
+import { useContext } from "react";
 import { Redirect } from "react-router-dom";
-import db, {provider, provider2, provider3} from "../common/base";
+
+import Handshake from './handshake';
+import { AuthContext } from "../../auth/Auth";
+import db, { FBAuth, GoogleAuth, AppleAuth } from "../common/base";
+import API from '../../api/index';
+
 import logo from '../common/images/logo.svg';
-import "./login.css"
-import Handshake from './handshake'
-import googleLogo from '../common/images/googleLogo.png'
-import facebookLogo from '../common/images/facebookLogo.png'
-import appleLogo from '../common/images/appleLogo.svg'
-//import {OrganizationCard} from '../../components/OrganizationCard'
+import googleLogo from '../common/images/googleLogo.png';
+import facebookLogo from '../common/images/facebookLogo.png';
+import appleLogo from '../common/images/appleLogo.svg';
+import "./login.css";
 
-const Login = ({history}) => {
+const Login = ({ history }) => {
     
-    /*const handleLogin = (event) => {
-        event.preventDefault()
-        const {email, password } = event.target.elements;
-        
-        try{
-            db.auth().signInWithEmailAndPassword(email.value,password.value);
+    const handleLogin = provider => {
+        try {
+            db.auth().signInWithPopup(provider);
             history.push("/");
-        }
-        catch (error) {
-            alert(error)
+        } catch (error){
+            API.emit("error", error);
         }
     }
 
-    const redirectSignUp = () => {
-        history.push("/signup")
-    }*/
-    
-    const handleLoginWithFb = ( ) => {
-        try{
-             db
-                .auth()
-                .signInWithPopup(provider);
-                history.push("/");
-        } catch (error){
-            alert(error);
-        }
-    }
-
-    const handleLoginWithGoogle = () => {
-    try{
-            db
-                .auth()
-                .signInWithPopup(provider2);
-                history.push("/");
-        } catch (error){
-            alert(error);
-        }
-    }
-    const handleLoginWithApple = () => {
-        try{
-                db
-                    .auth()
-                    .signInWithPopup(provider3);
-                    history.push("/");
-            } catch (error){
-                alert(error);
-            }
-        }
     // <----- If Logged In, go to Homepage ----->
     const { currentUser } = useContext(AuthContext);
-      if (currentUser) {
-        return <Redirect to="/createProfileIndividual" />;
-      }
+    if (currentUser) {
+        return <Redirect to={API.me ? "" : "/createProfileIndividual"} />;
+    }
+
     return (
         <div className="parent">
             {/* <-------- Logo and Title --------> */}
@@ -77,17 +41,17 @@ const Login = ({history}) => {
                     <h1>Log In</h1>
                     <div className="signInWith" >
                         {/* <-------- Google Login --------> */}
-                        <button className="Login" onClick={handleLoginWithGoogle}>
+                        <button className="Login" onClick={() => handleLogin(GoogleAuth)}>
                             <img src={googleLogo} alt="Google Logo" />
                             <p> Continue with Google </p>
                         </button>
                         {/* <-------- Facebook Login --------> */}
-                        <button className="Login" onClick={handleLoginWithFb}>
+                        <button className="Login" onClick={() => handleLogin(FBAuth)}>
                             <img src={facebookLogo} alt="facebook Logo" />
                             <p> Continue with Facebook </p>
                         </button>
                         {/* <-------- Apple Login --------> */}
-                        <button className="Login" onClick={handleLoginWithApple}>
+                        <button className="Login" onClick={() => handleLogin(AppleAuth)}>
                             <img src={appleLogo} alt="Apple Logo" />
                             <p> Continue with Apple </p>
                         </button>

@@ -1,3 +1,6 @@
+.HomePage {
+  margin-top: 170px;
+}
 .header {
   position: fixed;
   top: 0;
@@ -13,8 +16,10 @@
 
 .homeProfileView {
   background-color: #ded3ff;
-  height: 60vh;
+  margin: 20px;
+  padding: 20px;
   border-radius: 1em;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .homeProfileView h1 {
@@ -25,10 +30,20 @@
   text-align: left;
   margin-left: 20px;
 }
+.locationGroup {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+.locationGroup p {
+  margin: auto;
+  text-align: left;
+  margin-left: 0;
+}
 
 .homeCausesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 100px);
+  grid-template-columns: repeat(auto-fit, 150px);
+  grid-gap: 10px;
 }
 
 .causeTag {
@@ -36,6 +51,8 @@
   margin: auto;
   background-color: white;
   border-radius: 1em;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }
 .causeTag p {
   margin: auto;
@@ -43,7 +60,8 @@
 
 .homeSkillsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 100px);
+  grid-template-columns: repeat(auto-fit, 150px);
+  grid-gap: 10px;
 }
 
 .skillsTag {
@@ -51,16 +69,46 @@
   margin: auto;
   background-color: white;
   border-radius: 1em;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }
 .skillsTag p {
   margin: auto;
 }
+.PenIcon {
+  width: 40px;
+  height: 40px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 35px;
+  margin: auto 20px 20px auto;
+  z-index: 100;
+  position: relative;
+}
 
 .newsFeed {
   background-color: #ded3ff;
+  margin: 20px;
   height: 60vh;
   border-radius: 1em;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
 }
 .newsFeed h1 {
   font-size: 30px;
+}
+
+.profileEditClickArea {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0);
+  left: 0px;
+  top: 0px;
+  border-radius: 35px;
+}
+
+.iconPen {
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }

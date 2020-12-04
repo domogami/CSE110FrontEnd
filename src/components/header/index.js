@@ -5,12 +5,6 @@ import { NavLink } from 'react-router-dom';
 import SearchBar from '../searchBar/index';
 import API from "../../api/index";
 
-//logo + title + profilepic?
-//filters/ search bar part 
-
-//activeClassName... 
-
-
 export class Header extends Component {
     render() {
         let isIndiviual = true;
@@ -23,8 +17,6 @@ export class Header extends Component {
                     </div>
                     <img className="profilePic" src={API.me ? API.me.picture : ""} alt="profilePic"/>
                 </div>
-
-                {/*pageName*/}
                 <div className="headerSearchBar">
                     { isIndiviual ? 
                     <div className="headerButton">
@@ -39,12 +31,9 @@ export class Header extends Component {
                         <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
                     </div>
                     }
-                    <SearchBar></SearchBar>
+                    <SearchBar/>
                 </div>
-
             </div>
-            
-            
         );
     }
 }

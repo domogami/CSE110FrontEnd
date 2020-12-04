@@ -1,0 +1,30 @@
+.userButton {
+  border: none;
+  background-color: #b153fd;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.userButton:hover {
+  border: none;
+  background-color: #b153fd;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.userbutton: checked;

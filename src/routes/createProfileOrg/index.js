@@ -38,7 +38,7 @@ const schema = {
     //     .error(() => new Error("Invalid age range"))
 };
 
-class createProfileIndividual extends Component {
+class createProfileOrg extends Component {
 
     constructor(props) {
         super(props);
@@ -47,7 +47,8 @@ class createProfileIndividual extends Component {
         this.doc = {};
         this.shouldRedirect = false;
 
-        API.init();
+        window.test = this;
+        //API.init();
     }
 
     /**
@@ -55,10 +56,10 @@ class createProfileIndividual extends Component {
      */
     onFieldChange(e) {
         const elem = e.target;
-        const result = schema[elem.name].label(elem.name).validate(elem.value);
+        const result = schema[elem.name].validate(elem.value);
         console.log(`validating: [name=${elem.name}]: ${elem.value}`, result);
 
-        this.error = (result.error || result.errors || {}).message || "";
+        this.error = String(result.error || result.errors || "");
 
         if (!this.error) this.doc[elem.name] = result.value;
         else delete this.doc[elem.name];
@@ -80,20 +81,28 @@ class createProfileIndividual extends Component {
                 </div>
                 <div className="createProfileContainer">
                     <div className="createProfileField">
-                        <h3>Create Profile</h3>
-                        <h5 style={{ color: "red" }}>{this.error}</h5>
+                        <h1>Create Profile</h1>
+                        <h3>{this.error}</h3>
                         <form className="profileInformation">
                             <label className="fieldLabel">
-                                <p>First Name</p>
-                                <input className="entryField" autoComplete={Math.random()} type="text" placeholder="Gary" onChange={e => this.onFieldChange("firstname", e)} />
+                                <p>Organization Name</p>
+                                <input className="entryField" name="title" type="text" placeholder="Red Cross" onChange={e => this.onFieldChange(e)} />
                             </label>
                             <label className="fieldLabel">
-                                <p>Last Name</p>
-                                <input className="entryField" autoComplete={Math.random()} type="text" placeholder="Gillespie" onChange={e => this.onFieldChange("lastname", e)} />
+                                <p>Mission</p>
+                                <input className="entryField" name="mission" type="text" placeholder="Donate Blood ..." onChange={e => this.onFieldChange(e)} />
                             </label>
                             <label className="fieldLabel">
-                                <p>Zip</p>
-                                <input className="entryField" autoComplete={Math.random()} type="text" placeholder="xxxxx" onChange={e => this.onFieldChange("zip", e)} />
+                                <p>Email</p>
+                                <input className="entryField" name="contact" type="text" placeholder="RedCross@example.com" onChange={e => this.onFieldChange(e)} />
+                            </label>
+                            <label className="fieldLabel">
+                                <p>Organization URL</p>
+                                <input className="entryField" name="url" type="text" placeholder="https://example.com" onChange={e => this.onFieldChange(e)} />
+                            </label>
+                            <label className="fieldLabel">
+                                <p>ZIP</p>
+                                <input className="entryField" name="zip" type="text" placeholder="12345" onChange={e => this.onFieldChange(e)} />
                             </label>
                         </form>
                         <button className="createIndiviudalButton" onClick={() => this.submitForm()}>Continue</button>
@@ -104,10 +113,12 @@ class createProfileIndividual extends Component {
                             <UIInterface2 />
                         </div>
                     </div>
+                    
                 </div>
+                
             </div>
         )
     }
 };
 
-export default createProfileIndividual;
+export default createProfileOrg;

@@ -1,0 +1,58 @@
+.postPage {
+    display: grid;
+    grid-template-columns: 6fr 3fr;
+    margin-top: 10rem;
+}
+
+.fieldLabel {
+    display: grid;
+    padding: 1px;
+}
+
+.eventFieldLabel p {
+    font-size: 16px;
+    text-align: center;
+
+    padding-top: 0em;
+    margin-block-end: 0em;
+}
+
+.eventEntryField {
+    max-width: 350px;
+    width: 100%;
+    height: 32px;
+    position: relative;
+    padding: 0px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+
+    background-color: #eff0f6;
+}
+
+.createEvent {
+    border-radius: 50px;
+    padding: 20px;
+    background-color: white;
+    margin-right: 3rem;
+    margin-top: 2rem;
+
+    box-shadow: 8px 16px 16px rgba(17, 17, 17, 0.08);
+}
+
+.createEvent h2 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.postEventButton {
+    border: none;
+    padding: 10px 16px;
+    background-color: #b153fd;
+    color: white;
+    border-radius: 50px;
+    max-width: 200px;
+    font-size: 16px;
+    margin: 20px 50px;
+}

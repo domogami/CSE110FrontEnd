@@ -1,6 +1,7 @@
 import { EventEmitter } from "events";
 import OrganizationCard from "../components/OrganizationCard";
 import app from "../routes/common/base";
+import { store } from 'react-notifications-component';
 
 class API extends EventEmitter {
 
@@ -22,6 +23,23 @@ class API extends EventEmitter {
         // Rating cache
         /** @type {{[ratingID: string]: RatingDocument}} */
         this.ratings = {};
+
+
+        this.on("error", e => {
+            store.addNotification({
+                title: "Error",
+                message: e.message || String(e) || "Unknown",
+                type: "danger",
+                insert: "top",
+                container: "top-center",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                }
+            });
+        });
     }
 
     get me() { return this.profiles["@me"]; }
