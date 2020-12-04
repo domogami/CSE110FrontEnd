@@ -9,6 +9,7 @@ import CreateProfileIndividual from '../createProfileIndividual';
 import CreateProfileOrg from '../createProfileOrg';
 import Profile from '../profile/index';
 import FindOrg from '../findOrg';
+import UserSelect from '../userSelect';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route exact path ="/createProfileOrg" component={ CreateProfileOrg }/>
           <Route exact path ="/login" component={ Login } />
           <Route exact path ="/signup" component={ SignUp } />  
+          <Route exact path ="/userSelect" component={ UserSelect } />
       </header>
       </div>
       </Router>

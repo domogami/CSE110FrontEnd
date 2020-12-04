@@ -7,7 +7,6 @@ import "./style.css"
 import UIInterface2 from "./UIInterface2";
 import Joi from "joi"
 import API from "../../api/index";
-import UserSelect from "../userSelect";
 
 const schema = {
     firstname: Joi.string()
@@ -106,13 +105,7 @@ class createProfileIndividual extends Component {
                             <UIInterface2 />
                         </div>
                     </div>
-                    
                 </div>
-                
-                <div>
-                    <UserSelect/>
-                </div>
-
             </div>
         )
     }
