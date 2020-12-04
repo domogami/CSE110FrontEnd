@@ -5,32 +5,45 @@ import "./style.css"
 
 class UserSelect extends Component {
 
-    render() {
-        return (
-            <div className="parent">                
-                <div> 
-                    <h3>What type of User Are you?</h3>
-                </div>
+/*TO DO: FInd a better phrase*/
 
-                <div className="userOptions">
-                    <h3>Find opportunities to help</h3>
+render() {
+    return (
+        <div className="parent">                
+        
+            <div className="title">
+                <img src={logo} className="logo" alt="PhilConnect Logo"/>
+                <h1> Philanthropy Connect </h1>
+            </div>
+            
+            <div className="pgTitle"> 
+                <h3>What Type of User Are you?</h3>
+            </div>
+
+            <div className="userOptions">
+
+                <div className="userType">
+                    <h3>Find opportunities to help:</h3>
                     <button className="userButton" 
                             type="button" 
                             onClick={e => this.props.history.push("/createProfileIndividual")}>
                                 Individual
                     </button>
+                </div>
 
-{/*TO DO: FInd a better phrase*/}
+                <div></div>
 
-                    <h3>Share your events..</h3>
+                <div className="userType">
+                    <h3>Share your events with others:</h3>
                     <button className="userButton" 
                             type="button"
                             onClick={e => this.props.history.push("/createProfileOrg")}>
                                 Organization
-                    </button>
+                    </button>   
                 </div>
-                
+                 
             </div>
+        </div>
         )
     }
 };
