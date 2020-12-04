@@ -15,7 +15,7 @@ export default class NavHeader extends Component {
                 <div className="titleProfile">
                     <div className="headerTitle">
                         <img className="headerLogo" src={SiteLogo} alt="logo"/>
-                        <h1>Philanthrophy Connect</h1>                    
+                        <h1>Philanthropy Connect</h1>                    
                     </div>
                     <img className="profilePic" src={API.me ? API.me.picture : ""} alt="profilePic"/>
                 </div>
