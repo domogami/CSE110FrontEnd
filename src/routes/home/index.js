@@ -5,7 +5,7 @@ import db from "../common/base"
 import "./style.css"
 import TagIcon from "../common/images/icons/tagIcon"
 import PinIcon from "../common/images/icons/pinIcon"
-import PenIcon from "../common/images/icons/penIcon"
+import PenIcon from "../common/images/icons/penIcon.svg"
 
 class Home extends Component {
 
@@ -64,12 +64,15 @@ class Home extends Component {
                             <p>More (3)</p>
                         </div>
                         
+                        
+                            
                         <div className="PenIcon">
                             <a href="/profile" >
-                                <PenIcon />
+                                <div className="profileEditClickArea">
+                                    <img src={PenIcon} alt="Edit Profile" className="iconPen"></img>
+                                </div>
                             </a>
                         </div>
-                        
                     </div>
                     <div className="newsFeed">
                         <h1>News Feed</h1>
