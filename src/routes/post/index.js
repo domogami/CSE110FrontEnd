@@ -70,7 +70,7 @@ class Post extends Component {
     render() {
 
         return (
-            <div className = "parent">
+            <div className = "postPageParent">
                 <div className="header">
                     <Header/>
                 </div>
@@ -79,37 +79,38 @@ class Post extends Component {
                         <NewsItem />
                         <NewsItem />
                         <NewsItem />
+
                     </div>
                     <div className="createEvent">
                         <h2>
                             Create Event
                         </h2>
                         <form className="eventForm">
-                            <label className="fieldLabel">
+                            <label className="eventFieldLabel">
                                 <p>Event Title</p>
-                                <input className="entryField" name="title" type="text" placeholder="Feeding the Homeless"
+                                <input className="eventEntryField" name="title" type="text" placeholder="Feeding the Homeless"
                                        onChange={e => this.onFieldChange(e)}/>
                             </label>
-                            <label className="fieldLabel">
+                            <label className="eventFieldLabel">
                                 <p>Event Description</p>
-                                <input className="entryField" name="title" type="description" placeholder="Put together supply bags for the homeless."
+                                <input className="eventEntryField" name="title" type="description" placeholder="Put together supply bags for the homeless."
                                        onChange={e => this.onFieldChange(e)}/>
                             </label>
-                            <label className="fieldLabel">
+                            <label className="eventFieldLabel">
                                 <p>Time</p>
-                                <input className="entryField" name="starttime" type="text" placeholder="Start Time"
+                                <input className="eventEntryField" name="starttime" type="text" placeholder="Start Time"
                                        onChange={e => this.onFieldChange(e)}/>
-                                <input className="entryField" name="endtime" type="text" placeholder="End Time"
+                                <input className="eventEntryField" name="endtime" type="text" placeholder="End Time"
                                        onChange={e => this.onFieldChange(e)}/>
                             </label>
-                            <label className="fieldLabel">
+                            <label className="eventFieldLabel">
                                 <p>Event Address</p>
-                                <input className="entryField" name="address" type="text" placeholder="123 Cambridge Way"
+                                <input className="eventEntryField" name="address" type="text" placeholder="123 Cambridge Way"
                                        onChange={e => this.onFieldChange(e)}/>
                             </label>
-                            <label className="fieldLabel">
+                            <label className="eventFieldLabel">
                                 <p>Event Link</p>
-                                <input className="entryField" name="url" type="text" placeholder="www.cse110.com"
+                                <input className="eventEntryField" name="url" type="text" placeholder="www.cse110.com"
                                        onChange={e => this.onFieldChange(e)}/>
                             </label>
                             <button className="postEventButton" onClick={() => this.postEvent()}>Post Event</button>
