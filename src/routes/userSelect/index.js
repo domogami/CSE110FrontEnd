@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import { Redirect } from "react-router-dom";
-
+import { Redirect, Route, Router } from "react-router-dom";
 import logo from '../common/images/logo.svg';
 import "./style.css"
 
@@ -15,12 +14,20 @@ class UserSelect extends Component {
 
                 <div className="userOptions">
                     <h3>Find opportunities to help</h3>
-                    <button className="userButton" type="button">Individual</button>
+                    <button className="userButton" 
+                            type="button" 
+                            onClick={e => this.props.history.push("/createProfileIndividual")}>
+                                Individual
+                    </button>
 
 {/*TO DO: FInd a better phrase*/}
 
                     <h3>Share your events..</h3>
-                    <button classname="userButton" type="button">Organization</button>                    
+                    <button className="userButton" 
+                            type="button"
+                            onClick={e => this.props.history.push("/createProfileOrg")}>
+                                Organization
+                    </button>
                 </div>
                 
             </div>
