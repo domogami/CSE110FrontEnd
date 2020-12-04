@@ -6,23 +6,21 @@ import "./style.css"
 
 class UserSelect extends Component {
 
-    
     render() {
-
         return (
             <div className="parent">                
                 <div> 
                     <h3>What type of User Are you?</h3>
                 </div>
 
-                <div className="userButtons">
+                <div className="userOptions">
                     <h3>Find opportunities to help</h3>
-                    <button type="button">Individual</button>
+                    <button className="userButton" type="button">Individual</button>
 
 {/*TO DO: FInd a better phrase*/}
 
                     <h3>Share your events..</h3>
-                    <button type="button">Organization</button>                    
+                    <button classname="userButton" type="button">Organization</button>                    
                 </div>
                 
             </div>

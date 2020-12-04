@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import Header from "../../components/header";
 import OrganizationCard from "../../components/OrganizationCard";
-import HumaneSociety from "../common/images/HumaneSociety.jpg"
-import "./style.css"
+import HumaneSociety from "../common/images/HumaneSociety.jpg";
+import "./style.css";
+import OrganizationProfile from "../../components/organizationProfile/index.js"
 
 
 class FindOrg extends Component {
@@ -17,6 +18,7 @@ class FindOrg extends Component {
             url: "www.sandiegohabitat.org",
             events: ["new event"]
         };
+        
 
         return (
             <div className="findOrgContainer">
@@ -24,6 +26,7 @@ class FindOrg extends Component {
                     <Header />
                 </div>
                 <div className="OrgView">
+                    
                     <div className="featuredOrgCard">
                         <img src={HumaneSociety} alt="FeaturedImage"/>
                         <h1>Featured org</h1>
