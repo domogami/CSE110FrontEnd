@@ -1,6 +1,6 @@
 // TODO
 import React, {Component} from "react";
-import Header from "../../components/header/index";
+import Header from "../../components/nav/index";
 import "./style.css";
 import NewsItem from "../../components/newsItem";
 import Joi from "joi";

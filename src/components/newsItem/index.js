@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import { Component } from 'react';
 import "./style.css";
-import testImg from "../../routes/common/images/HumaneSociety.jpg"
-import XIcon from "../../routes/common/images/icons/x"
+
+import { OrgProfile } from "../../images/placeholder";
+import { XIcon, xIcon } from "../../images/icons";
 
 export class NewsItem extends Component {
     render() {
@@ -14,16 +15,15 @@ export class NewsItem extends Component {
                         <p>8:00 AM</p>
                         <p>9:30 AM</p>
                     </div>
-                    <img src={testImg} alt="OrgPhoto"></img>
+                    <img src={OrgProfile} alt="OrgPhoto"></img>
                     <div className="NewsCardText">
                         <h1>Annual Event for Some Event</h1>
                         <p>www.zoom.us/1234567890</p>
                     </div>
                     <div className="deleteNewsItem">
-                        <XIcon />
+                        <img src={XIcon} />
                     </div>
                 </div>
-                
             </div>
         );
     }

@@ -1,11 +1,11 @@
-import React, {Component} from "react";
-import Header from "../../components/header";
+import "./style.css";
+import { PenIcon, PinIcon, TagIcon } from "../../images/icons";
+
+import { Component } from "react";
+import { NavLink } from "react-router-dom";
+import NavHeader from "../../components/nav";
 import NewsItem from "../../components/newsItem";
-import db from "../common/base"
-import "./style.css"
-import TagIcon from "../common/images/icons/tagIcon"
-import PinIcon from "../common/images/icons/pinIcon"
-import PenIcon from "../common/images/icons/penIcon.svg"
+import API from "../../api"
 
 class Home extends Component {
 
@@ -13,65 +13,57 @@ class Home extends Component {
         return (
             <div className="HomePage">
                 <div className="header">
-                    <Header />
+                    <NavHeader />
                 </div>
                 <div className="homeView">
                     <div className="homeProfileView">
-                        <h1>Profile</h1>
-                        <p>Alan Turing</p>
-                        <p>alant@gmail.com</p>
+                        <p>{API.me.firstname} {API.me.lastname}</p>
+                        <p>{API.me.email}</p>
                         <div className="locationGroup">
                             <div className="PinIcon">
-                                <PinIcon />
+                                <img src={PinIcon} />
                             </div>
-                            <p>San Diego, CA</p>
+                            <p>Zip: {API.me.zip}</p>
                         </div>
-                        <div className="Gender">
-
-                        </div>
-                        <div className="Age">
-                            
-                        </div>
-                        <p>Causes</p>
-                        <div className="homeCausesGrid">
-                            <div className="causeTag">
-                                <TagIcon />
-                                <p>Causes</p>
-                            </div>
-                            <div className="causeTag">
-                                <TagIcon />
-                                <p>Causes</p>
-                            </div><div className="causeTag">
-                                <TagIcon />
-                                <p>Causes</p>
-                            </div>
-                            <p>More (3)</p>
-                        </div>
+                        <p>Causes:</p>
+                        {
+                            API.me.causes.length ? 
+                            <div className="homeCausesGrid">
+                                {
+                                    API.me.causes.slice(0, 3).map(c => (
+                                    <div className="causeTag">
+                                        <img src={TagIcon} />
+                                        <p>{c}</p>
+                                    </div>))
+                                }
+                                {
+                                    API.me.causes.length > 3 ? <p>More ({API.me.causes.length - 3})</p> : ""
+                                }
+                            </div> : <span>Empty</span>
+                        }
                         <p>Skills:</p>
-                        <div className="homeSkillsGrid">
-                            <div className="skillsTag">
-                                <TagIcon />
-                                <p>Causes</p>
-                            </div>
-                            <div className="skillsTag">
-                                <TagIcon />
-                                <p>Causes</p>
-                            </div>
-                            <div className="skillsTag">
-                                <TagIcon />
-                                <p>Causes</p>
-                            </div>
-                            <p>More (3)</p>
-                        </div>
-                        
-                        
-                            
+                        {
+                            API.me.skills.length ? 
+                            <div className="homeSkillsGrid">
+                                {
+                                    API.me.skills.slice(0, 3).map(c => (
+                                    <div className="causeTag">
+                                        <img src={TagIcon} />
+                                        <p>{c}</p>
+                                    </div>))
+                                }
+                                {
+                                    API.me.skills.length > 3 ? <p>More ({API.me.skills.length - 3})</p> : ""
+                                }
+                            </div> : <span>Empty</span>
+                        }
+                        <button style={{color: "red"}} onClick={() => API.logout().then(window.location.href = window.origin)}>Log out</button>
                         <div className="PenIcon">
-                            <a href="/profile" >
-                                <div className="profileEditClickArea">
-                                    <img src={PenIcon} alt="Edit Profile" className="iconPen"></img>
-                                </div>
-                            </a>
+                            <div className="profileEditClickArea">
+                                <NavLink activeClassName="active" className="menuButton" to="/profile">
+                                    <img src={PenIcon} className="iconPen" />
+                                </NavLink>
+                            </div>
                         </div>
                     </div>
                     <div className="newsFeed">
@@ -79,7 +71,6 @@ class Home extends Component {
                         <NewsItem />
                     </div>
                 </div>
-                <button onClick={() => db.auth().signOut()}>Sign Out</button>
             </div>
         )
     }

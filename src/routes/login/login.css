@@ -5,18 +5,6 @@
   background-size: cover;
 }
 
-.title {
-  display: grid;
-  grid-template-columns: 20% 60%;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-}
-
-.logo {
-  max-width: 200px;
-}
-
 .loginContainer {
   padding: 20px;
   background-color: white;
@@ -135,10 +123,5 @@
   .title h1 {
     font-size: 35px;
     font-weight: 800;
-  }
-  .logo {
-    max-width: 100px;
-    margin: auto;
-    margin-right: 0;
   }
 }

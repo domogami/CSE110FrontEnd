@@ -1,39 +1,38 @@
-import { useContext } from "react";
-import { Redirect } from "react-router-dom";
-
 import Handshake from './handshake';
+import { useContext } from "react";
 import { AuthContext } from "../../auth/Auth";
-import db, { FBAuth, GoogleAuth, AppleAuth } from "../common/base";
+
+import { FBAuth, GoogleAuth, AppleAuth } from "../../components/app/base";
 import API from '../../api/index';
 
-import logo from '../common/images/logo.svg';
-import googleLogo from '../common/images/googleLogo.png';
-import facebookLogo from '../common/images/facebookLogo.png';
-import appleLogo from '../common/images/appleLogo.svg';
+import { FBIcon, GoogleIcon, AppleIcon, SiteLogo } from "../../images/logo";
 import "./login.css";
 
 const Login = ({ history }) => {
     
     const handleLogin = provider => {
         try {
-            db.auth().signInWithPopup(provider);
-            history.push("/");
+            API.auth.signInWithPopup(provider).then(async() => {
+                await API.init();
+                history.push(API.me ? "/" : "register");
+            });
         } catch (error){
             API.emit("error", error);
         }
     }
 
-    // <----- If Logged In, go to Homepage ----->
     const { currentUser } = useContext(AuthContext);
     if (currentUser) {
-        return <Redirect to={API.me ? "" : "/createProfileIndividual"} />;
+        API.init().then(() => {
+            if (API.me) history.push("/");
+        });
     }
 
     return (
         <div className="parent">
             {/* <-------- Logo and Title --------> */}
             <div className="title">
-                <img src={logo} className="logo" alt="PhilConnect Logo"/>
+                <img src={SiteLogo} className="logo" alt="PhilConnect Logo"/>
                 <h1> Philanthropy Connect </h1>
             </div>
             <div className="loginContainer">
@@ -42,17 +41,17 @@ const Login = ({ history }) => {
                     <div className="signInWith" >
                         {/* <-------- Google Login --------> */}
                         <button className="Login" onClick={() => handleLogin(GoogleAuth)}>
-                            <img src={googleLogo} alt="Google Logo" />
+                            <img src={GoogleIcon} alt="Google Logo" />
                             <p> Continue with Google </p>
                         </button>
                         {/* <-------- Facebook Login --------> */}
                         <button className="Login" onClick={() => handleLogin(FBAuth)}>
-                            <img src={facebookLogo} alt="facebook Logo" />
+                            <img src={FBIcon} alt="facebook Logo" />
                             <p> Continue with Facebook </p>
                         </button>
                         {/* <-------- Apple Login --------> */}
                         <button className="Login" onClick={() => handleLogin(AppleAuth)}>
-                            <img src={appleLogo} alt="Apple Logo" />
+                            <img src={AppleIcon} alt="Apple Logo" />
                             <p> Continue with Apple </p>
                         </button>
                     </div>

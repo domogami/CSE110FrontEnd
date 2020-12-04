@@ -1,0 +1,128 @@
+.createProfileContainer {
+    border-radius: 50px;
+    padding: 20px;
+    background-color: white;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    box-shadow: 8px 16px 16px rgba(17, 17, 17, 0.08);
+}
+
+.createProfileContainer {
+    margin: auto;
+    padding: 20px;
+}
+
+.createProfileContainer h1, h2, h3, h4, h5 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+}
+
+/* .createProfileContainer::after {
+    content: "";
+    background: url(./register.svg);
+    background-size: cover;
+    opacity: 0.2;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    bottom: 30%;
+    right: 20%;
+} */
+
+.createProfileField {
+    width: 100%;
+}
+
+.fieldColumn-1 {
+    width: 35%;
+    max-width: 200px;
+    padding: 1em;
+}
+
+.fieldColumn-2 {
+    width: 100%;
+    padding: 1em;
+}
+
+.createProfileField .profileInformation p {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0.5em;
+}
+
+.createProfileInfo p {
+    margin-top: 10px;
+}
+
+.profileInformation {
+    display: flex;
+    margin: auto;
+}
+
+.fieldLabel {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 5px;
+}
+
+.fieldLabel p {
+    font-size: 12px;
+    text-align: left;
+}
+
+.entryField {
+    width: 100%;
+    height: 36px;
+    position: relative;
+    padding: 0px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    border: 2px solid transparent;
+}
+
+.entryField:focus {
+    border: 2px solid #b153fd;
+}
+
+.createIndiviudalButton {
+    border: none;
+    padding: 10px 16px;
+    background-color: #b153fd;
+    color: white;
+    border-radius: 50px;
+    max-width: 100px;
+    font-size: 16px;
+    margin: 20px 50px;
+}
+
+@media only screen and (max-width: 900px) {
+    .createProfileInfo {
+        display: none;
+    }
+    .createProfileContainer {
+        border-radius: 50px;
+        padding: 20px;
+        background-color: white;
+        width: 70%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 0fr;
+        box-shadow: 8px 16px 16px rgba(17, 17, 17, 0.08);
+    }
+    .createProfileField {
+        width: 100%;
+    }
+    .fieldColumn-1 {
+        width: 100%;
+    }
+    
+    .fieldColumn-2 {
+        width: 100%;
+    }
+}

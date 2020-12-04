@@ -1,7 +1,7 @@
 declare type IndividualDocument = {
     firstname: string;
     lastname:  string;
-    cause:     string[];
+    causes:    string[];
     zip:       string;
     skills:    string[];
     age:       string;
@@ -11,7 +11,7 @@ declare type IndividualDocument = {
 declare type OrganizationDocument = {
     title:   string;
     mission: string;
-    cause:   string[];
+    causes:  string[];
     zip:     string;
     contact: string;
     url: string;
@@ -28,5 +28,5 @@ declare type OrgEventDocument = {
     details:  string;
     zip:      string;
     skills:   string[];
-    date:     string;
+    date:     number;
 }

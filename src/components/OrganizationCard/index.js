@@ -1,9 +1,20 @@
 // TODO 
-import React, {Component} from 'react';
+import { Component } from 'react';
 import addIcon from "./+.svg";
 import followedIcon from "./Focus.svg";
+import Modal from 'react-modal';
 import "./orgCards.css"
-import Modal from 'react-bootstrap-modal';
+
+const customStyles = {
+    content: {
+        top         : '50%',
+        left        : '50%',
+        right       : 'auto',
+        bottom      : 'auto',
+        marginRight : '-50%',
+        transform   : 'translate(-50%, -50%)'
+    }
+};
 
 /**
  * @extends {Component<{ doc: OrganizationDocument }>}
@@ -12,6 +23,7 @@ export class OrganizationCard extends Component {
 
     constructor(props) {
         super(props);
+        Modal.setAppElement(document.body);
         this.state = {
             isOpen: false,
             color: "#f7ece6",
@@ -48,26 +60,13 @@ export class OrganizationCard extends Component {
                     </div>
                 </div>
                 <img onClick={e => this.updateFollow(e)} src={this.state.followed ? followedIcon : addIcon} alt="Add org" className="followButton" />
-                
-                <Modal show={this.state.isOpen} className="OrgProfileModal">
-                    <Modal.Header closeButton>
-                        <Modal.Title id="contained-modal-title-vcenter">
-                        Modal heading
-                        </Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <h4>Centered Modal</h4>
-                        <p>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
-                        </p>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <button onClick={e => this.toggleOrgProfile(e)}>Close</button>
-                    </Modal.Footer>
+                <Modal 
+                    isOpen={this.state.isOpen}
+                    style={customStyles}
+                    contentLabel="Minimal Modal Example"
+                >
+                    <button onClick={() => this.setState({ isOpen: false })}>Close Modal</button>
                 </Modal>
-                
             </div>
         );
     }

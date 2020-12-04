@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
-import Search from '../../routes/common/images/icons/searchIcon';
+import { Component } from 'react';
 import "./searchBar.css";
-import Filter from '../../routes/common/images/icons/filterIcon';
+import { FilterIcon, SearchIcon } from "../../images/icons";
 
 export class SearchBar extends Component {
     render() {
@@ -10,7 +9,7 @@ export class SearchBar extends Component {
                 <div className="fullBar">
                     {/*magnify*/}
                     <div className= "maginify">
-                        <Search/>
+                        <img src={SearchIcon} />
                     </div>
 
                     {/*bar*/}
@@ -18,7 +17,7 @@ export class SearchBar extends Component {
                         <input placeholder="Search"/>
                     </div>
                 </div>
-                <Filter className="filter"></Filter>
+                <img src={FilterIcon} className="filter" />
             </div>          
         );
     }

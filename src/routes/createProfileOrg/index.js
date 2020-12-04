@@ -1,12 +1,12 @@
-import React, {Component} from "react";
-import { Redirect } from "react-router-dom";
+import { Component } from "react";
+import { Redirect  } from "react-router-dom";
+import Joi from "joi";
 
-//import db from "../common/base"
-import logo from '../common/images/logo.svg';
-import "./style.css"
+import { SiteLogo } from "../../images/logo";
 import UIInterface2 from "./UIInterface2";
-import Joi from "joi"
 import API from "../../api/index";
+
+import "./style.css"
 
 const schema = {
     firstname: Joi.string()
@@ -68,7 +68,7 @@ class createProfileOrg extends Component {
     }
 
     submitForm() {
-        API.createProfile(this.doc).then(result => this.shouldRedirect = result);
+        
     }
     
     render() {
@@ -76,7 +76,7 @@ class createProfileOrg extends Component {
         return (
             <div className="parent">
                 <div className="title">
-                    <img src={logo} className="logo" alt="PhilConnect Logo"/>
+                    <img src={SiteLogo} className="logo" alt="PhilConnect Logo"/>
                     <h1> Philanthropy Connect </h1>
                 </div>
                 <div className="createProfileContainer">

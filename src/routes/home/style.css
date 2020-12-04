@@ -1,7 +1,10 @@
 .HomePage {
   margin-top: 170px;
 }
+
 .header {
+  z-index: 2;
+  width: 100%;
   position: fixed;
   top: 0;
 }
@@ -15,7 +18,7 @@
 }
 
 .homeProfileView {
-  background-color: #ded3ff;
+  background-color: white;
   margin: 20px;
   padding: 20px;
   border-radius: 1em;
@@ -75,6 +78,7 @@
 .skillsTag p {
   margin: auto;
 }
+
 .PenIcon {
   width: 40px;
   height: 40px;
@@ -82,12 +86,11 @@
   background-color: white;
   border-radius: 35px;
   margin: auto 20px 20px auto;
-  z-index: 100;
   position: relative;
 }
 
 .newsFeed {
-  background-color: #ded3ff;
+  background-color: white;
   margin: 20px;
   height: 60vh;
   border-radius: 1em;
