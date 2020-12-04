@@ -16,7 +16,10 @@
 
 .homeProfileView {
   background-color: #ded3ff;
+  margin: 20px;
+  padding: 20px;
   border-radius: 1em;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .homeProfileView h1 {
@@ -84,8 +87,10 @@
 
 .newsFeed {
   background-color: #ded3ff;
+  margin: 20px;
   height: 60vh;
   border-radius: 1em;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
 }
 .newsFeed h1 {
   font-size: 30px;
