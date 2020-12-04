@@ -30,14 +30,14 @@ export class OrganizationCard extends Component {
         return (
             <div className="orgCards"
                 style={this.state.color ? {backgroundColor: this.state.color} : {}}>
-                <h5>{this.props.doc.title}</h5>
+                <h5 className="orgTitle">{this.props.doc.title}</h5>
                 <div className="orgTextContainer">
                     <img src={this.state.logo ? this.state.logo : addIcon } alt="blargh" className="orgIcon" />
                     <h5 className="orgText">
-                        {this.props.doc.mission}
+                        Summary: {this.props.doc.mission}
                     </h5>
-                    <img onClick={e => this.updateFollow(e)} src={this.state.followed ? followedIcon : addIcon} alt="Add org" className="followButton" />
                 </div>
+                <img onClick={e => this.updateFollow(e)} src={this.state.followed ? followedIcon : addIcon} alt="Add org" className="followButton" />
             </div>
         );
     }
