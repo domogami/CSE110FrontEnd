@@ -8,13 +8,11 @@ class FindEvent extends Component {
     
     render(){
         const eventDoc = {
-            title: "Habitat For Humanity",
-            mission: "Fixing homelessness one family at a time",
-            cause: ["Medical"],
-            zip: "92122",
-            contact: "info@sandiegohabitat.org",
-            url: "www.sandiegohabitat.org",
-            events: ["new event"]
+            title:    "Elderly Care and Health",
+            details:  "Is it unclear how you can contribute to caretaking? Join us for a session for how you can effectively volunteer for the elderly!",
+            zip:      67825,
+            skills:   ["Caretaking", "Multimedia"],
+            date:     1632121200,
         };
         
         return (
@@ -23,12 +21,6 @@ class FindEvent extends Component {
                     <NavHeader />
                 </div>
                 <div className="EventView">
-                    
-                    <div className="featuredEventCard">
-                        <img src={OrgProfile} alt="FeaturedImage"/>
-                        <h1>Featured org</h1>
-                        <p>Together with our supporters, we take on the big fights to stop cruelty before it happens. We’re working to end puppy mills, factory farms, trophy hunts, animal testing and other cruel industries so we can achieve the vision behind our name: a humane society. And we can’t do it without you. </p>
-                    </div>
                     <div className="eventGrid">
                         <EventCard doc={eventDoc}/>
                         <EventCard doc={eventDoc}/>
