@@ -5,8 +5,7 @@
   width: 20rem;
   height: 23rem;
   position: relative;
-
-  background-color: #f7ece6;
+  background-color: #ffffff;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -62,6 +61,7 @@
 }
 
 .OrgProfileModal {
+  outline: none;
   width: 90%;
   height: 60%;
   margin: 0 auto;
@@ -74,20 +74,34 @@
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  padding: 20px;
+  padding: 50px;
   background-color: white;
-  border-radius: 1em;
+  border-radius: 2em;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
-.closeModal button {
-  margin-left: auto;
-  position: absolute;
-  background-color: transparent;
-  float: right;
+.closeModal {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
 }
 .ModalProfileOrg {
   display: flex;
+}
+.ModalProfileOrg h1 {
+  color: #b153fd;
+  font-weight: 800;
+}
+.ModalProfileOrg h2 {
+  color: #b153fd;
+  font-weight: 800;
+}
+.ModalProfileOrg p {
+  color: #b153fd;
 }
 .ModalProfileOrgLeft {
 }

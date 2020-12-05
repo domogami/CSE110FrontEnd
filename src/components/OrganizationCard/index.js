@@ -6,7 +6,7 @@ import Modal from 'react-modal';
 import "./orgCards.css"
 import NewsItem from '../newsItem';
 import orgImage from '../../images/placeholder/HumaneSociety.jpg'
-import { PinIcon } from "../../images/icons";
+import { PinIcon, XIcon } from "../../images/icons";
 
 const customStyles = {
     content: {
@@ -70,7 +70,7 @@ export class OrganizationCard extends Component {
                     className="OrgProfileModal"
                 >
               
-                    <button className="closeModal" onClick={() => this.setState({ isOpen: false })}>Close Modal</button>
+                    <button className="closeModal" onClick={() => this.setState({ isOpen: false })}><img src={XIcon}/></button>
                     
                     <div className="ModalProfileOrg">
                         <div className="ModalProfileOrgLeft">
