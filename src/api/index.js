@@ -24,6 +24,22 @@ class API extends EventEmitter {
         /** @type {{[ratingID: string]: RatingDocument}} */
         this.ratings = {};
 
+        this.on("success", message => {
+            store.addNotification({
+                title: "Success",
+                message,
+                type: "success",
+                insert: "top",
+                container: "top-center",
+                animationIn: ["animate__animated", "animate__fadeIn"],
+                animationOut: ["animate__animated", "animate__fadeOut"],
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                }
+            });
+        });
+
         this.on("error", e => {
             store.addNotification({
                 title: "Error",
@@ -91,15 +107,24 @@ class API extends EventEmitter {
 
     async createProfile(form, type) {
         const res = await fetch(`${this.base}/profile/create?type=${type}`, this.createRequestInit("POST", form));
-        if (res.status == 200) return true;
-        else {
+        if (res.status == 200) {
+            this.emit("success", "Profile created");
+            return true;
+        } else {
             this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
             return false;
         }
     }
 
     async updateProfile(form, type) {
-        // TODO:
+        const res = await fetch(`${this.base}/profile/@me?type=${type}`, this.createRequestInit("PUT", form));
+        if (res.status == 200) {
+            this.emit("success", "Profile updated");
+            return true;
+        } else {
+            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
+            return false;
+        }
     }
 
     /**
