@@ -55,13 +55,9 @@ export default class IndividualProfile extends Component {
                 }
                 <div style={{display: "inline"}}>
                     <button className="button danger" onClick={() => API.logout().then(window.location.href = window.origin)}>Log out</button>
-                    <div className="PenIcon">
-                        <div className="profileEditClickArea">
-                            <NavLink activeClassName="active" className="menuButton" to="/profile">
-                                <img src={PenIcon} className="iconPen" />
-                            </NavLink>
-                        </div>
-                    </div>
+                    <NavLink activeClassName="active" className="menuButton" to="/profile">
+                        <button className="button">Edit</button>
+                    </NavLink>
                 </div>
             </div>
         )

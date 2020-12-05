@@ -48,11 +48,20 @@
   max-width: 100px;
   font-size: 16px;
   margin: 20px 50px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #9822f8;
 }
 
 .danger {
   background-color: #fd5353;
   color: white;
+}
+
+.danger:hover {
+  background-color: #b30000;
 }
 
 .button:disabled {
