@@ -19,7 +19,7 @@ export default class NavHeader extends Component {
                     </div>
                     <img className="profilePic" src={API.me ? API.me.picture : ""} alt="profilePic"/>
                 </div>
-                <div className="headerSearchBar">
+                <div className="pageFilterButtons">
                     { isIndiviual ? 
                     <div className="headerButton">
                         <NavLink exact activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
@@ -34,7 +34,6 @@ export default class NavHeader extends Component {
                         <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
                     </div>
                     }
-                    <SearchBar/>
                 </div>
             </div>
         );

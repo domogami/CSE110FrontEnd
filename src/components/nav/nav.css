@@ -6,20 +6,17 @@
   border-radius: 0 0 50px 50px;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
 }
-.headerSearchBar {
+.pageFilterButtons {
   max-height: 75px;
   display: grid;
   grid-template-columns: 1fr 4fr;
   padding-top: 20px;
 }
 @media only screen and (max-width: 900px) {
-  .headerSearchBar {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
+
   .headerButton {
     display: grid;
-    grid-template-columns: 1fr 1.5fr 1.5 fr 1fr ;
+    grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
     grid-gap: 10px;
     padding: 0 40px;
   }
@@ -77,7 +74,7 @@
 .headerButton {
   max-width: 400px;
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1.5 fr 1fr;
+  grid-template-columns: 1fr 1.3fr 1fr;
   grid-gap: 10px;
   padding: 0 30px;
 }
