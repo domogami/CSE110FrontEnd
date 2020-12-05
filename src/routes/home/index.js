@@ -11,18 +11,27 @@ import "./style.css";
 
 class Home extends Component {
 
+    constructor(props) {
+        super(props);
+        this.props.feed = [];
+        API.getFeed().then(f => {
+            console.log(f);
+            this.forceUpdate();
+        });
+    }
+
     render(){
         return (
             <div className="HomePage">
                 <div className="header">
                     <NavHeader />
                 </div>
-                <div className="homeView">
+                <div className="homeView fade-in">
                     {API.isIndividual   && <IndividualProfile   doc={API.me} />}
                     {API.isOrganization && <OrganizationProfile doc={API.me} />}
                     <div className="newsFeed">
                         <h1>News Feed</h1>
-                        <NewsItem />
+                        {API.feed.map(event => <NewsItem event={event} />)}
                     </div>
                 </div>
             </div>

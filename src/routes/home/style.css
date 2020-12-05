@@ -12,6 +12,7 @@
 .homeView {
   display: flex;
   padding: 20px;
+  align-items: stretch;
 }
 
 .homeProfileView {
@@ -75,7 +76,6 @@
   width: 100%;
   background-color: white;
   margin: 20px;
-  height: 60vh;
   border-radius: 1em;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
 }

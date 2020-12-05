@@ -20,7 +20,7 @@ class FindEvent extends Component {
                 <div className="header">
                     <NavHeader />
                 </div>
-                <div className="EventView">
+                <div className="EventView fade-in">
                     <div className="eventGrid">
                         <EventCard doc={eventDoc}/>
                         <EventCard doc={eventDoc}/>

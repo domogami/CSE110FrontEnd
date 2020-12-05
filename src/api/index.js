@@ -24,6 +24,9 @@ class API extends EventEmitter {
         /** @type {{[ratingID: string]: RatingDocument}} */
         this.ratings = {};
 
+        /** @type {OrgEventDocument[]}} */
+        this.feed = [];
+
         this.on("success", message => {
             store.addNotification({
                 title: "Success",
@@ -71,6 +74,8 @@ class API extends EventEmitter {
 
         this.createProfile = this.createProfile.bind(this);
         this.updateProfile = this.updateProfile.bind(this);
+
+        window.API = this;
     }
 
     get me() { return this.profiles["@me"]; };
@@ -147,6 +152,20 @@ class API extends EventEmitter {
             return json;
         } catch (e) {
             if (id != "@me") this.emit("error", `Error in getProfile("${id}", "${type}")`, e);
+        }
+    }
+
+    async getFeed() {
+        if (this.isRecent(this.feed.timestamp)) return this.feed;
+
+        const res = await fetch(`${this.base}/organization/feed?type=${this.type}`, this.createRequestInit());
+        if (res.status == 200) {
+            this.feed = await res.json();
+            this.feed.timestamp = Date.now();
+            return this.feed;
+        } else {
+            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
+            return [];
         }
     }
 

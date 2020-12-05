@@ -23,7 +23,7 @@ class FindOrg extends Component {
                 <div className="header">
                     <NavHeader />
                 </div>
-                <div className="OrgView">
+                <div className="OrgView fade-in">
                     
                     <div className="featuredOrgCard">
                         <img src={OrgProfile} alt="FeaturedImage"/>

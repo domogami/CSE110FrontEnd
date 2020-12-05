@@ -22,8 +22,10 @@ class Profile extends Component {
                 <div className="header">
                     <NavHeader/>
                 </div>
-                {API.isIndividual &&<IndividualProfile title="My Profile" {...this.childProps} />}
-                {API.isOrganization && <OrganizationProfile title="Organization Profile" {...this.childProps} />}
+                <div className="fade-in">
+                    {API.isIndividual &&<IndividualProfile title="My Profile" {...this.childProps} />}
+                    {API.isOrganization && <OrganizationProfile title="Organization Profile" {...this.childProps} />}
+                </div>
             </div>
         )
     }

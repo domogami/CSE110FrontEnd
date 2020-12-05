@@ -26,6 +26,14 @@ const Login = ({ history }) => {
         API.init().then(() => {
             history.push(API.me ? "/" : "register");
         });
+        return (
+            <div className="parent">
+                <div className="title">
+                    <img src={SiteLogo} className="logo" alt="PhilConnect Logo"/>
+                    <h1> Philanthropy Connect </h1>
+                </div>
+            </div>
+        );
     }
 
     return (
@@ -35,7 +43,7 @@ const Login = ({ history }) => {
                 <img src={SiteLogo} className="logo" alt="PhilConnect Logo"/>
                 <h1> Philanthropy Connect </h1>
             </div>
-            <div className="loginContainer">
+            <div className="loginContainer fade-in">
                 <div className="loginInfo">
                     <h1>Log In</h1>
                     <div className="signInWith" >
