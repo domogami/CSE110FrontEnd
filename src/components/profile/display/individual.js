@@ -24,10 +24,10 @@ export default class IndividualProfile extends Component {
                 <p>Causes:</p>
                 {
                     doc.causes.length ? 
-                    <div className="homeCausesGrid">
+                    <div className="tagContainer">
                         {
                             doc.causes.slice(0, 3).map(c => (
-                            <div className="causeTag">
+                            <div className="tag">
                                 <img src={TagIcon} />
                                 <p>{c}</p>
                             </div>))
@@ -40,10 +40,10 @@ export default class IndividualProfile extends Component {
                 <p>Skills:</p>
                 {
                     doc.skills.length ? 
-                    <div className="homeSkillsGrid">
+                    <div className="tagContainer">
                         {
                             doc.skills.slice(0, 3).map(c => (
-                            <div className="causeTag">
+                            <div className="tag">
                                 <img src={TagIcon} />
                                 <p>{c}</p>
                             </div>))
@@ -53,12 +53,14 @@ export default class IndividualProfile extends Component {
                         }
                     </div> : <span>Empty</span>
                 }
-                <button onClick={() => API.logout().then(window.location.href = window.origin)}>Log out</button>
-                <div className="PenIcon">
-                    <div className="profileEditClickArea">
-                        <NavLink activeClassName="active" className="menuButton" to="/profile">
-                            <img src={PenIcon} className="iconPen" />
-                        </NavLink>
+                <div style={{display: "inline"}}>
+                    <button className="button danger" onClick={() => API.logout().then(window.location.href = window.origin)}>Log out</button>
+                    <div className="PenIcon">
+                        <div className="profileEditClickArea">
+                            <NavLink activeClassName="active" className="menuButton" to="/profile">
+                                <img src={PenIcon} className="iconPen" />
+                            </NavLink>
+                        </div>
                     </div>
                 </div>
             </div>

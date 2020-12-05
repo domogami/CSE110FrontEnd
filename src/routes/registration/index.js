@@ -6,8 +6,6 @@ import SelectType from "./select";
 import IndividualProfile from "../../components/profile/edit/individual";
 import OrganizationProfile from "../../components/profile/edit/organization";
 
-import "./style.css"
-
 export default class ProfileRegistration extends Component {
 
     constructor(props) {

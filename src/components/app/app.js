@@ -12,18 +12,26 @@ import FindOrg from '../../routes/findOrg';
 import FindEvent from '../../routes/findEvent';
 import Post from '../../routes/post';
 
+const routes = [
+    { path: "/",          Component: Home,      private: true },
+    { path: "/findOrg",   Component: FindOrg,   private: true },
+    { path: "/findEvent", Component: FindEvent, private: true },
+    { path: "/profile",   Component: Profile,   private: true },
+    { path: "/register",  Component: Register,  private: true },
+    { path: "/login",     Component: Login,     private: false },
+    { path: "/post",      Component: Post,      private: true },
+];
+
 export default () => (
     <AuthProvider>
         <Router>
             <div className="App">
                 <header className="App-header">
-                    <PrivateRoute exact path ="/" component={ Home } />
-                    <PrivateRoute exact path ="/findOrg" component={ FindOrg } />
-                    <PrivateRoute exact path ="/findEvent" component={ FindEvent } />
-                    <PrivateRoute exact path ="/profile" component={ Profile } />
-                    <PrivateRoute exact path ="/register" component={ Register }/>
-                    <Route exact path ="/login" component={ Login } />
-                    <PrivateRoute exact path ="/post" component={ Post } />
+                    {
+                        routes.map(route => (route.private ?
+                            <PrivateRoute exact path={route.path} component={route.Component} /> :
+                            <Route exact path={route.path} component={route.Component} />))
+                    }
                 </header>
             </div>
         </Router>

@@ -24,10 +24,10 @@ export default class OrganizationProfile extends Component {
                 <p>Causes:</p>
                 {
                     doc.causes.length ? 
-                    <div className="homeCausesGrid">
+                    <div className="tagContainer">
                         {
                             doc.causes.slice(0, 3).map(c => (
-                            <div className="causeTag">
+                            <div className="tag">
                                 <img src={TagIcon} />
                                 <p>{c}</p>
                             </div>))
@@ -37,7 +37,7 @@ export default class OrganizationProfile extends Component {
                         }
                     </div> : <span>Empty</span>
                 }
-                <button onClick={() => API.logout().then(window.location.href = window.origin)}>Log out</button>
+                <button className="button danger" onClick={() => API.logout().then(window.location.href = window.origin)}>Log out</button>
                 <div className="PenIcon">
                     <div className="profileEditClickArea">
                         <NavLink activeClassName="active" className="menuButton" to="/profile">

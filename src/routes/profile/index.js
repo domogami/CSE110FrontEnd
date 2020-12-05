@@ -5,8 +5,6 @@ import NavHeader from "../../components/nav/index";
 import IndividualProfile from "../../components/profile/edit/individual";
 import OrganizationProfile from "../../components/profile/edit/organization";
 
-import "./index.css";
-
 class Profile extends Component {
 
     constructor(props) {
@@ -24,10 +22,8 @@ class Profile extends Component {
                 <div className="header">
                     <NavHeader/>
                 </div>
-                <div className="viewProfileContainer">
-                    {API.isIndividual &&<IndividualProfile title="My Profile" {...this.childProps} />}
-                    {API.isOrganization && <OrganizationProfile title="Organization Profile" {...this.childProps} />}
-                </div>
+                {API.isIndividual &&<IndividualProfile title="My Profile" {...this.childProps} />}
+                {API.isOrganization && <OrganizationProfile title="Organization Profile" {...this.childProps} />}
             </div>
         )
     }

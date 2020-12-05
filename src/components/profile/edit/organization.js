@@ -4,6 +4,7 @@ import Select from 'react-select';
 import Joi from "joi";
 
 import API from "../../../api";
+import "./index.css";
 
 const schema = {
     title: Joi.string()
@@ -73,7 +74,14 @@ export default class OrganizationProfile extends Component {
         this.forceUpdate();
     }
 
+    get isValid() {
+        const result = Joi.object(schema).validate(this.props.doc, { stripUnknown: true });
+        const error = result.error || result.errors;
+        return !error;
+    }
+
     submitForm() {
+        if (!this.isValid) return this.forceUpdate();
         this.props.doneFunc(this.props.doc, "organization").then(async success => {
             if (success) {
                 await API.init();
@@ -87,7 +95,7 @@ export default class OrganizationProfile extends Component {
         if (this.shouldRedirect) return <Redirect to="/" />;
 
         return (
-            <div className="createProfileContainer">
+            <div className="profileContainer">
                 <div className="createProfileField">
                     <h4>{this.props.title || "Organization Profile"}</h4>
                     <form className="profileInformation">
@@ -116,14 +124,15 @@ export default class OrganizationProfile extends Component {
                                 <p>Causes</p>
                                 <Select className="entryField" isMulti options={CausesOptions} theme={customTheme}
                                 onChange={value => { 
-                                    this.props.doc.causes = (value || []).map(o => o.value) ;
+                                    this.props.doc.causes = (value || []).map(o => o.value);
+                                    this.forceUpdate();
                                 }}
                                 defaultValue={this.initialCauses}
                                 />
                             </label>
                         </div>
                     </form>
-                    <button className="createIndiviudalButton" onClick={() => this.submitForm()}>{ this.props.button || "Button" }</button>
+                    <button className="button" disabled={!this.isValid} onClick={() => this.submitForm()}>{ this.props.button || "Button" }</button>
                 </div>
             </div>
         )

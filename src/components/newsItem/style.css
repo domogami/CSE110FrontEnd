@@ -19,7 +19,7 @@
 }
 
 .NewsCard {
-  max-height: 150px;
+  max-height: 75px;
   background-color: white;
   border-radius: 0.75em;
   display: grid;

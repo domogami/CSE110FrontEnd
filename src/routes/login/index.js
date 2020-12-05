@@ -24,7 +24,7 @@ const Login = ({ history }) => {
     const { currentUser } = useContext(AuthContext);
     if (currentUser) {
         API.init().then(() => {
-            if (API.me) history.push("/");
+            history.push(API.me ? "/" : "register");
         });
     }
 

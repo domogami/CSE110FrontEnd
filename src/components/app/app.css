@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
 
+:root {
+  --theme: #b153fd;
+}
+
 .App {
   text-align: center;
   font-family: "Poppins", -apple-system, Roboto, BlinkMacSystemFont, "Segoe UI",
@@ -19,19 +23,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #b153fd;
+  color: var(--theme);
 }
 
 .App-link {
   color: #61dafb;
-}
-
-.switch-wrapper {
-  position: relative;
-}
-
-.switch-wrapper > div {
-  position: absolute;
 }
 
 @keyframes App-logo-spin {
@@ -43,6 +39,26 @@
   }
 }
 
+.button {
+  border: none;
+  padding: 10px 16px;
+  background-color: var(--theme);;
+  color: white;
+  border-radius: 50px;
+  max-width: 100px;
+  font-size: 16px;
+  margin: 20px 50px;
+}
+
+.danger {
+  background-color: #fd5353;
+  color: white;
+}
+
+.button:disabled {
+  background-color: #727272;
+}
+
 ::-webkit-scrollbar {
   width: 8px;               /* width of the entire scrollbar */
 }
@@ -52,6 +68,6 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #b153fd;     /* color of the scroll thumb */
+  background-color: var(--theme);;     /* color of the scroll thumb */
   border-radius: 2px;       /* roundness of the scroll thumb */
 }
