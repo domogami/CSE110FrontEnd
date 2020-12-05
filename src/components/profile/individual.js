@@ -23,8 +23,7 @@ const schema = {
     ),
     zip: Joi.string()
         .required()
-        .min(5)
-        .max(5),
+        .length(5),
     skills: Joi.array().default([]).items(
         Joi.string()
             .valid(...API.ValidSkills)
@@ -48,10 +47,10 @@ const customTheme = theme => ({
     }
 });
 
-const textEntry = (name, self) => (<input 
+const textEntry = (name, self, type="text") => (<input 
     className="entryField" 
-    autoComplete={Math.random()} 
-    type="text" 
+    autoComplete={Math.random()}
+    type={type}
     placeholder={`Enter your ${name}`} 
     onBlur={e => self.onFieldChange(name, e)} 
     defaultValue={self.initialDoc[name]} 
@@ -72,7 +71,7 @@ export default class IndividualProfile extends Component {
         this.initialDoc = Object.assign({}, this.props.doc);
         this.initialSkills = SkillsOptions.filter(s => this.props.doc.skills.includes(s.value));
         this.initialCauses = CausesOptions.filter(s => this.props.doc.causes.includes(s.value));
-    } 
+    }
     
     /** @param {React.ChangeEvent<HTMLInputElement>} e */
     onFieldChange(field, e) {
@@ -119,7 +118,7 @@ export default class IndividualProfile extends Component {
                             </label>
                             <label className="fieldLabel">
                                 <p>Zip</p>
-                                {textEntry("zip", this)}
+                                {textEntry("zip", this, "number")}
                             </label>
                         </div>
                         <div className="fieldColumn-2">
