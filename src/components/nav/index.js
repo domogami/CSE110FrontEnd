@@ -9,7 +9,6 @@ import "./nav.css";
 
 export default class NavHeader extends Component {
     render() {
-        let isIndiviual = true;
         return (
             <div className="headerContainer">
                 <div className="titleProfile">
@@ -20,19 +19,22 @@ export default class NavHeader extends Component {
                     <img className="profilePic" src={API.me ? API.me.picture : ""} alt="profilePic"/>
                 </div>
                 <div className="pageFilterButtons">
-                    { isIndiviual ? 
-                    <div className="headerButton">
-                        <NavLink exact activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
-                        <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Find Org</p></NavLink>
-                        <NavLink activeClassName="active" className="menuButton" to="/findEvent"><p>Find Event</p></NavLink>
-                        <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
-                    </div> : 
+                    {   
+                        API.isIndividual && 
+                        <div className="headerButton">
+                            <NavLink exact activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
+                            <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Find Org</p></NavLink>
+                            <NavLink activeClassName="active" className="menuButton" to="/findEvent"><p>Find Event</p></NavLink>
+                            <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
+                        </div>
+                    }{
+                        API.isOrganization &&
                         <div className="headerButtonOrg">
-                        <NavLink exact activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
-                        <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Post</p></NavLink>
-                        <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Stats</p></NavLink>
-                        <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
-                    </div>
+                            <NavLink exact activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
+                            <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Post</p></NavLink>
+                            <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Stats</p></NavLink>
+                            <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
+                        </div>
                     }
                 </div>
             </div>

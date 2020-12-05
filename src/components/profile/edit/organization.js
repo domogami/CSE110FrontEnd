@@ -3,40 +3,27 @@ import { Redirect  } from "react-router-dom";
 import Select from 'react-select';
 import Joi from "joi";
 
-import API from "../../api";
+import API from "../../../api";
 
 const schema = {
-    firstname: Joi.string()
-        .alphanum()
-        .min(2)
-        .max(40)
+    title: Joi.string()
         .required(),
-    lastname: Joi.string()
-        .alphanum()
-        .min(2)
-        .max(40)
+    mission: Joi.string()
         .required(),
-    causes: Joi.array().default([]).items(
+    url: Joi.string()
+        .required(),
+    zip: Joi.string()
+            .required()
+            .length(5),
+    contact: Joi.string()
+            .required(),
+    causes: Joi.array().unique().default([]).items(
         Joi.string()
             .valid(...API.ValidCauses)
-            .error(() => new Error("Invalid causes"))
-    ),
-    zip: Joi.string()
-        .required()
-        .length(5),
-    skills: Joi.array().default([]).items(
-        Joi.string()
-            .valid(...API.ValidSkills)
-    ),
-    age: Joi.string() // drop down menu figure out how to do this (10-19, 20-29, etc)
-        .valid(...API.AgeCategories)
-        .required()
-        .error(() => new Error("Invalid age range"))
+    )
 };
 
-const SkillsOptions = API.ValidSkills.map(v => ({ value: v, label: v }));
 const CausesOptions = API.ValidCauses.map(v => ({ value: v, label: v }));
-const AgeOptions = API.AgeCategories.map(v => ({ value: v, label: v }));
 
 const customTheme = theme => ({
     ...theme,
@@ -47,29 +34,27 @@ const customTheme = theme => ({
     }
 });
 
-const textEntry = (name, self, type="text") => (<input 
+const textEntry = (name, self) => (<input 
     className="entryField" 
-    autoComplete={Math.random()}
-    type={type}
-    placeholder={`Enter your ${name}`} 
+    autoComplete={Math.random()} 
+    type="text" 
+    placeholder={`Enter organization ${name}`} 
     onBlur={e => self.onFieldChange(name, e)} 
     defaultValue={self.initialDoc[name]} 
 />);
 
-/** @extends {Component<{ doc: IndividualDocument, title: string, button: string, doneFunc: (doc: IndividualDocument, type: string) => boolean }, { errors: { [key: string]: string } }>} */
-export default class IndividualProfile extends Component {
+/** @extends {Component<{ doc: OrganizationDocument, title: string, button: string, doneFunc: (doc: IndividualDocument, type: string) => boolean }, { errors: { [key: string]: string } }>} */
+export default class OrganizationProfile extends Component {
 
     constructor(props) {
         super(props);
         this.props.doc.causes = this.props.doc.causes || [];
-        this.props.doc.skills = this.props.doc.skills || [];
         
         const errors = {};
         for (const key in schema) errors[key] = "";
         this.state = { errors };
 
         this.initialDoc = Object.assign({}, this.props.doc);
-        this.initialSkills = SkillsOptions.filter(s => this.props.doc.skills.includes(s.value));
         this.initialCauses = CausesOptions.filter(s => this.props.doc.causes.includes(s.value));
     }
     
@@ -77,7 +62,6 @@ export default class IndividualProfile extends Component {
     onFieldChange(field, e) {
         const elem = e.target;
         const result = schema[field].label(field).validate(elem.value);
-        // console.log(`validating: [name=${elem.name}]: ${elem.value}`, result);
 
         const error = (result.error || result.errors || {}).message || "";
         if (!this.state.errors[field] && error) API.emit("error", error);
@@ -90,7 +74,7 @@ export default class IndividualProfile extends Component {
     }
 
     submitForm() {
-        this.props.doneFunc(this.props.doc, "individual").then(async success => {
+        this.props.doneFunc(this.props.doc, "organization").then(async success => {
             if (success) {
                 await API.init();
                 this.shouldRedirect = true;
@@ -105,33 +89,28 @@ export default class IndividualProfile extends Component {
         return (
             <div className="createProfileContainer">
                 <div className="createProfileField">
-                    <h4>{this.props.title || "Individual Profile"}</h4>
+                    <h4>{this.props.title || "Organization Profile"}</h4>
                     <form className="profileInformation">
-                        <div className="fieldColumn-1">
+                        <div className="fieldColumn-2">
                             <label className="fieldLabel">
-                                <p>First Name</p>
-                                {textEntry("firstname", this)}
+                                <p>Title</p>
+                                {textEntry("title", this)}
                             </label>
                             <label className="fieldLabel">
-                                <p>Last Name</p>
-                                {textEntry("lastname", this)}
+                                <p>Mission</p>
+                                {textEntry("mission", this)}
                             </label>
                             <label className="fieldLabel">
                                 <p>Zip</p>
                                 {textEntry("zip", this, "number")}
                             </label>
-                        </div>
-                        <div className="fieldColumn-2">
                             <label className="fieldLabel">
-                                <p>Skills</p>
-                                <Select 
-                                style={{width: `${(8 * this.props.doc.skills.length) + 100}px`}} 
-                                className="entryField" isMulti options={SkillsOptions} theme={customTheme}
-                                onChange={value => { 
-                                    this.props.doc.skills = (value || []).map(o => o.value);
-                                }}
-                                defaultValue={this.initialSkills}
-                                />
+                                <p>Contact</p>
+                                {textEntry("contact", this)}
+                            </label>
+                            <label className="fieldLabel">
+                                <p>URL</p>
+                                {textEntry("url", this)}
                             </label>
                             <label className="fieldLabel">
                                 <p>Causes</p>
@@ -140,13 +119,6 @@ export default class IndividualProfile extends Component {
                                     this.props.doc.causes = (value || []).map(o => o.value) ;
                                 }}
                                 defaultValue={this.initialCauses}
-                                />
-                            </label>
-                            <label className="fieldLabel">
-                                <p>Age Category</p>
-                                <Select className="entryField" options={AgeOptions} theme={customTheme}
-                                onChange={value => { this.props.doc.age = value.value }}
-                                defaultValue={{ value: this.initialDoc.age, label: this.initialDoc.age }}
                                 />
                             </label>
                         </div>

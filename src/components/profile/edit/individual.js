@@ -3,28 +3,40 @@ import { Redirect  } from "react-router-dom";
 import Select from 'react-select';
 import Joi from "joi";
 
-import API from "../../api";
+import API from "../../../api";
 
-/** @type {Joi.ObjectSchema<OrganizationForm>} */
-const schema = Joi.object({
-    title: Joi.string()
+const schema = {
+    firstname: Joi.string()
+        .alphanum()
+        .min(2)
+        .max(40)
         .required(),
-    mission: Joi.string()
+    lastname: Joi.string()
+        .alphanum()
+        .min(2)
+        .max(40)
         .required(),
-    url: Joi.string()
-        .required(),
-    zip: Joi.string()
-            .required()
-            .length(5),
-    contact: Joi.string()
-            .required(),
-    causes: Joi.array().unique().default([]).items(
+    causes: Joi.array().default([]).items(
         Joi.string()
             .valid(...API.ValidCauses)
-    )
-});
+            .error(() => new Error("Invalid causes"))
+    ),
+    zip: Joi.string()
+        .required()
+        .length(5),
+    skills: Joi.array().default([]).items(
+        Joi.string()
+            .valid(...API.ValidSkills)
+    ),
+    age: Joi.string() // drop down menu figure out how to do this (10-19, 20-29, etc)
+        .valid(...API.AgeCategories)
+        .required()
+        .error(() => new Error("Invalid age range"))
+};
 
+const SkillsOptions = API.ValidSkills.map(v => ({ value: v, label: v }));
 const CausesOptions = API.ValidCauses.map(v => ({ value: v, label: v }));
+const AgeOptions = API.AgeCategories.map(v => ({ value: v, label: v }));
 
 const customTheme = theme => ({
     ...theme,
@@ -35,27 +47,29 @@ const customTheme = theme => ({
     }
 });
 
-const textEntry = (name, self) => (<input 
+const textEntry = (name, self, type="text") => (<input 
     className="entryField" 
-    autoComplete={Math.random()} 
-    type="text" 
+    autoComplete={Math.random()}
+    type={type}
     placeholder={`Enter your ${name}`} 
     onBlur={e => self.onFieldChange(name, e)} 
     defaultValue={self.initialDoc[name]} 
 />);
 
-/** @extends {Component<{ doc: OrganizationDocument, title: string, button: string, doneFunc: (doc: IndividualDocument, type: string) => boolean }, { errors: { [key: string]: string } }>} */
-export default class OrganizationProfile extends Component {
+/** @extends {Component<{ doc: IndividualDocument, title: string, button: string, doneFunc: (doc: IndividualDocument, type: string) => boolean }, { errors: { [key: string]: string } }>} */
+export default class IndividualProfile extends Component {
 
     constructor(props) {
         super(props);
         this.props.doc.causes = this.props.doc.causes || [];
+        this.props.doc.skills = this.props.doc.skills || [];
         
         const errors = {};
         for (const key in schema) errors[key] = "";
         this.state = { errors };
 
         this.initialDoc = Object.assign({}, this.props.doc);
+        this.initialSkills = SkillsOptions.filter(s => this.props.doc.skills.includes(s.value));
         this.initialCauses = CausesOptions.filter(s => this.props.doc.causes.includes(s.value));
     }
     
@@ -63,6 +77,7 @@ export default class OrganizationProfile extends Component {
     onFieldChange(field, e) {
         const elem = e.target;
         const result = schema[field].label(field).validate(elem.value);
+        // console.log(`validating: [name=${elem.name}]: ${elem.value}`, result);
 
         const error = (result.error || result.errors || {}).message || "";
         if (!this.state.errors[field] && error) API.emit("error", error);
@@ -75,7 +90,7 @@ export default class OrganizationProfile extends Component {
     }
 
     submitForm() {
-        this.props.doneFunc(this.props.doc, "organization").then(async success => {
+        this.props.doneFunc(this.props.doc, "individual").then(async success => {
             if (success) {
                 await API.init();
                 this.shouldRedirect = true;
@@ -90,20 +105,20 @@ export default class OrganizationProfile extends Component {
         return (
             <div className="createProfileContainer">
                 <div className="createProfileField">
-                    <h4>{this.props.title || "Organization Profile"}</h4>
+                    <h4>{this.props.title || "Individual Profile"}</h4>
                     <form className="profileInformation">
-                        <div className="fieldColumn-2">
+                        <div className="fieldColumn-1">
                             <label className="fieldLabel">
-                                <p>Title</p>
-                                {textEntry("title", this)}
+                                <p>First Name</p>
+                                {textEntry("firstname", this)}
                             </label>
                             <label className="fieldLabel">
-                                <p>Mission</p>
-                                {textEntry("mission", this, "textarea")}
+                                <p>Last Name</p>
+                                {textEntry("lastname", this)}
                             </label>
                             <label className="fieldLabel">
                                 <p>Zip</p>
-                                {textEntry("zip", this)}
+                                {textEntry("zip", this, "number")}
                             </label>
                         </div>
                         <div className="fieldColumn-2">
