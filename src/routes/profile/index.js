@@ -21,7 +21,7 @@ class Profile extends Component {
                 </div>
                 <div className="viewProfileContainer">
                     {  
-                        API.isInvidual &&<IndividualProfile doc={Object.assign({}, API.me)} title="My Profile" button="Save" doneFunc={API.updateProfile} />
+                        API.isIndividual &&<IndividualProfile doc={Object.assign({}, API.me)} title="My Profile" button="Save" doneFunc={API.updateProfile} />
                     }
                     {
                         API.isOrganization && <IndividualProfile doc={API.me} />
