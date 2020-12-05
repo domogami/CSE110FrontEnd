@@ -9,6 +9,7 @@ import Home from "../../routes/home/index";
 import Register from "../../routes/registration";
 import Profile from '../../routes/profile/index';
 import FindOrg from '../../routes/findOrg';
+import FindEvent from '../../routes/findEvent';
 import Post from '../../routes/post';
 
 export default () => (
@@ -18,6 +19,7 @@ export default () => (
                 <header className="App-header">
                     <PrivateRoute exact path ="/" component={ Home } />
                     <Route exact path ="/findOrg" component={ FindOrg } />
+                    <Route exact path ="/findEvent" component={ FindEvent } />
                     <Route exact path ="/profile" component={ Profile } />
                     <Route exact path ="/register" component={ Register }/>
                     <Route exact path ="/login" component={ Login } />

@@ -1,0 +1,111 @@
+/*TODo: MAke events instead*/
+
+.orgCards {
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 1em;
+  width: 20rem;
+  height: 23rem;
+  position: relative;
+  background-color: #ffffff;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.orgTextContainer {
+  height: 10rem;
+  text-align: center;
+  position: relative;
+}
+
+.orgTitle {
+  font-size: x-large;
+  font-weight: 1000;
+}
+
+.orgText {
+  position: absolute;
+  padding: 0 2em 0 2em;
+  top: -1.5em;
+
+  opacity: 0%;
+  transition: linear 0.5s;
+  text-overflow: clip;
+
+  font-size: large;
+  font-size-adjust: inherit;
+  font-weight: 400;
+  text-align: left;
+}
+
+.orgIcon {
+  display: block;
+  margin: auto;
+  text-align: center;
+  opacity: 1000%;
+  transition: linear 0.5s;
+  max-width: 80%;
+}
+
+.orgCards:hover .orgIcon {
+  opacity: 0%;
+}
+
+.orgCards:hover .orgText {
+  opacity: 100%;
+}
+
+.followButton {
+  position: absolute;
+  vertical-align: auto;
+  right: 1em;
+  bottom: 1em;
+  width: 15%;
+}
+
+.OrgProfileModal {
+  outline: none;
+  width: 90%;
+  height: 60%;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  padding: 50px;
+  background-color: white;
+  border-radius: 2em;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.closeModal {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+.ModalProfileOrg {
+  display: flex;
+}
+.ModalProfileOrg h1 {
+  color: #b153fd;
+  font-weight: 800;
+}
+.ModalProfileOrg h2 {
+  color: #b153fd;
+  font-weight: 800;
+}
+.ModalProfileOrg p {
+  color: #b153fd;
+}
+.ModalProfileOrgLeft {
+}
+.ModalProfileOrgRight {
+}
