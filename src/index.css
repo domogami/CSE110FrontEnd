@@ -1,5 +1,4 @@
 body {
-  outline: none;
   overflow-x: hidden;
   margin: 0;
   font-family: "Poppins", -apple-system, Roboto, BlinkMacSystemFont, "Segoe UI",
@@ -12,3 +11,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+:focus { outline: none; }
