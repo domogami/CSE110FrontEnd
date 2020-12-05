@@ -1,4 +1,5 @@
 body {
+  outline: none;
   overflow-x: hidden;
   margin: 0;
   font-family: "Poppins", -apple-system, Roboto, BlinkMacSystemFont, "Segoe UI",
