@@ -14,6 +14,7 @@ export class NewsItem extends Component {
 
     render() {
         // TODO: render according to this.props.feed
+        return <div></div>;
         // return (
         //     <div className="NewsItemWithDate">
         //         <p>Today</p>
