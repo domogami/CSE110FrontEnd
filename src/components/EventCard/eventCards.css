@@ -62,7 +62,6 @@
 }
 
 .EventProfileModal {
-  outline: none;
   width: 90%;
   height: 60%;
   margin: 0 auto;
@@ -88,7 +87,6 @@
   border: none;
   cursor: pointer;
   overflow: hidden;
-  outline: none;
 }
 .ModalProfileEvent {
   display: flex;

@@ -20,7 +20,6 @@
   color: black;
   /* height: 30px; */
   width: 100%;
-  outline: none;
   font-size: 25px;
 }
 .bar input::placeholder {
