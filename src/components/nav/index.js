@@ -15,15 +15,16 @@ export default class NavHeader extends Component {
                 <div className="titleProfile">
                     <div className="headerTitle">
                         <img className="headerLogo" src={SiteLogo} alt="logo"/>
-                        <h1>Philanthrophy Connect</h1>                    
+                        <h1>Philanthropy Connect</h1>                    
                     </div>
                     <img className="profilePic" src={API.me ? API.me.picture : ""} alt="profilePic"/>
                 </div>
-                <div className="headerSearchBar">
+                <div className="pageFilterButtons">
                     { isIndiviual ? 
                     <div className="headerButton">
                         <NavLink exact activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
                         <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Find Org</p></NavLink>
+                        <NavLink activeClassName="active" className="menuButton" to="/findEvent"><p>Find Event</p></NavLink>
                         <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
                     </div> : 
                         <div className="headerButtonOrg">
@@ -33,7 +34,6 @@ export default class NavHeader extends Component {
                         <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
                     </div>
                     }
-                    <SearchBar/>
                 </div>
             </div>
         );

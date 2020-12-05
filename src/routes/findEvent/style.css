@@ -1,0 +1,55 @@
+.findEventContainer {
+  /*display: grid;
+  grid-template-rows: 1fr 1fr;
+  */
+  margin-top: 170px;
+}
+
+.header {
+  z-index: 2;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.EventView {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin-top: 20px;
+  position: relative;
+}
+.featuredEventCard {
+  width: 100%;
+  height: 100%;
+  margin-left: 40px;
+  border-radius: 1em;
+  background-color: white;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
+}
+.featuredEventCard img {
+  width: 80%;
+  margin: 30px 20px 0 20px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 1em;
+}
+.featuredEventCard h1 {
+  font-size: 30px;
+  text-align: left;
+  margin: 10px 40px;
+  color: black;
+}
+.featuredEventCard p {
+  font-size: 20px;
+  text-align: left;
+  margin: 0 40px 40px 40px;
+  color: black;
+}
+
+.eventGrid {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 30px;
+  align-items: center;
+  margin-left: 70%;
+}

@@ -1,41 +1,50 @@
-.orgCards {
+/*TODo: MAke events instead*/
+
+.eventCards {
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 1em;
-  width: 20rem;
-  height: 23rem;
+  width: 40rem;
+  height: 10rem;
   position: relative;
   background-color: #ffffff;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.orgTextContainer {
+.eventTextContainer {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   height: 10rem;
   text-align: center;
   position: relative;
 }
 
-.orgTitle {
+.eventTitle {
   font-size: x-large;
   font-weight: 1000;
+  text-align: left;
+  left: 3em;
+  text-indent: 1.4em;
 }
 
-.orgText {
-  position: absolute;
+.eventText {
+  position: relative;
   padding: 0 2em 0 2em;
-  top: -1.5em;
 
-  opacity: 0%;
+  opacity: 100%;
   transition: linear 0.5s;
   text-overflow: clip;
 
-  font-size: large;
+  font-size: medium;
   font-size-adjust: inherit;
   font-weight: 400;
   text-align: left;
+
+  text-indent: 0;
+  text-overflow: ellipsis;
 }
 
-.orgIcon {
+.eventIcon {
   display: block;
   margin: auto;
   text-align: center;
@@ -44,23 +53,15 @@
   max-width: 80%;
 }
 
-.orgCards:hover .orgIcon {
-  opacity: 0%;
-}
-
-.orgCards:hover .orgText {
-  opacity: 100%;
-}
-
 .followButton {
   position: absolute;
   vertical-align: auto;
   right: 1em;
   bottom: 1em;
-  width: 15%;
+  width: 7%;
 }
 
-.OrgProfileModal {
+.EventProfileModal {
   outline: none;
   width: 90%;
   height: 60%;
@@ -79,7 +80,6 @@
   border-radius: 2em;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
   z-index: 1;
-  overflow-y: scroll;
 }
 
 .closeModal {
@@ -90,21 +90,21 @@
   overflow: hidden;
   outline: none;
 }
-.ModalProfileOrg {
+.ModalProfileEvent {
   display: flex;
 }
-.ModalProfileOrg h1 {
+.ModalProfileEvent h1 {
   color: #b153fd;
   font-weight: 800;
 }
-.ModalProfileOrg h2 {
+.ModalProfileEvent h2 {
   color: #b153fd;
   font-weight: 800;
 }
-.ModalProfileOrg p {
+.ModalProfileEvent p {
   color: #b153fd;
 }
-.ModalProfileOrgLeft {
+.ModalProfileEventLeft {
 }
-.ModalProfileOrgRight {
+.ModalProfileEventRight {
 }

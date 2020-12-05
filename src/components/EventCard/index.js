@@ -1,11 +1,12 @@
-// TODO 
+// TODO - make into events ones instead!
+
 import { Component } from 'react';
 import addIcon from "./+.svg";
 import followedIcon from "./Focus.svg";
 import Modal from 'react-modal';
-import "./orgCards.css"
+import "./eventCards.css"
 import NewsItem from '../newsItem';
-import orgImage from '../../images/placeholder/HumaneSociety.jpg'
+import eventImage from '../../images/placeholder/HumaneSociety.jpg'
 import { PinIcon, XIcon } from "../../images/icons";
 
 const customStyles = {
@@ -20,9 +21,9 @@ const customStyles = {
 };
 
 /**
- * @extends {Component<{ doc: OrganizationDocument }>}
+ * @extends {Component<{ doc: OrgEventDocument }>}
  */
-export class OrganizationCard extends Component {
+export class EventCard extends Component {
 
     constructor(props) {
         super(props);
@@ -35,7 +36,7 @@ export class OrganizationCard extends Component {
         };
     }
 
-    toggleOrgProfile() {
+    toggleEventProfile() {
         this.setState({
             isOpen: !this.state.isOpen,
         })
@@ -48,33 +49,34 @@ export class OrganizationCard extends Component {
     }
 
     render() {
-        // TODO: Check API whether user followed org and 
+        // TODO: Check API whether user followed event and 
         //       create method located here to change "followed" state
         return (
-            <div className="orgCards"
+            <div className="eventCards"
                 style={this.state.color ? {backgroundColor: this.state.color} : {}}>
                 <div onClick={() => this.setState({ isOpen: !this.state.isOpen})}>
-                    <h5 className="orgTitle">{this.props.doc.title}</h5>
-                    <div className="orgTextContainer">
-                        <img src={this.state.logo ? this.state.logo : addIcon } alt="blargh" className="orgIcon" />
-                        <h5 className="orgText">
-                            Summary: {this.props.doc.mission}
+                    <div className="eventTextContainer">
+                        <img src={this.state.logo ? this.state.logo : addIcon } alt="blargh" className="eventIcon" />
+                        <h5 className="eventTitle">{this.props.doc.title}
+                            <h5 className="eventText">
+                                Summary: {this.props.doc.details}
+                            </h5>
                         </h5>
                     </div>
                 </div>
-                <img onClick={e => this.updateFollow(e)} src={this.state.followed ? followedIcon : addIcon} alt="Add org" className="followButton" />
+                
                 <Modal 
                     isOpen={this.state.isOpen}
                     style={customStyles}
                     contentLabel="Minimal Modal Example"
-                    className="OrgProfileModal"
+                    className="EventProfileModal"
                 >
               
                     <button className="closeModal" onClick={() => this.setState({ isOpen: false })}><img src={XIcon}/></button>
                     
-                    <div className="ModalProfileOrg">
-                        <div className="ModalProfileOrgLeft">
-                            <img src={orgImage} alt="OrgImg"/>
+                    <div className="ModalProfileEvent">
+                        <div className="ModalProfileEventLeft">
+                            <img src={eventImage} alt="EventImg"/>
                             <div className="rating">
 
                             </div>
@@ -85,7 +87,7 @@ export class OrganizationCard extends Component {
                             <p>Causes:</p>
                             <p>Skills:</p>
                         </div>
-                        <div className="ModalProfileOrgRight">
+                        <div className="ModalProfileEventRight">
                             <h1>Humane Society</h1>
                             <p>Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</p>
                             <h2>Upcoming Events</h2>
@@ -98,4 +100,4 @@ export class OrganizationCard extends Component {
     }
 }
 
-export default OrganizationCard;
+export default EventCard;
