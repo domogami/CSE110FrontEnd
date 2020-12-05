@@ -18,12 +18,12 @@ export default () => (
             <div className="App">
                 <header className="App-header">
                     <PrivateRoute exact path ="/" component={ Home } />
-                    <Route exact path ="/findOrg" component={ FindOrg } />
-                    <Route exact path ="/findEvent" component={ FindEvent } />
-                    <Route exact path ="/profile" component={ Profile } />
-                    <Route exact path ="/register" component={ Register }/>
+                    <PrivateRoute exact path ="/findOrg" component={ FindOrg } />
+                    <PrivateRoute exact path ="/findEvent" component={ FindEvent } />
+                    <PrivateRoute exact path ="/profile" component={ Profile } />
+                    <PrivateRoute exact path ="/register" component={ Register }/>
                     <Route exact path ="/login" component={ Login } />
-                    <Route exact path ="/post" component={ Post } />
+                    <PrivateRoute exact path ="/post" component={ Post } />
                 </header>
             </div>
         </Router>
