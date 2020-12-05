@@ -1,13 +1,13 @@
 import { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { matchPath, NavLink, useRouteMatch } from 'react-router-dom';
 
-import SearchBar from '../searchBar/index';
 import API from "../../api/index";
-
+import Filter from "../filter";
 import { SiteLogo }  from "../../images/logo";
 import "./nav.css";
 
 export default class NavHeader extends Component {
+
     render() {
         return (
             <div className="headerContainer">
@@ -29,13 +29,20 @@ export default class NavHeader extends Component {
                         </div>
                     }{
                         API.isOrganization &&
-                        <div className="headerButtonOrg">
+                        <div className="headerButton">
                             <NavLink exact activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
                             <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Post</p></NavLink>
                             <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Stats</p></NavLink>
                             <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
                         </div>
                     }
+
+                    <div className="filterButton">
+                        {/*Filter buttons stuff*/}
+                        <Filter/>
+                    </div>
+
+
                 </div>
             </div>
         );
