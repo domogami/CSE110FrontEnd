@@ -70,6 +70,18 @@
   margin: auto;
   margin-right: 20px;
 }
+.titleProfile p {
+  font-size: 20px;
+  margin: auto;
+  white-space: nowrap;
+  padding-right: 20px;
+}
+.profilePicAndWelcome {
+  display: flex;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: 40px;
+}
 
 .headerButton {
   max-width: 400px;
