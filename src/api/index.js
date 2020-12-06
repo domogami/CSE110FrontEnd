@@ -177,10 +177,10 @@ class API extends EventEmitter {
         const res = await fetch(`${this.base}/organization/${id}?follow=${bool}`, this.createRequestInit("POST"));
         if (res.status == 200) {
             this.emit("success", `Organization ${bool ? "followed" : "unfollowed"}`);
-            return true;
+            return bool;
         } else {
             this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
-            return false;
+            return !bool;
         }
     }
 
