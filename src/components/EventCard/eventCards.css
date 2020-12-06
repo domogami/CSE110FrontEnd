@@ -31,7 +31,7 @@
   position: relative;
   padding: 0 2em 0 2em;
 
-  opacity: 100%;
+  opacity: 1;
   transition: linear 0.5s;
   text-overflow: clip;
 
@@ -48,7 +48,7 @@
   display: block;
   margin: auto;
   text-align: center;
-  opacity: 1000%;
+  opacity: 1;
   transition: linear 0.5s;
   max-width: 80%;
 }
