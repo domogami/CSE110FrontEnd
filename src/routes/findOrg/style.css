@@ -1,3 +1,8 @@
+.findOrgContainer {
+  left: 0;
+  top: 0;
+  position: absolute;
+}
 .OrgView {
   display: grid;
   grid-template-columns: 1fr 3fr;
