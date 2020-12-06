@@ -32,7 +32,7 @@ export class OrganizationCard extends Component {
             isOpen: false,
             color: "#f7ece6",
             loading: false,
-            followed: false,
+            followed: API.me.following.includes(this.props.doc.id),
             logo: "https://cdn.vox-cdn.com/thumbor/zEZJzZFEXm23z-Iw9ESls2jYFYA=/89x0:1511x800/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/55717463/google_ai_photography_street_view_2.0.jpg",
         };
     }
