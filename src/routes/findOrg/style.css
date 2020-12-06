@@ -10,13 +10,12 @@
   grid-template-columns: 1fr 3fr;
   display: grid;
   grid-template-columns: 1fr 3fr;
-  margin-top: 20px;
-  padding-top: 1 em;
+  padding-top: 2em;
+  padding-left: 1em;
 }
 .featuredOrgCard {
   width: 100%;
-  height: 100%;
-  margin-left: 40px;
+  height: fit-content;
   border-radius: 1em;
   background-color: white;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
@@ -43,8 +42,11 @@
 .orgGrid {
   max-width: 60vw;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 297px);
+  grid-template-columns: repeat(auto-fit, 320px);
   grid-gap: 40px;
   justify-items: center;
   margin: auto;
+}
+.header {
+  padding-bottom: 20px;
 }
