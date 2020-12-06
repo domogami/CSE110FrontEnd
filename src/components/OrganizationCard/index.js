@@ -110,8 +110,8 @@ export class OrganizationCard extends Component {
                             }
                         </div>
                         <div className="ModalProfileOrgRight">
-                            <h1>Humane Society</h1>
-                            <p>Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</p>
+                            <h1>{doc.title}</h1>
+                            <p>{doc.mission}</p>
                             <h2>Upcoming Events</h2>
                             <NewsItem></NewsItem>
                         </div>
