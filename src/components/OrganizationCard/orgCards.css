@@ -54,10 +54,8 @@
 
 .followButton {
   position: absolute;
-  vertical-align: auto;
   right: 1em;
   bottom: 1em;
-  width: 1.5em;
 }
 
 .OrgProfileModal {

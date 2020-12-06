@@ -70,7 +70,7 @@ export class OrganizationCard extends Component {
                     </div>
                 </div>
                 <img onClick={e => this.updateFollow(e)} 
-                    style={{ cursor: "pointer", opacity: this.state.loading ? 0.5 : 1 }}
+                    style={{ cursor: "pointer", opacity: this.state.loading ? 0.5 : 1, width: "15%" }}
                     src={this.state.followed ? followedIcon : addIcon} 
                     alt="Add org" className="followButton" />
                 <Modal 
