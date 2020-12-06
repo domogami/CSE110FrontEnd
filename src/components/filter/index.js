@@ -23,7 +23,7 @@ export default function Filter({ parent }) {
 
     const [causes, setCauses] = useState([].concat(API.me.causes || []));
     const [skills, setSkills] = useState([].concat(API.me.skills || []));
-    const [distance, setDistance] = useState(50);
+    const [distance, setDistance] = useState(100);
 
     const [openedModal, setOpen] = useState("");
 
