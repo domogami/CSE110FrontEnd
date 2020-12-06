@@ -7,6 +7,7 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   margin-top: 20px;
+  padding-top: 1 em;
 }
 .featuredOrgCard {
   width: 100%;
