@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import API from "../../../api";
 import { PenIcon, PinIcon, TagIcon } from "../../../images/icons";
+import { followingOrg } from "./";
 
 /** @extends {Component<{ doc: IndividualDocument>} */
 export default class IndividualProfile extends Component {
@@ -51,6 +52,19 @@ export default class IndividualProfile extends Component {
                         {
                             doc.skills.length > 3 ? <p>More ({doc.skills.length - 3})</p> : ""
                         }
+                    </div> : <span>Empty</span>
+                }
+{/*TODO*/}                
+                <p>Following:</p> 
+                {
+                    doc.following.length ?
+                    <div className="followContainer">
+                        {doc.following.map(c => (
+                            <div className="org">
+                                <p>{/*followingOrg(c)*/ c}</p>
+
+                            </div>
+                        ))}
                     </div> : <span>Empty</span>
                 }
                 <div style={{display: "inline"}}>

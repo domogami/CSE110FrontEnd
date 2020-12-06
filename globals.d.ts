@@ -5,7 +5,11 @@ declare type IndividualDocument = {
     zip:       string;
     skills:    string[];
     age:       string;
+    
     picture:   string;
+    email:     string;
+    picture:   string;
+    following: string[];
 }
 
 declare type OrganizationDocument = {
@@ -15,7 +19,10 @@ declare type OrganizationDocument = {
     zip:     string;
     contact: string;
     url: string;
+    
+    picture:   string;
     events: string[];
+    ratings:   string[];
 }
 
 declare type RatingDocument = {
