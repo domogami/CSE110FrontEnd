@@ -55,19 +55,19 @@ export default class IndividualProfile extends Component {
                     </div> : <span>Empty</span>
                 }
 {/*TODO*/}                
-{/*                <p>Following:</p> 
+                {/* <p>Following:</p> 
                 {
                     doc.following.length ?
                     <div className="followContainer">
                         {doc.following.map(c => (
                             <div className="org">
                                 <p>{c}</p>
-
+                        
                             </div>
                         ))}
                     </div> : <span>Empty</span>
-                }
-*/}
+                } */}
+
                 <div style={{display: "inline"}}>
                     <button className="button danger" onClick={() => API.logout().then(window.location.href = window.origin)}>Log out</button>
                     <NavLink activeClassName="active" className="menuButton" to="/profile">
