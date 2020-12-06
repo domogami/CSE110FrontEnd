@@ -23,17 +23,31 @@
 .active p {
   color: white;
 }
+
+.outerFilterModal {
+ width: 50%!important;
+ height: auto!important;
+ flex-direction: column;
+ margin: auto;
+}
 .filterModal {
-  width: 50%!important;
-  height: auto!important;
-  display: "flex";
-  flex-direction: column;
+  width: 100%;
+  margin: auto;
+}
+.filterText {
+  text-align: center;
 }
 
-.filterModal {
+.distanceFilter {
+  width: 100%;
+  margin: auto;
+}
+
+.distanceFilter input {
+  width: 100%;
   margin: auto;
 }
 
 .confirmButton {
-  margin: auto;
+  text-align: center;
 }

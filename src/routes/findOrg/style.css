@@ -4,8 +4,6 @@
   position: absolute;
 }
 .OrgView {
-  height: 82vh;
-  overflow-y: scroll;
   display: grid;
   grid-template-columns: 1fr 3fr;
   display: grid;
@@ -46,6 +44,9 @@
   grid-gap: 40px;
   justify-items: center;
   margin: auto;
+  padding: 20px;
+  max-height: 70vh;
+  overflow-y: scroll;
 }
 .header {
   padding-bottom: 20px;

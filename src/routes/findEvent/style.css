@@ -5,8 +5,10 @@
   width: 100%;
 }
 .EventView {
+  max-height: 80vh;
+  overflow-y: scroll;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr;
   margin-top: 20px;
   position: relative;
 }
@@ -39,9 +41,12 @@
 }
 
 .eventGrid {
-  display: flex;
-  flex-direction: column;
-  grid-gap: 30px;
-  align-items: center;
-  margin-left: 70%;
+  padding-top: 10px;
+  padding-bottom: 50px;
+  max-width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 754px);
+  grid-gap: 41px;
+  justify-items: center;
+  margin: auto;
 }
