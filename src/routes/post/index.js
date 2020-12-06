@@ -21,6 +21,11 @@ const schema = {
         .required()
         .min(5)
         .max(70),
+    date: Joi.string()
+        .alphanum()
+        .min(2)
+        .max(15)
+        .required(),
     starttime: Joi.string()
         .alphanum()
         .min(2)
@@ -97,7 +102,12 @@ class Post extends Component {
                                        onChange={e => this.onFieldChange(e)}/>
                             </label>
                             <label className="eventFieldLabel">
-                                <p>Time</p>
+                                <p>Date (input as MM/DD/YYYY)</p>
+                                <input className="eventEntryField" name="date" type="text" placeholder="MM/DD/YYYY"
+                                       onChange={e => this.onFieldChange(e)}/>
+                            </label>
+                            <label className="eventFieldLabel">
+                                <p>Time (input as 24:00)</p>
                                 <input className="eventEntryField" name="starttime" type="text" placeholder="Start Time"
                                        onChange={e => this.onFieldChange(e)}/>
                                 <input className="eventEntryField" name="endtime" type="text" placeholder="End Time"
