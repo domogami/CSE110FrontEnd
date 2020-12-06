@@ -75,6 +75,8 @@
 }
 
 .newsFeed {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
   width: 100%;
   background-color: white;
   margin: 20px;
@@ -83,6 +85,15 @@
 }
 .newsFeed h1 {
   font-size: 30px;
+}
+
+.organizationPhoto {
+  border-radius: 1em;
+  padding-top: 3em;
+}
+
+.organizationStats {
+  border-radius: 1em;
 }
 
 .profileEditClickArea {
