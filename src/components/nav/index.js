@@ -35,7 +35,6 @@ export default class NavHeader extends Component {
                         <div className="headerButton">
                             <NavLink exact activeClassName="active" className="menuButton" to="/"><p>Home</p></NavLink>
                             <NavLink activeClassName="active" className="menuButton" to="/post"><p>Post</p></NavLink>
-                            <NavLink activeClassName="active" className="menuButton" to="/findOrg"><p>Stats</p></NavLink>
                             <NavLink activeClassName="active" className="menuButton" to="/profile"><p>Profile</p></NavLink>
                         </div>
                     }

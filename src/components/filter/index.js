@@ -48,36 +48,39 @@ export default function Filter({ parent }) {
                 {
                     (openedModal == "skills" || openedModal == "causes") ? <h2>Select Filters</h2> : <h2>Distance (within kilometers)</h2>
                 }
-                <div style={{ display: "flex" }}>
-                    {
-                        openedModal == "skills" &&
-                        <Select 
-                            className="entryField" isMulti options={API.ValidSkills.map(v => ({ label: v, value: v }))} 
-                            theme={customTheme}
-                            onChange={value => setSkills(value.map(v => v.value))}
-                            defaultValue={skills.map(c => ({ label: c, value: c }))}
-                        />
-                    }
-                    {
-                        openedModal == "causes" &&
-                        <Select 
-                            className="entryField" isMulti options={API.ValidCauses.map(v => ({ label: v, value: v }))} 
-                            theme={customTheme}
-                            onChange={value => setCauses(value.map(v => v.value))}
-                            defaultValue={causes.map(c => ({ label: c, value: c }))}
-                        />
-                    }
-                    {
-                        openedModal == "distance" &&
-                        <div>
-                            <input type="range" min="10" max="10000" 
-                                style={{ width: "90%" }}
-                                defaultValue={distance}
-                                onChange={e => setDistance(~~e.target.value)} />
-                            <span>{distance} km</span>
-                        </div>
-                    }
-                    <div style={{ textAlign: "center" }}>
+                <div className="filterModal" >
+                    <div className="filterOptions">
+                        {
+                            openedModal == "skills" &&
+                            <Select 
+                                className="entryField" isMulti options={API.ValidSkills.map(v => ({ label: v, value: v }))} 
+                                theme={customTheme}
+                                onChange={value => setSkills(value.map(v => v.value))}
+                                defaultValue={skills.map(c => ({ label: c, value: c }))}
+                            />
+                        }
+                        {
+                            openedModal == "causes" &&
+                            <Select 
+                                className="entryField" isMulti options={API.ValidCauses.map(v => ({ label: v, value: v }))} 
+                                theme={customTheme}
+                                onChange={value => setCauses(value.map(v => v.value))}
+                                defaultValue={causes.map(c => ({ label: c, value: c }))}
+                            />
+                        }
+                        {
+                            openedModal == "distance" &&
+                            <div>
+                                <input type="range" min="10" max="10000" 
+                                    style={{ width: "90%" }}
+                                    defaultValue={distance}
+                                    onChange={e => setDistance(~~e.target.value)} />
+                                <span>{distance} km</span>
+                            </div>
+                        }
+                    </div>
+                    
+                    <div className="confirmButton" style={{ textAlign: "center" }}>
                         <button className="button" onClick={() => setOpen("")}>Confirm</button>
                     </div>
                 </div>

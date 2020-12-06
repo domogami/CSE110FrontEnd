@@ -4,6 +4,10 @@
   position: absolute;
 }
 .OrgView {
+  height: 82vh;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   display: grid;
   grid-template-columns: 1fr 3fr;
   margin-top: 20px;

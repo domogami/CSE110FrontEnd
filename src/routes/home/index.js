@@ -68,21 +68,31 @@ class Home extends Component {
                     {API.isIndividual   && <IndividualProfile   doc={API.me} />}
                     {API.isOrganization && <OrganizationProfile doc={API.me} />}
 
-                    <div className="newsFeed">
-                        <div className="organizationPhoto">
-                            <img src={orgDoc.picture} />
-                        </div>
-                        <div className="organizationStats">
-                            {API.isOrganization && <h1>{orgDoc.title} Statistics</h1> }
+                    {API.isOrganization &&
+                        <div className="newsFeed">
+                            <div className="organizationPhoto">
+                                <img src={orgDoc.picture} alt="orgPic" />
+                            </div>
+                            <div className="organizationStats">
+                                {API.isOrganization && <h1>{orgDoc.title} Statistics</h1> }
 
-                            {API.isOrganization && <p>Followers: {orgDoc.followers.length}</p> }
-                            {API.isOrganization && <p>example: Followers 13 to 17: {followers13to17}</p> }
-                            {API.isOrganization && <p>Ratings: {orgRating}</p> }
-                            {API.isOrganization && <p>Total Events: {orgEvents}</p> }
+                                {API.isOrganization && <p>Followers: {orgDoc.followers.length}</p> }
+                                {API.isOrganization && <p>example: Followers 13 to 17: {followers13to17}</p> }
+                                {API.isOrganization && <p>Ratings: {orgRating}</p> }
+                                {API.isOrganization && <p>Total Events: {orgEvents}</p> }
 
-                            {API.feed.map(event => <NewsItem event={event} />)}
+                                {API.feed.map(event => <NewsItem event={event} />)}
+                            </div>
                         </div>
-                    </div>
+                    }
+
+                    {API.isIndividual &&
+                        <div className="newsFeed">
+                        </div>
+                    }
+
+
+
                 </div>
             </div>
         )

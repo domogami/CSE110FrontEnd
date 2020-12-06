@@ -26,4 +26,14 @@
 .filterModal {
   width: 50%!important;
   height: auto!important;
+  display: "flex";
+  flex-direction: column;
+}
+
+.filterModal {
+  margin: auto;
+}
+
+.confirmButton {
+  margin: auto;
 }
