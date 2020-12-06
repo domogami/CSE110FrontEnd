@@ -46,8 +46,8 @@ export class OrganizationCard extends Component {
     updateFollow() {
         if (this.state.loading) return;
         this.setState({ loading: true });
-        API.follow(this.props.doc.id, !this.state.followed).then(() => {
-            this.setState({ followed: !this.state.followed, loading: false });
+        API.follow(this.props.doc.id, !this.state.followed).then((result) => {
+            this.setState({ followed: result, loading: false });
             API.getProfile();
             this.forceUpdate();
         });
