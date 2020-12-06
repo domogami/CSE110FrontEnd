@@ -5,7 +5,6 @@ import followedIcon from "./Focus.svg";
 import Modal from 'react-modal';
 import "./orgCards.css"
 import NewsItem from '../newsItem';
-import orgImage from '../../images/placeholder/HumaneSociety.jpg'
 import { PinIcon, TagIcon, XIcon } from "../../images/icons";
 import API from '../../api';
 
@@ -84,7 +83,7 @@ export class OrganizationCard extends Component {
                     
                     <div className="ModalProfileOrg">
                         <div className="ModalProfileOrgLeft">
-                            <img src={orgImage} alt="OrgImg"/>
+                            <img src={ this.props.doc.picture } alt="OrgImg"/>
                             <div className="rating">
 
                             </div>
@@ -95,10 +94,10 @@ export class OrganizationCard extends Component {
                             <p>Causes:</p>
                             {
                                 doc.causes.length ? 
-                                <div className="tagContainer">
+                                <div className="OrgTagContainer">
                                     {
                                         doc.causes.slice(0, 3).map(c => (
-                                        <div className="tag">
+                                        <div className="OrgCauseTag">
                                             <img src={TagIcon} />
                                             <p>{c}</p>
                                         </div>))
