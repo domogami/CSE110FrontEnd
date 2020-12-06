@@ -1,5 +1,5 @@
 import Handshake from './handshake';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../auth/Auth";
 
 import { FBAuth, GoogleAuth, AppleAuth } from "../../components/app/base";
@@ -8,13 +8,15 @@ import API from '../../api/index';
 import { FBIcon, GoogleIcon, AppleIcon, SiteLogo } from "../../images/logo";
 import "./login.css";
 
-const Login = ({ history }) => {
+const Login = ({ history, location }) => {
     
+    const redirect = new URLSearchParams(location.search).get("redirect");
+
     const handleLogin = provider => {
         try {
             API.auth.signInWithPopup(provider).then(async() => {
                 await API.init();
-                history.push(API.me ? "/" : "register");
+                history.push(redirect || "/register");
             });
         } catch (error){
             API.emit("error", error);
@@ -24,17 +26,12 @@ const Login = ({ history }) => {
     const { currentUser } = useContext(AuthContext);
     if (currentUser) {
         API.init().then(() => {
-            history.push(API.me ? "/" : "register");
+            console.log(`Redirecting to ${redirect} in Login`);
+            history.push(API.me ? (redirect || "/") : "/register");
         });
-        return (
-            <div className="parent">
-                <div className="title">
-                    <img src={SiteLogo} className="logo" alt="PhilConnect Logo"/>
-                    <h1> Philanthropy Connect </h1>
-                </div>
-            </div>
-        );
     }
+    const [visible, setVisible] = useState(!redirect);
+    if (!visible) setTimeout(() => setVisible(true), 500);
 
     return (
         <div className="parent">
@@ -43,6 +40,7 @@ const Login = ({ history }) => {
                 <img src={SiteLogo} className="logo" alt="PhilConnect Logo"/>
                 <h1> Philanthropy Connect </h1>
             </div>
+            {visible &&
             <div className="loginContainer fade-in">
                 <div className="loginInfo">
                     <h1>Log In</h1>
@@ -85,6 +83,7 @@ const Login = ({ history }) => {
                     </div>
                 </div>
             </div>
+            }
         </div>
     );
 };
