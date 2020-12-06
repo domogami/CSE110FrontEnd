@@ -23,7 +23,6 @@
 .orgText {
   position: absolute;
   padding: 0 2em 0 2em;
-  top: -1.5em;
 
   opacity: 0;
   transition: linear 0.5s;
