@@ -100,7 +100,27 @@
 .ModalProfileOrg p {
   color: #b153fd;
 }
-.ModalProfileOrgLeft {
+.ModalProfileOrgLeft img {
+  max-width: 300px;
+  border-radius: 1em;
+  margin: auto;
 }
-.ModalProfileOrgRight {
+.OrgTagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+.OrgCauseTag {
+  display: flex;
+  padding: 5px 8px;
+  margin: 5px;
+  border-radius: 20px;
+  border: 2px solid var(--theme);
+}
+.OrgTagContainer p {
+  font-size: 20px;
+  padding-left: 5px;
+  margin: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
