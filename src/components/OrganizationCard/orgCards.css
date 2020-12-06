@@ -39,7 +39,7 @@
   display: block;
   margin: auto;
   text-align: center;
-  opacity: 1000%;
+  opacity: 100%;
   transition: linear 0.5s;
   max-width: 80%;
 }
