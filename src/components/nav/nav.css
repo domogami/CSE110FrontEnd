@@ -93,9 +93,6 @@
   color: white;
 }
 
-
-
-
 @media only screen and (max-width: 900px) {
   .headerButton {
     padding: 0 40px;

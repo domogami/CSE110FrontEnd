@@ -6,7 +6,8 @@ import Modal from 'react-modal';
 import "./orgCards.css"
 import NewsItem from '../newsItem';
 import orgImage from '../../images/placeholder/HumaneSociety.jpg'
-import { PinIcon, XIcon } from "../../images/icons";
+import { PinIcon, TagIcon, XIcon } from "../../images/icons";
+import API from '../../api';
 
 const customStyles = {
     content: {
@@ -30,6 +31,7 @@ export class OrganizationCard extends Component {
         this.state = {
             isOpen: false,
             color: "#f7ece6",
+            loading: false,
             followed: false,
             logo: "https://cdn.vox-cdn.com/thumbor/zEZJzZFEXm23z-Iw9ESls2jYFYA=/89x0:1511x800/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/55717463/google_ai_photography_street_view_2.0.jpg",
         };
@@ -42,14 +44,19 @@ export class OrganizationCard extends Component {
     }
 
     updateFollow() {
-        this.setState({ 
-            followed: !this.state.followed,
+        if (this.state.loading) return;
+        this.setState({ loading: true });
+        API.follow(this.props.doc.id, !this.state.followed).then(() => {
+            this.setState({ followed: !this.state.followed, loading: false });
+            API.getProfile();
+            this.forceUpdate();
         });
     }
 
     render() {
         // TODO: Check API whether user followed org and 
         //       create method located here to change "followed" state
+        const doc = this.props.doc;
         return (
             <div className="orgCards"
                 style={this.state.color ? {backgroundColor: this.state.color} : {}}>
@@ -62,7 +69,10 @@ export class OrganizationCard extends Component {
                         </h5>
                     </div>
                 </div>
-                <img onClick={e => this.updateFollow(e)} src={this.state.followed ? followedIcon : addIcon} alt="Add org" className="followButton" />
+                <img onClick={e => this.updateFollow(e)} 
+                    style={{ cursor: "pointer", opacity: this.state.loading ? 0.5 : 1 }}
+                    src={this.state.followed ? followedIcon : addIcon} 
+                    alt="Add org" className="followButton" />
                 <Modal 
                     isOpen={this.state.isOpen}
                     style={customStyles}
@@ -78,12 +88,26 @@ export class OrganizationCard extends Component {
                             <div className="rating">
 
                             </div>
-                            <p>Test@example.com</p>
+                            <p>{doc.contact}</p>
                             <div className="PinIcon">
                                 <img src={PinIcon} />
                             </div>
                             <p>Causes:</p>
-                            <p>Skills:</p>
+                            {
+                                doc.causes.length ? 
+                                <div className="tagContainer">
+                                    {
+                                        doc.causes.slice(0, 3).map(c => (
+                                        <div className="tag">
+                                            <img src={TagIcon} />
+                                            <p>{c}</p>
+                                        </div>))
+                                    }
+                                    {
+                                        doc.causes.length > 3 ? <p>More ({doc.causes.length - 3})</p> : ""
+                                    }
+                                </div> : <span>Empty</span>
+                            }
                         </div>
                         <div className="ModalProfileOrgRight">
                             <h1>Humane Society</h1>

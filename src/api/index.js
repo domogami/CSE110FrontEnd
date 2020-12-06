@@ -27,6 +27,12 @@ class API extends EventEmitter {
         /** @type {OrgEventDocument[]}} */
         this.feed = [];
 
+        /** @type {{ events: OrgEventDocument[], organization: OrganizationDocument[] }} */
+        this.filtered = {
+            organization: [],
+            events: []
+        };
+
         this.on("success", message => {
             store.addNotification({
                 title: "Success",
@@ -152,6 +158,29 @@ class API extends EventEmitter {
             return json;
         } catch (e) {
             if (id != "@me") this.emit("error", `Error in getProfile("${id}", "${type}")`, e);
+        }
+    }
+
+    async filter(skills, causes, distance, type) {
+        const res = await fetch(`${this.base}/filter?type=${type}`, 
+            this.createRequestInit("POST", { skills, causes, distance: distance * 1000 }));
+        if (res.status == 200) {
+            this.filtered[type] = await res.json();
+            return;
+        } else {
+            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
+            return;
+        }
+    }
+
+    async follow(id, bool) {
+        const res = await fetch(`${this.base}/organization/${id}?follow=${bool}`, this.createRequestInit("POST"));
+        if (res.status == 200) {
+            this.emit("success", `Organization ${bool ? "followed" : "unfollowed"}`);
+            return;
+        } else {
+            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
+            return;
         }
     }
 

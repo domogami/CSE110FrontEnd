@@ -42,10 +42,8 @@ export default class NavHeader extends Component {
 
                     <div className="filterButton">
                         {/*Filter buttons stuff*/}
-                        <Filter/>
+                        <Filter parent={this.props.parent || this}/>
                     </div>
-
-
                 </div>
             </div>
         );
