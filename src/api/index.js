@@ -23,6 +23,10 @@ class API extends EventEmitter {
         // Rating cache
         /** @type {{[ratingID: string]: RatingDocument}} */
         this.ratings = {};
+        
+        // Stats cache
+        /** @type {{[orgID: string]: OrgStats}} */
+        this.stats = {};
 
         /** @type {OrgEventDocument[]}} */
         this.feed = [];
@@ -80,11 +84,16 @@ class API extends EventEmitter {
 
         this.createProfile = this.createProfile.bind(this);
         this.updateProfile = this.updateProfile.bind(this);
+        this.createEvent   = this.createEvent.bind(this);
 
         window.API = this;
     }
 
     get me() { return this.profiles["@me"]; };
+    /** @returns {OrganizationDocument} */
+    get org() { return this.profiles["@me"]; };
+    /** @returns {IndividualDocument} */
+    get ind() { return this.profiles["@me"]; };
     get isIndividual() { return this.type == "individual"; };
     get isOrganization() { return this.type == "organization"; };
 
@@ -161,6 +170,20 @@ class API extends EventEmitter {
         }
     }
 
+    /** @param {string} id */
+    async getStats(id = "@me") {
+        if (this.stats[id] && this.isRecent(this.stats[id].timestamp)) return this.profiles[id];
+        try {
+            const res = await fetch(`${this.base}/organization/stats/${id}`, this.createRequestInit());
+            const json = await res.json();
+            json.timestamp = Date.now();
+            this.stats[id] = json;
+            return json;
+        } catch (e) {
+            if (id != "@me") this.emit("error", `Error in getStats("${id}")`, e);
+        }
+    }
+
     async filter(skills, causes, distance, type) {
         const res = await fetch(`${this.base}/filter?type=${type}`, 
             this.createRequestInit("POST", { skills, causes, distance: distance * 1000 }));
@@ -195,6 +218,17 @@ class API extends EventEmitter {
         } else {
             this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
             return [];
+        }
+    }
+
+    async createEvent(form) {
+        const res = await fetch(`${this.base}/events/create`, this.createRequestInit("POST", form));
+        if (res.status == 200) {
+            this.emit("success", "Event created");
+            return true;
+        } else {
+            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
+            return false;
         }
     }
 

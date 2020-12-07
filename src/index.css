@@ -1,4 +1,9 @@
+:root {
+  --theme: #b153fd;
+}
+
 body {
+  color: var(--theme);
   overflow: hidden;
   margin: 0;
   font-family: "Poppins", -apple-system, Roboto, BlinkMacSystemFont, "Segoe UI",

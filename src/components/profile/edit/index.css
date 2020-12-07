@@ -1,12 +1,12 @@
 .profileContainer {
-    margin-top: 5%;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     max-width: 1000px;
     border-radius: 50px;
     background-color: #fff;
     padding: 20px;
-    max-height: calc(80% - 156px);
+    max-height: calc(100% - 156px);
     box-shadow: 8px 16px 16px rgba(17, 17, 17, 0.08);
 }
 

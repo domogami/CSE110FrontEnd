@@ -1,9 +1,9 @@
-import React, {Component} from "react";
+import { Component } from "react";
 import NavHeader from "../../components/nav";
-import EventCard from "../../components/EventCard";
-import { OrgProfile } from "../../images/placeholder"
-import "./style.css";
+import EventCard from "../../components/event/display";
+
 import API from "../../api";
+import "./style.css";
 
 class FindEvent extends Component {
     
@@ -11,9 +11,7 @@ class FindEvent extends Component {
         
         return (
             <div className="findEventContainer">
-                <div className="header">
-                    <NavHeader parent={this}/>
-                </div>
+                <NavHeader parent={this}/>
                 <div className="EventView fade-in">
                     {/* <div className="featuredEventCard">
                         <img src={OrgProfile} alt="FeaturedImage"/>

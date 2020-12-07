@@ -2,6 +2,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 1em;
+  padding: 20px;
   width: 20rem;
   height: 23rem;
   position: relative;
@@ -40,7 +41,7 @@
   margin: auto;
   text-align: center;
   opacity: 1;
-  transition: linear 0.5s;
+  transition: linear 0.25s;
   max-width: 80%;
 }
 
@@ -56,71 +57,4 @@
   position: absolute;
   right: 1em;
   bottom: 1em;
-}
-
-.OrgProfileModal {
-  width: 90%;
-  height: 60%;
-  margin: 0 auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  padding: 50px;
-  background-color: white;
-  border-radius: 2em;
-  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-  overflow-y: scroll;
-}
-
-.closeModal {
-  background-color: Transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-}
-.ModalProfileOrg {
-  display: flex;
-}
-.ModalProfileOrg h1 {
-  color: #b153fd;
-  font-weight: 800;
-}
-.ModalProfileOrg h2 {
-  color: #b153fd;
-  font-weight: 800;
-}
-.ModalProfileOrg p {
-  color: #b153fd;
-}
-.ModalProfileOrgLeft img {
-  max-width: 300px;
-  border-radius: 1em;
-  margin: auto;
-}
-.OrgTagContainer {
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-}
-.OrgCauseTag {
-  display: flex;
-  padding: 5px 8px;
-  margin: 5px;
-  border-radius: 20px;
-  border: 2px solid var(--theme);
-}
-.OrgTagContainer p {
-  font-size: 20px;
-  padding-left: 5px;
-  margin: auto;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }

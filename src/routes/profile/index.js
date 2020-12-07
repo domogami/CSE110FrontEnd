@@ -19,9 +19,7 @@ class Profile extends Component {
     render() {
         return (
             <div className = "parent">
-                <div className="header">
-                    <NavHeader/>
-                </div>
+                <NavHeader/>
                 <div className="fade-in">
                     {API.isIndividual &&<IndividualProfile title="My Profile" {...this.childProps} />}
                     {API.isOrganization && <OrganizationProfile title="Organization Profile" {...this.childProps} />}

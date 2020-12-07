@@ -1,13 +1,9 @@
-// TODO - make into events ones instead!
-
 import { Component } from 'react';
-import addIcon from "./+.svg";
-import followedIcon from "./Focus.svg";
 import Modal from 'react-modal';
-import "./eventCards.css"
-import NewsItem from '../newsItem';
-import eventImage from '../../images/placeholder/HumaneSociety.jpg'
-import { PinIcon, XIcon } from "../../images/icons";
+// import eventImage from '../../images/placeholder/HumaneSociety.jpg'
+import { PinIcon, XIcon, PlusIcon } from "../../../images/icons";
+
+import "./style.css";
 
 const customStyles = {
     content: {
@@ -56,10 +52,10 @@ export class EventCard extends Component {
                 style={this.state.color ? {backgroundColor: this.state.color} : {}}>
                 <div onClick={() => this.setState({ isOpen: !this.state.isOpen})}>
                     <div className="eventTextContainer">
-                        <img src={this.state.logo ? this.state.logo : addIcon } alt="blargh" className="eventIcon" />
+                        <img src={this.state.logo ? this.state.logo : PlusIcon } alt="blargh" className="eventIcon" />
                         <h5 className="eventTitle">{this.props.doc.title}
                             <h5 className="eventText">
-                                Summary: {this.props.doc.details}
+                                Details: {this.props.doc.details}
                             </h5>
                         </h5>
                     </div>
@@ -76,7 +72,7 @@ export class EventCard extends Component {
                     
                     <div className="ModalProfileEvent">
                         <div className="ModalProfileEventLeft">
-                            <img src={eventImage} alt="EventImg"/>
+                            <img alt="EventImg"/>
                             <div className="rating">
 
                             </div>
@@ -90,8 +86,6 @@ export class EventCard extends Component {
                         <div className="ModalProfileEventRight">
                             <h1>Humane Society</h1>
                             <p>Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic</p>
-                            <h2>Upcoming Events</h2>
-                            <NewsItem></NewsItem>
                         </div>
                     </div>
                 </Modal>

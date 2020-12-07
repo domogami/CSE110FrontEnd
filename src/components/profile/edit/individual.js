@@ -48,14 +48,19 @@ const customTheme = theme => ({
     }
 });
 
-const textEntry = (name, self, type="text") => (<input 
-    className={`entryField ${self.state.errors[name] ? "invalid" : ""}`} 
-    autoComplete={Math.random()}
-    type={type}
-    placeholder={`Enter your ${name}`} 
-    onBlur={e => self.onFieldChange(name, e)} 
-    defaultValue={self.initialDoc[name]} 
-/>);
+const textEntry = (label, name, self, type="text") => (
+    <label className="fieldLabel">
+        <p>{label}</p>
+        <input 
+            className={`entryField ${self.state.errors[name] ? "invalid" : ""}`} 
+            autoComplete={Math.random()}
+            type={type}
+            placeholder={`Enter your ${name}`} 
+            onBlur={e => self.onFieldChange(name, e)} 
+            defaultValue={self.initialDoc[name]} 
+        />
+    </label>
+);
 
 /** @extends {Component<{ doc: IndividualDocument, title: string, button: string, doneFunc: (doc: IndividualDocument, type: string) => boolean }, { errors: { [key: string]: string } }>} */
 export default class IndividualProfile extends Component {
@@ -116,18 +121,9 @@ export default class IndividualProfile extends Component {
                     <h4>{this.props.title || "Individual Profile"}</h4>
                     <form className="profileInformation">
                         <div className="fieldColumn-1">
-                            <label className="fieldLabel">
-                                <p>First Name</p>
-                                {textEntry("firstname", this)}
-                            </label>
-                            <label className="fieldLabel">
-                                <p>Last Name</p>
-                                {textEntry("lastname", this)}
-                            </label>
-                            <label className="fieldLabel">
-                                <p>Zip</p>
-                                {textEntry("zip", this, "number")}
-                            </label>
+                            {textEntry("First Name", "firstname", this)}
+                            {textEntry("Last Name", "lastname", this)}
+                            {textEntry("Zip", "zip", this)}
                             <label className="fieldLabel">
                                 <p>Age</p>
                                 <Select className="entryField" options={AgeOptions} theme={customTheme}
@@ -143,7 +139,6 @@ export default class IndividualProfile extends Component {
                             <label className="fieldLabel">
                                 <p>Skills</p>
                                 <Select 
-                                style={{width: `${(8 * this.props.doc.skills.length) + 100}px`}} 
                                 className="entryField" isMulti options={SkillsOptions} theme={customTheme}
                                 onChange={value => { 
                                     this.props.doc.skills = (value || []).map(o => o.value);

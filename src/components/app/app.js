@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import Modal from 'react-modal';
 import './app.css';
 
 import PrivateRoute from "../../auth/PrivateRoute";
@@ -22,18 +23,21 @@ const routes = [
     { path: "/post",      Component: Post,      private: true },
 ];
 
-export default () => (
-    <AuthProvider>
-        <Router>
-            <div className="App">
-                <header className="App-header">
-                    {
-                        routes.map(route => (route.private ?
-                            <PrivateRoute exact path={route.path} component={route.Component} /> :
-                            <Route exact path={route.path} component={route.Component} />))
-                    }
-                </header>
-            </div>
-        </Router>
-    </AuthProvider>
-);
+export default () => {
+    Modal.setAppElement(document.body);
+    return (
+        <AuthProvider>
+            <Router>
+                <div className="App">
+                    <header className="App-header">
+                        {
+                            routes.map(route => (route.private ?
+                                <PrivateRoute exact path={route.path} component={route.Component} /> :
+                                <Route exact path={route.path} component={route.Component} />))
+                        }
+                    </header>
+                </div>
+            </Router>
+        </AuthProvider>
+    );
+};

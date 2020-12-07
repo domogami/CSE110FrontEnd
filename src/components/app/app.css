@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
 
-:root {
-  --theme: #b153fd;
-}
-
 .App {
   text-align: center;
   font-family: "Poppins", -apple-system, Roboto, BlinkMacSystemFont, "Segoe UI",
@@ -23,7 +19,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: var(--theme);
   background-image: url(./background.svg);
   background-size: cover;
 }

@@ -37,3 +37,10 @@ declare type OrgEventDocument = {
     skills:   string[];
     date:     number;
 }
+
+declare type OrgStats =  { 
+    followers: number;
+    ratingsCount: number;
+    age: { [ageCategory: string]: number };
+    ratings: { [rating: string]: number };
+};

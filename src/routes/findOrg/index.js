@@ -16,9 +16,7 @@ class FindOrg extends Component {
 
         return (
             <div className="findOrgContainer">
-                <div className="header">
-                    <NavHeader parent={this} />
-                </div>
+                <NavHeader parent={this} />
                 <div className="OrgView fade-in">
                     
                     <div className="featuredOrgCard">

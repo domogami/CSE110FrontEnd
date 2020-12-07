@@ -6,6 +6,11 @@
     margin: auto;
 }
 
+.header {
+    width: 100%;
+    height: 156px;
+}
+
 .logo {
     margin: auto;
     max-width: 100px;
