@@ -6,6 +6,8 @@ import "./org.css";
 
 import { PinIcon, TagIcon, XIcon } from "../../images/icons";
 
+const DEFAULT_PIC = "https://cdn.vox-cdn.com/thumbor/zEZJzZFEXm23z-Iw9ESls2jYFYA=/89x0:1511x800/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/55717463/google_ai_photography_street_view_2.0.jpg";
+
 /** @extends {Component<{ parent: import("../OrganizationCard").default }>} */
 export default class OrgModal extends Component {
 
@@ -21,7 +23,7 @@ export default class OrgModal extends Component {
             <button className="closeModal" onClick={() => this.props.parent.setState({ isOpen: false })}><img src={XIcon}/></button>
             <div className="ModalProfileOrg">
                 <div style={{ width: "35%" }}>
-                    <img className="ModalIcon" src={this.props.parent.state.logo} alt="OrgImg"/>
+                    <img className="ModalIcon" src={this.props.parent.props.doc.picture || DEFAULT_PIC} alt="OrgImg"/>
                     <div className="ratings">
 
                     </div>

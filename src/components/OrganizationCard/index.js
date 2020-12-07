@@ -5,6 +5,8 @@ import API from '../../api';
 
 import "./orgCards.css";
 
+const DEFAULT_PIC = "https://cdn.vox-cdn.com/thumbor/zEZJzZFEXm23z-Iw9ESls2jYFYA=/89x0:1511x800/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/55717463/google_ai_photography_street_view_2.0.jpg";
+
 /**
  * @extends {Component<{ doc: OrganizationDocument }>}
  */
@@ -16,7 +18,6 @@ export class OrganizationCard extends Component {
             isOpen: false,
             color: "#fff",
             loading: false,
-            logo: this.props.doc.picture || "https://cdn.vox-cdn.com/thumbor/zEZJzZFEXm23z-Iw9ESls2jYFYA=/89x0:1511x800/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/55717463/google_ai_photography_street_view_2.0.jpg",
         };
         // console.log(this.props.doc.title, API.ind.following, this.props.doc.id);
     }
@@ -41,7 +42,7 @@ export class OrganizationCard extends Component {
                 <div onClick={() => this.setState({ isOpen: !this.state.isOpen})}>
                     <h5 className="orgTitle">{this.props.doc.title}</h5>
                     <div className="orgTextContainer">
-                        <img src={this.state.logo ? this.state.logo : PlusIcon } alt="blargh" className="orgIcon" />
+                        <img src={this.props.doc.picture || DEFAULT_PIC } alt="blargh" className="orgIcon" />
                         <h5 className="orgText">{this.props.doc.mission}</h5>
                     </div>
                 </div>

@@ -25,8 +25,8 @@ export class EventCard extends Component {
         Modal.setAppElement(document.body);
         this.state = {
             isOpen: false,
-            color: "#f7ece6",
             followed: false,
+            color: "white",
             logo: "https://cdn.vox-cdn.com/thumbor/zEZJzZFEXm23z-Iw9ESls2jYFYA=/89x0:1511x800/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/55717463/google_ai_photography_street_view_2.0.jpg",
         };
     }
@@ -48,7 +48,7 @@ export class EventCard extends Component {
         //       create method located here to change "followed" state
         return (
             <div className="eventCards"
-                style={this.state.color ? {backgroundColor: this.state.color} : {}}>
+                style={this.state.color ? { backgroundColor: this.state.color } : {}}>
                 <div onClick={() => this.setState({ isOpen: !this.state.isOpen})}>
                     <div className="eventTextContainer">
                         <img src={this.state.logo ? this.state.logo : PlusIcon } alt="blargh" className="eventIcon" />
