@@ -2,9 +2,12 @@
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 1em;
+  margin: 20px;
+  margin-top: 0px;
   padding: 20px;
   width: 20rem;
   height: 23rem;
+  max-width: 350px;
   position: relative;
   background-color: #ffffff;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);

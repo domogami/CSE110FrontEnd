@@ -28,7 +28,7 @@ export default function Filter({ parent }) {
     const [openedModal, setOpen] = useState("");
 
     return (
-        <div style={{ float: "right" }}>
+        <div style={{ float: "right", paddingRight: "20px" }}>
             {(orgFind || eventFind) && <span style={{ fontSize: "18px" }}><img src={FilterIcon}/> Filters: </span>}
             {orgFind &&
                 <button className="button" onClick={() => setOpen("causes")}>Causes {causes.length ? `(${causes.length})` : ""}</button>
@@ -73,7 +73,7 @@ export default function Filter({ parent }) {
                     {
                         openedModal == "distance" &&
                         <div className="distanceFilter">
-                            <input type="range" min="10" max="10000" 
+                            <input type="range" min="10" max="6000"
                                 defaultValue={distance}
                                 onChange={e => setDistance(~~e.target.value)} />
                         </div>

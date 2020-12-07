@@ -22,10 +22,11 @@ export default class IndividualProfile extends Component {
                     </div>
                     <p>Zip: {doc.zip}</p>
                 </div>
-                <p>Causes:</p>
+                <br/>
                 {
-                    doc.causes.length ? 
+                    doc.causes.length &&
                     <div className="tagContainer">
+                        <p style={{ margin: "auto 0" }}>Causes:</p>
                         {
                             doc.causes.slice(0, 3).map(c => (
                             <div className="tag">
@@ -34,14 +35,15 @@ export default class IndividualProfile extends Component {
                             </div>))
                         }
                         {
-                            doc.causes.length > 3 ? <p>More ({doc.causes.length - 3})</p> : ""
+                            doc.causes.length > 3 ? <p style={{ margin: "auto 0" }}>More ({doc.causes.length - 3})</p> : ""
                         }
-                    </div> : <span>Empty</span>
+                    </div>
                 }
-                <p>Skills:</p>
+                <br/>
                 {
-                    doc.skills.length ? 
+                    doc.skills.length &&
                     <div className="tagContainer">
+                        <p style={{ margin: "auto 0" }}>Skills:</p>
                         {
                             doc.skills.slice(0, 3).map(c => (
                             <div className="tag">
@@ -50,9 +52,9 @@ export default class IndividualProfile extends Component {
                             </div>))
                         }
                         {
-                            doc.skills.length > 3 ? <p>More ({doc.skills.length - 3})</p> : ""
+                            doc.skills.length > 3 ? <p style={{ margin: "auto 0" }}>More ({doc.skills.length - 3})</p> : ""
                         }
-                    </div> : <span>Empty</span>
+                    </div>
                 }
 {/*TODO*/}                
                 {/* <p>Following:</p> 

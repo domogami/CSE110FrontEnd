@@ -54,9 +54,7 @@ export class EventCard extends Component {
                     <div className="eventTextContainer">
                         <img src={this.state.logo ? this.state.logo : PlusIcon } alt="blargh" className="eventIcon" />
                         <h5 className="eventTitle">{this.props.doc.title}
-                            <h5 className="eventText">
-                                Details: {this.props.doc.details}
-                            </h5>
+                            <h5 className="eventText">{this.props.doc.details}</h5>
                         </h5>
                     </div>
                 </div>

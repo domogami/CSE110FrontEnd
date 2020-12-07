@@ -1,3 +1,4 @@
+import API from "../../api";
 import "./select.css";
 
 /** @param {{ parent: React.Component }} */
@@ -24,5 +25,6 @@ export default ({ parent }) => (
                 </button>   
             </div>
         </div>
+        <button className="button danger" onClick={() => API.logout().then(window.location.href = window.origin)}>Log out</button>
     </div>
 );

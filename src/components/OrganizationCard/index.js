@@ -16,17 +16,20 @@ export class OrganizationCard extends Component {
             isOpen: false,
             color: "#fff",
             loading: false,
-            followed: API.ind.following.includes(this.props.doc.id),
-            logo: "https://cdn.vox-cdn.com/thumbor/zEZJzZFEXm23z-Iw9ESls2jYFYA=/89x0:1511x800/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/55717463/google_ai_photography_street_view_2.0.jpg",
+            logo: this.props.doc.picture || "https://cdn.vox-cdn.com/thumbor/zEZJzZFEXm23z-Iw9ESls2jYFYA=/89x0:1511x800/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/55717463/google_ai_photography_street_view_2.0.jpg",
         };
+        // console.log(this.props.doc.title, API.ind.following, this.props.doc.id);
     }
 
     updateFollow() {
         if (this.state.loading) return;
         this.setState({ loading: true });
-        API.follow(this.props.doc.id, !this.state.followed).then(async () => {
+        // console.log(`Toggling org#${this.props.doc.id} from: ${this.state.followed}`);
+        API.follow(this.props.doc.id, !API.ind.following.includes(this.props.doc.id)).then(async () => {
+            delete API.profiles["@me"];
             await API.getProfile();
-            this.setState({ followed: API.ind.following.includes(this.props.doc.id), loading: false });
+            // console.log(`Toggling org#${this.props.doc.id} to: ${API.ind.following.includes(this.props.doc.id)}`);
+            this.setState({ loading: false });
             this.forceUpdate();
         });
     }
@@ -39,14 +42,12 @@ export class OrganizationCard extends Component {
                     <h5 className="orgTitle">{this.props.doc.title}</h5>
                     <div className="orgTextContainer">
                         <img src={this.state.logo ? this.state.logo : PlusIcon } alt="blargh" className="orgIcon" />
-                        <h5 className="orgText">
-                            Mission: {this.props.doc.mission}
-                        </h5>
+                        <h5 className="orgText">{this.props.doc.mission}</h5>
                     </div>
                 </div>
                 <img onClick={e => this.updateFollow(e)} 
                     style={{ cursor: "pointer", opacity: this.state.loading ? 0.5 : 1, width: "15%" }}
-                    src={this.state.followed ? FocusIcon : PlusIcon} 
+                    src={API.ind.following.includes(this.props.doc.id) ? FocusIcon : PlusIcon} 
                     alt="Add org" className="followButton" />
                 <OrgModal parent={this} />
             </div>

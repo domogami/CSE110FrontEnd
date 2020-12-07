@@ -20,7 +20,7 @@ export default class OrgModal extends Component {
             <button className="closeModal" onClick={() => this.props.parent.setState({ isOpen: false })}><img src={XIcon}/></button>
             <div className="ModalProfileOrg">
                 <div style={{ width: "35%" }}>
-                    <img src={doc.picture} alt="OrgImg"/>
+                    <img className="ModalIcon" src={this.props.parent.state.logo} alt="OrgImg"/>
                     <div className="ratings">
 
                     </div>
