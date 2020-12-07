@@ -11,7 +11,8 @@ export default class OrgModal extends Component {
 
     render() {
         const doc = this.props.parent.props.doc;
-        return (<Modal 
+        return (
+        <Modal 
             isOpen={this.props.parent.state.isOpen}
             style={customStyles}
             contentLabel="Minimal Modal Example"
@@ -48,7 +49,7 @@ export default class OrgModal extends Component {
                 <div className="column-1-2">
                     <h1>{doc.title}</h1>
                     <p>{doc.mission}</p>
-                    <h2>Upcoming Events</h2>
+                    {/* <h2>Upcoming Events</h2> */}
                 </div>
             </div>
         </Modal>);

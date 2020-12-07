@@ -11,7 +11,6 @@ const customStyles = {
         left        : '50%',
         right       : 'auto',
         bottom      : 'auto',
-        marginRight : '-50%',
         transform   : 'translate(-50%, -50%)'
     }
 };
@@ -53,9 +52,11 @@ export class EventCard extends Component {
                 <div onClick={() => this.setState({ isOpen: !this.state.isOpen})}>
                     <div className="eventTextContainer">
                         <img src={this.state.logo ? this.state.logo : PlusIcon } alt="blargh" className="eventIcon" />
-                        <h5 className="eventTitle">{this.props.doc.title}
-                            <h5 className="eventText">{this.props.doc.details}</h5>
-                        </h5>
+                        <div className="eventCardText">
+                            <h5 className="eventTitle">{this.props.doc.title}
+                                <h5 className="eventText">{this.props.doc.details}</h5>
+                            </h5>
+                        </div>
                     </div>
                 </div>
                 

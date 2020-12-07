@@ -30,6 +30,7 @@ class Home extends Component {
                     {API.isIndividual   && <IndividualProfile   doc={API.me} />}
                     {API.isOrganization && <OrganizationProfile doc={API.me} />}
                     <div className="newsFeed">
+                        <h1>News Feed</h1>
                         {this.props.feed.map(event => <EventCard doc={event} />)}
                     </div>
                 </div>

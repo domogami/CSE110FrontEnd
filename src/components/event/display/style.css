@@ -1,5 +1,16 @@
 /*TODo: MAke events instead*/
 
+@keyframes SlideUpAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
 .eventCards {
   background-repeat: no-repeat;
   background-size: contain;
@@ -9,6 +20,7 @@
   position: relative;
   background-color: #ffffff;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
+  margin: 20px;
 }
 
 .eventTextContainer {
@@ -17,6 +29,10 @@
   height: 10rem;
   text-align: center;
   position: relative;
+}
+
+.eventCardText {
+  margin-left: 20px;
 }
 
 .eventTitle {
@@ -47,10 +63,14 @@
 .eventIcon {
   display: block;
   margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
   opacity: 1;
   transition: linear 0.5s;
   max-width: 80%;
+  max-height: 90%;
+  border-radius: 1em;
 }
 
 .followButton {
@@ -62,23 +82,17 @@
 }
 
 .EventProfileModal {
-  width: 70%;
-  height: 60%;
-  margin: 0 auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
+  width: 50%;
+  margin: auto;
+  margin-top: 10%;
   padding: 50px;
   background-color: white;
   border-radius: 2em;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
   z-index: 1;
+  overflow-y: scroll;
+  opacity: 0;
+  animation: SlideUpAnimation 3s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .closeModal {

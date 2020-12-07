@@ -15,6 +15,8 @@
   border-radius: 1em;
   background-color: white;
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: SlideUpAnimation 3s 0.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .featuredOrgCard img {
   width: 80%;
@@ -44,4 +46,6 @@
   margin-top: 0px;
   overflow-y: scroll;
   padding: 20px;
+  opacity: 0;
+  animation: SlideUpAnimation 3s 0.4s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
 }

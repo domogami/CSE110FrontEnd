@@ -1,108 +1,114 @@
 .profileContainer {
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1000px;
-    border-radius: 50px;
-    background-color: #fff;
-    padding: 20px;
-    max-height: calc(100% - 156px);
-    box-shadow: 8px 16px 16px rgba(17, 17, 17, 0.08);
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+  border-radius: 50px;
+  background-color: #fff;
+  padding: 20px;
+  max-height: calc(100% - 156px);
+  box-shadow: 8px 16px 16px rgba(17, 17, 17, 0.08);
+  opacity: 0;
+  animation: SlideUpAnimation 3s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.profileContainer h1, h2, h3, h4, h5 {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0.7em;
-    margin-bottom: 0.7em;
+.profileContainer h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
 }
 
 .createProfileField {
-    width: 100%;
+  width: 100%;
 }
 
 .fieldColumn-1 {
-    width: 45%;
-    max-width: 400px;
-    padding: 0.5em;
+  width: 45%;
+  max-width: 400px;
+  padding: 0.5em;
 }
 
 .fieldColumn-2 {
-    width: 100%;
-    padding: 0.5em;
+  width: 100%;
+  padding: 0.5em;
 }
 
 .createProfileField .profileInformation p {
-    font-size: 18px;
-    font-weight: 800;
-    margin: 0.5em;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0.5em;
 }
 
 .createProfileInfo p {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .profileInformation {
-    display: flex;
-    margin: auto;
+  display: flex;
+  margin: auto;
 }
 
 .fieldLabel {
-    display: grid;
-    grid-template-columns: 1fr;
-    padding: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 5px;
 }
 
 .fieldLabel p {
-    font-size: 26px;
-    font-weight: bold;
-    text-align: left;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: left;
 }
 
 .entryField {
-    padding-left: 0.5em;
-    width: 100%;
-    height: auto;
-    position: relative;
-    border: none;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: 400;
-    border: 2px solid transparent;
+  padding-left: 0.5em;
+  width: 100%;
+  height: auto;
+  position: relative;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  border: 2px solid transparent;
 }
 
 .invalid {
-    border: 2px solid #fd5353;
+  border: 2px solid #fd5353;
 }
 
 .entryField:focus {
-    border: 2px solid #b153fd;
+  border: 2px solid #b153fd;
 }
 
 @media only screen and (max-width: 900px) {
-    .createProfileInfo {
-        display: none;
-    }
-    .profileContainer {
-        border-radius: 50px;
-        padding: 20px;
-        background-color: white;
-        width: 70%;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 0fr;
-        box-shadow: 8px 16px 16px rgba(17, 17, 17, 0.08);
-    }
-    .createProfileField {
-        width: 100%;
-    }
-    .fieldColumn-1 {
-        width: 100%;
-    }
-    
-    .fieldColumn-2 {
-        width: 100%;
-    }
+  .createProfileInfo {
+    display: none;
+  }
+  .profileContainer {
+    border-radius: 50px;
+    padding: 20px;
+    background-color: white;
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 0fr;
+    box-shadow: 8px 16px 16px rgba(17, 17, 17, 0.08);
+  }
+  .createProfileField {
+    width: 100%;
+  }
+  .fieldColumn-1 {
+    width: 100%;
+  }
+
+  .fieldColumn-2 {
+    width: 100%;
+  }
 }
 
 /* .profileContainer::after {
