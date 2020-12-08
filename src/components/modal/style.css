@@ -9,7 +9,7 @@
   }
 }
 
-.OrgProfileModal {
+.profileModal {
   width: 50%;
   margin: auto;
   margin-top: 10%;
@@ -29,7 +29,7 @@
   cursor: pointer;
   overflow: hidden;
 }
-.ModalProfileOrg {
+.ModalProfile {
   display: flex;
 }
 .ModalIcon {

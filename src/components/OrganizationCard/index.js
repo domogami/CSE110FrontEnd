@@ -36,10 +36,13 @@ export class OrganizationCard extends Component {
     }
 
     render() {
+        const modal = <OrgModal parent={this}/>;
         return (
             <div className="orgCards"
                 style={this.state.color ? { backgroundColor: this.state.color } : {}}>
-                <div onClick={() => this.setState({ isOpen: !this.state.isOpen})}>
+                <div onClick={() => {
+                    this.setState({ isOpen: !this.state.isOpen}) 
+                }}>
                     <h5 className="orgTitle">{this.props.doc.title}</h5>
                     <div className="orgTextContainer">
                         <img src={this.props.doc.picture || DEFAULT_PIC } alt="blargh" className="orgIcon" />
@@ -50,7 +53,7 @@ export class OrganizationCard extends Component {
                     style={{ cursor: "pointer", opacity: this.state.loading ? 0.5 : 1, width: "15%" }}
                     src={API.ind.following.includes(this.props.doc.id) ? FocusIcon : PlusIcon} 
                     alt="Add org" className="followButton" />
-                <OrgModal parent={this} />
+                {modal}
             </div>
         );
     }

@@ -247,6 +247,21 @@ class API extends EventEmitter {
     }
 
     /** @param {string} orgID */
+    async getOrgEvents(orgID) {
+        try {
+            const res = await fetch(`${this.base}/organization/events/${orgID}`, this.createRequestInit());
+            if (res.status == 200) {
+                return await res.json();
+            } else {
+                this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
+            }
+        } catch (e) {
+            this.emit("error", `Error in getOrgEvents("${orgID}")`, e);
+        }
+        return [];
+    }
+
+    /** @param {string} orgID */
     async getRatings(orgID) {
         try {
             const res = await fetch(`${this.base}/organization/rate/${orgID}`, this.createRequestInit());

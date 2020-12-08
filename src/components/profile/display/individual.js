@@ -14,8 +14,8 @@ export default class IndividualProfile extends Component {
         const doc = this.props.doc;
         return (
             <div className="homeProfileView">
-                <p>{doc.firstname} {doc.lastname}</p>
-                <p>{doc.email}</p>
+                <p>Name: {doc.firstname} {doc.lastname}</p>
+                <p>Email: {doc.email}</p>
                 <div className="locationGroup">
                     <div className="PinIcon">
                         <img src={PinIcon} />
