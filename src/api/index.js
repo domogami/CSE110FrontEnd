@@ -246,6 +246,21 @@ class API extends EventEmitter {
         }
     }
 
+    /** 
+     * @param {string} eventID */
+    async updateEvent(eventID, form) {
+          
+        const res = await fetch(`${this.base}/events/${eventID}`, this.createRequestInit("PUT", form));
+        if (res.status == 200) {
+            this.emit("success", "Event updated");
+            return true;
+        } else {
+            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
+            return false;
+        }
+        
+    }
+
     /** @param {string} orgID */
     async getOrgEvents(orgID) {
         try {

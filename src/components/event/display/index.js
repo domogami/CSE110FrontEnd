@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import { Redirect, Route } from 'react-router-dom';
+import EditEventModal from '../../modal/EditEventModal';
 import EventModal from "../../modal/event";
 import "./style.css";
 
@@ -23,6 +25,7 @@ export class EventCard extends Component {
         super(props);
         this.state = {
             isOpen: false,
+            // editOpen: false,
             color: "white",
         };
     }
@@ -47,8 +50,17 @@ export class EventCard extends Component {
                                 <h5 className="eventText">{this.props.doc.details}</h5>
                             </h5>
                         </div>
+                        
+                        {/* <EditEventModal isOpen={ this.state.editOpen } doc={this.props.doc} /> */}
                     </div>
-                </div>                
+                </div>   
+                {/* <div onClick={() => {window.location = "/post"}}>
+                    <h1>Edit</h1>
+                </div>        */}
+                {/* <div onClick={() => this.setState({ editOpen: !this.state.editOpen})}>
+                    <h1>Edit</h1>
+                </div>  */}
+                {/* <EditEventModal parent={this} /> */}
                 <EventModal parent={this} />
             </div>
         );

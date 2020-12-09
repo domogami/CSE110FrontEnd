@@ -59,6 +59,7 @@ const textEntry = (label, name, self, type="text") => (
 /** @extends {Component<{ doc: OrgEventDocument, redirect: string, title: string, button: string, doneFunc: (doc: OrgEventDocument) => boolean }, { errors: { [key: string]: string } }>} */
 class Post extends Component {
 
+
     constructor(props) {
         super(props);
 
