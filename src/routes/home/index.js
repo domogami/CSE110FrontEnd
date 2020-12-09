@@ -15,6 +15,7 @@ class Home extends Component {
 
     constructor(props) {
         super(props);
+        this.state = { ready: false };
         this.props.stats = [];
         this.props.feed = [];
         
@@ -64,6 +65,7 @@ class Home extends Component {
             
             data = [trace1];
             this.props.stats = [data, layout]
+            this.setState({ready: true});
             this.forceUpdate()
         });
     }
@@ -77,7 +79,7 @@ class Home extends Component {
                     {API.isIndividual   && <IndividualProfile   doc={API.me} />}
                     {API.isOrganization && <OrganizationProfile doc={API.me} />}
                     <div>
-                        {API.isOrganization && <div className="newsFeed"><Plot data={this.props.stats[0]} layout={this.props.stats[1]}/></div>}
+                        {API.isOrganization && this.state.ready && <div className="newsFeed"><Plot data={this.props.stats[0]} layout={this.props.stats[1]}/></div>}
                         <div className="newsFeed">
                             <h1>Events Feed</h1>
                             {this.props.feed.length ? 
