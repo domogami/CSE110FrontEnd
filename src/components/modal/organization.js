@@ -7,7 +7,7 @@ import "./style.css";
 import { PinIcon, TagIcon, XIcon } from "../../images/icons";
 import API from "../../api";
 
-import { Rating } from '@material-ui/lab';
+// import { Rating } from '@material-ui/lab';
 
 import EventCards from "../event/display";
 
@@ -19,11 +19,14 @@ export default class OrgModal extends Component {
     constructor(props) {
         super(props);
         this.props.events = [];
+        this.state = {
+            avgRating: 4,
+        }
     }    
 
     fetchEvents() {
         API.getOrgEvents(this.props.parent.props.doc.id).then(e => {
-            console.log(e);
+            // console.log(e);
             this.props.events = e;
             this.forceUpdate();
         });
@@ -31,9 +34,19 @@ export default class OrgModal extends Component {
 
     fetchRatings() {
         API.getRatings(this.props.parent.props.doc.id).then(r => {
-            console.log(r);
+            // console.log(r);
+            // const stars = [];
+            // r.forEach(v => ratingCount[v.data().stars]);
         });
     }
+
+    fetchStats() {
+        API.getStats(this.props.parent.props.doc.id).then(s => {
+            // const stars = [];
+            // API.ratings.forEach()
+        });
+    }
+
 
     render() {
         const doc = this.props.parent.props.doc;
@@ -43,19 +56,19 @@ export default class OrgModal extends Component {
             style={customStyles}
             contentLabel="Minimal Modal Example"
             className="profileModal fade-in"
-            onAfterOpen={() => this.fetchEvents()}
+            onAfterOpen={() => {
+                this.fetchEvents();
+                this.fetchRatings();
+            }}
         >      
             <button className="closeModal" onClick={() => this.props.parent.setState({ isOpen: false })}><img src={XIcon}/></button>
             <div className="ModalProfile">
                 <div style={{ width: "35%" }}>
                     <img className="ModalIcon" src={this.props.parent.props.doc.picture || DEFAULT_PIC} alt="OrgImg"/>
-                    <Rating 
+                    {/* <Rating 
                         className="EventModalRating" 
-                        value={ 3 }
-                        onChange={()=>{
-                            this.fetchRatings();
-                        }}
-                    />
+                        value={ this.state.avgRating }
+                    /> */}
                     <p>Contact: {doc.contact}</p>
                     <p>Website: {doc.url}</p>
                     <div className="PinIcon">

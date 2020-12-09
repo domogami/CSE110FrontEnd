@@ -17,9 +17,16 @@ class Post extends Component {
         return (
             <div className = "parent">
                 <NavHeader />
-                <div className="postPage">
-                    <EditEvent doc={{}} title="Create Event" redirect="post" button="Create" doneFunc={API.createEvent} />
-                </div>
+                {/* <div className="postPage"> */}
+                    <EditEvent 
+                        doc={{}} 
+                        title="Create Event"
+                        className="profileContainer"
+                        redirect="post" 
+                        button="Create" 
+                        doneFunc={API.createEvent}
+                    />
+                {/* </div> */}
             </div>
         )
     }
