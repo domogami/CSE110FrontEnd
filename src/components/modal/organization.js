@@ -7,6 +7,8 @@ import "./style.css";
 import { PinIcon, TagIcon, XIcon } from "../../images/icons";
 import API from "../../api";
 
+import { Rating } from '@material-ui/lab';
+
 import EventCards from "../event/display";
 
 const DEFAULT_PIC = "https://cdn.vox-cdn.com/thumbor/zEZJzZFEXm23z-Iw9ESls2jYFYA=/89x0:1511x800/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/55717463/google_ai_photography_street_view_2.0.jpg";
@@ -27,6 +29,12 @@ export default class OrgModal extends Component {
         });
     }
 
+    fetchRatings() {
+        API.getRatings(this.props.parent.props.doc.id).then(r => {
+            console.log(r);
+        });
+    }
+
     render() {
         const doc = this.props.parent.props.doc;
         return (
@@ -41,9 +49,13 @@ export default class OrgModal extends Component {
             <div className="ModalProfile">
                 <div style={{ width: "35%" }}>
                     <img className="ModalIcon" src={this.props.parent.props.doc.picture || DEFAULT_PIC} alt="OrgImg"/>
-                    <div className="ratings">
-                        TO DO OR DELETE
-                    </div>
+                    <Rating 
+                        className="EventModalRating" 
+                        value={ 3 }
+                        onChange={()=>{
+                            this.fetchRatings();
+                        }}
+                    />
                     <p>Contact: {doc.contact}</p>
                     <p>Website: {doc.url}</p>
                     <div className="PinIcon">

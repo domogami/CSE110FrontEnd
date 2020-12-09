@@ -67,7 +67,7 @@
   text-align: center;
   opacity: 1;
   transition: linear 0.5s;
-  max-width: 100%;
+  max-width: 90%;
   max-height: 90%;
   border-radius: 1em;
 }
