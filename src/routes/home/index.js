@@ -1,5 +1,7 @@
 import { Component } from "react";
-import Plot from 'react-plotly.js';
+
+import Plotly from "plotly.js-basic-dist";
+import createPlotlyComponent from 'react-plotly.js/factory';
 
 import API from "../../api"
 import NavHeader from "../../components/nav";
@@ -9,6 +11,8 @@ import OrganizationProfile from "../../components/profile/display/organization";
 import EventCard from "../../components/event/display";
 
 import "./style.css";
+
+const Plot = createPlotlyComponent(Plotly);
 
 /** @extends {Component<{ feed: OrgEventDocument[] }>} */
 class Home extends Component {
