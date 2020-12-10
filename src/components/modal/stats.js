@@ -21,6 +21,12 @@ export default class StatsModal extends Component {
     updateStats() {
         
         const stats = this.props.parent.props.stats;
+        if (!stats) {
+            this.props.parent.updateStats();
+            this.props.parent.setState({ isOpen: false });
+            // console.log("Heck?");
+            return;
+        }
 
         if (this.chart) this.chart.destroy();
 

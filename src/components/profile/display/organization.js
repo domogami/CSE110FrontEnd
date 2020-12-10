@@ -5,17 +5,18 @@ import API from "../../../api";
 import StatsModal from "../../modal/stats";
 import { PinIcon, TagIcon } from "../../../images/icons";
 
-/** @extends {Component<{ doc: OrganizationDocument, stats: OrgStats>} */
+/** @extends {Component<{ doc: OrganizationDocument, stats: OrgStats }>} */
 export default class OrganizationProfile extends Component {
 
     constructor(props) {
-        props.stats = {};
         super(props);
-
         this.state = {
             isOpen: false,
             loaded: false,
         };
+    }
+
+    componentDidMount() {
         this.updateStats();
     }
 
@@ -23,7 +24,7 @@ export default class OrganizationProfile extends Component {
         API.getStats().then(stats => {
             this.props.stats = stats;
             this.setState({ loaded: true });
-        })
+        });
     }
 
     render() {
