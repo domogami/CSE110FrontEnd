@@ -8,7 +8,7 @@
   min-width: 500px;
   max-width: 50%;
   opacity: 0;
-  animation: SlideUpAnimation 3s 0.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: SlideUpAnimation 1s 0.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .mediumLabel p {

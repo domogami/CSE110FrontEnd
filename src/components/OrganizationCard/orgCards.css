@@ -6,7 +6,7 @@
   margin-top: 0px;
   padding: 20px;
   width: 20rem;
-  height: 23rem;
+  height: 18rem;
   max-width: 350px;
   position: relative;
   background-color: #ffffff;
@@ -49,7 +49,9 @@
   text-align: center;
   opacity: 1;
   transition: linear 0.25s;
-  max-width: 80%;
+  object-fit: cover;
+  width:  10rem;
+  height: 10rem;
 }
 
 .orgCards:hover .orgIcon {

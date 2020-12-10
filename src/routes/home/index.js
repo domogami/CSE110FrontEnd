@@ -19,7 +19,6 @@ class Home extends Component {
     }
 
     updateFeed() {
-        console.log("UPDATING FEED");
         API.getFeed().then(f => {
             this.props.feed = f;
             this.forceUpdate();
@@ -30,7 +29,7 @@ class Home extends Component {
         return (
             <div className="HomePage">
                 <NavHeader />
-                <div className="homeView fade-in">
+                <div className="homeView">
                     {API.isIndividual   && <IndividualProfile   doc={API.me} />}
                     {API.isOrganization && <OrganizationProfile doc={API.me} />}
                     <div className="card slideup" style={{ width: "70%" }}>

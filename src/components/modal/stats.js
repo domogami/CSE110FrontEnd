@@ -68,7 +68,7 @@ export default class StatsModal extends Component {
             options: {
                 responsive: true,
                 legend: { display: false },
-                scales: { yAxes: [{ ticks: { stepSize: 1 } }] }
+                scales: { yAxes: [{ ticks: { stepSize: 1, min: 0 } }] }
             }
         });
 

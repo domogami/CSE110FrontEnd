@@ -9,7 +9,7 @@
   max-height: calc(100% - 156px);
   box-shadow: 8px 16px 16px rgba(17, 17, 17, 0.08);
   opacity: 0;
-  animation: SlideUpAnimation 3s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: SlideUpAnimation 1s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .profileContainer h1,

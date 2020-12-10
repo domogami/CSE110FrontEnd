@@ -65,10 +65,10 @@ export default class OrganizationProfile extends Component {
                     </div> : <span>Empty</span>
                 }
                 <div style={{display: "inline"}}>
-                    <button className="button danger" onClick={() => API.logout().then(window.location.href = window.origin)}>Log out</button>
                     <NavLink activeClassName="active" className="menuButton" to="/profile">
                         <button className="button">Edit</button>
                     </NavLink>
+                    <button className="button danger" onClick={() => API.logout().then(window.location.href = window.origin)}>Log out</button>
                 </div>
             </div>
         )

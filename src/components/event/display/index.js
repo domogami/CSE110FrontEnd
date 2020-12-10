@@ -18,14 +18,16 @@ export class EventCard extends Component {
     }
 
     render() {
-        // TODO: Check API whether user followed event and 
-        //       create method located here to change "followed" state
         return (
-            <div className="eventCards"
+            <div className="eventCards slideup"
                 style={this.state.color ? { backgroundColor: this.state.color } : {}}>
                 <div onClick={() => this.setState({ isOpen: !this.state.isOpen})}>
-                    <div className="eventTextContainer">
-                        <img src={ this.props.doc.picture || DEFAULT_PIC } alt="eventIcon" className="eventIcon" />
+                    <div className={this.props.doc.org ? "eventTextContainer" : ""}>
+                        {
+                            this.props.doc.org && <div style={{ padding: "1rem" }}>
+                                <img src={ this.props.doc.org.picture || DEFAULT_PIC } alt="eventIcon" className="eventIcon" />
+                            </div>
+                        }
                         <div className="eventCardText">
                             <h5 className="eventTitle">{this.props.doc.title}
                                 <h5 className="eventText">{this.props.doc.details}</h5>
@@ -36,7 +38,7 @@ export class EventCard extends Component {
                         </div>
                     </div>
                 </div>
-                <EditEventModal parent={this} />
+                {this.props.editable && <EditEventModal parent={this} />}
                 <EventModal parent={this} />
             </div>
         );

@@ -19,10 +19,6 @@ class API extends EventEmitter {
         /** @type {{[orgID: string]: OrgEventDocument}} */
         this.orgEvents = {};
 
-        // Rating cache
-        /** @type {{[ratingID: string]: RatingDocument}} */
-        this.ratings = {};
-        
         // Stats cache
         /** @type {{[orgID: string]: OrgStats}} */
         this.stats = {};
@@ -68,6 +64,9 @@ class API extends EventEmitter {
             });
         });
         
+        this.type = ""; // either "individual" or "organization" after init
+
+        // Constants
         this.ValidCauses = ["Medical", "Food", "Education", "Environment", 
             "Animals", "Religious", "Human & Civil Rights", 
             "Homelessness", "Community Development"];
@@ -78,16 +77,12 @@ class API extends EventEmitter {
             "Multimedia", "Teaching/Tutoring"];
 
         this.AgeCategories = ["10-13", "13-17", "18-30", "31-54", "55+"];
-        this.initialized = false;
-        this.type = "";
 
         this.createProfile = this.createProfile.bind(this);
         this.updateProfile = this.updateProfile.bind(this);
         this.createEvent   = this.createEvent.bind(this);
         this.updateEvent   = this.updateEvent.bind(this);
         this.deleteEvent   = this.deleteEvent.bind(this);
-
-        window.API = this;
     }
 
     get me() { return this.profiles["@me"]; };
@@ -115,32 +110,19 @@ class API extends EventEmitter {
         if (!this.auth.currentUser) return false;
         this.token = await this.auth.currentUser.getIdToken();
         await this.getProfile();
-        this.initialized = true;
         return true;
     }
 
-    logout() {
-        return this.auth.signOut();
-    }
+    logout() { return this.auth.signOut(); }
 
-    // magic number 5 seconds here (how long we want to cache the request)
-    isRecent(timestamp) { return Date.now() - timestamp < 5000; }
+    // 1 minute in-memory request caching
+    isRecent(timestamp) { return Date.now() - timestamp < 60 * 1000; }
 
+    // Profile CRU (no delete)
     async createProfile(form, type) {
         const res = await fetch(`${this.base}/profile/create?type=${type}`, this.createRequestInit("POST", form));
         if (res.status == 200) {
             this.emit("success", "Profile created");
-            return true;
-        } else {
-            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
-            return false;
-        }
-    }
-
-    async updateProfile(form, type) {
-        const res = await fetch(`${this.base}/profile/@me?type=${type}`, this.createRequestInit("PUT", form));
-        if (res.status == 200) {
-            this.emit("success", "Profile updated");
             return true;
         } else {
             this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
@@ -170,56 +152,19 @@ class API extends EventEmitter {
             if (id != "@me") this.emit("error", `Error in getProfile("${id}", "${type}")`, e);
         }
     }
-
-    /** @param {string} id @returns {Promise<OrgStats>} */
-    async getStats(id = "@me") {
-        if (this.stats[id] && this.isRecent(this.stats[id].timestamp)) return this.stats[id];
-        try {
-            const res = await fetch(`${this.base}/organization/stats/${id}`, this.createRequestInit());
-            const json = await res.json();
-            json.timestamp = Date.now();
-            this.stats[id] = json;
-            return json;
-        } catch (e) {
-            if (id != "@me") this.emit("error", `Error in getStats("${id}")`, e);
-        }
-    }
-
-    async filter(skills, causes, distance, type) {
-        const res = await fetch(`${this.base}/filter?type=${type}`, 
-            this.createRequestInit("POST", { skills, causes, distance: distance * 1000 }));
+    
+    async updateProfile(form, type) {
+        const res = await fetch(`${this.base}/profile/@me?type=${type}`, this.createRequestInit("PUT", form));
         if (res.status == 200) {
-            this.filtered[type] = await res.json();
-            return;
+            this.emit("success", "Profile updated");
+            return true;
         } else {
             this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
-            return;
+            return false;
         }
     }
 
-    async follow(id, bool) {
-        const res = await fetch(`${this.base}/organization/${id}?follow=${bool}`, this.createRequestInit("POST"));
-        if (res.status == 200) {
-            this.emit("success", `Organization ${bool ? "followed" : "unfollowed"}`);
-            return bool;
-        } else {
-            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
-            return !bool;
-        }
-    }
-
-    async getFeed() {
-        const res = await fetch(`${this.base}/organization/feed?type=${this.type}`, this.createRequestInit());
-        if (res.status == 200) {
-            this.feed = await res.json();
-            this.feed.timestamp = Date.now();
-            return this.feed;
-        } else {
-            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
-            return [];
-        }
-    }
-
+    // EVENT CRUD
     async createEvent(form) {
         const res = await fetch(`${this.base}/events/create`, this.createRequestInit("POST", form));
         if (res.status == 200) {
@@ -285,16 +230,67 @@ class API extends EventEmitter {
         return [];
     }
 
-    /** @param {string} orgID */
-    async getRatings(orgID) {
+    
+    /** @param {string} id @returns {Promise<OrgStats>} */
+    async getStats(id = "@me") {
+        if (this.stats[id] && this.isRecent(this.stats[id].timestamp)) return this.stats[id];
         try {
-            const res = await fetch(`${this.base}/organization/rate/${orgID}`, this.createRequestInit());
+            const res = await fetch(`${this.base}/organization/stats/${id}`, this.createRequestInit());
             const json = await res.json();
             json.timestamp = Date.now();
-            this.ratings[orgID] = json;
+            this.stats[id] = json;
             return json;
         } catch (e) {
-            this.emit("error", `Error in getRatings("${orgID}")`, e);
+            if (id != "@me") this.emit("error", `Error in getStats("${id}")`, e);
+        }
+    }
+
+    async filter(skills, causes, distance, type) {
+        const res = await fetch(`${this.base}/filter?type=${type}`, 
+            this.createRequestInit("POST", { skills, causes, distance: distance * 1000 }));
+        if (res.status == 200) {
+            this.filtered[type] = await res.json();
+            if (type == "events") {
+                const tasks = [];
+                for (const event of this.filtered.events)
+                    tasks.push(this.getProfile(event.owner, "organization").then(org => event.org = org));
+                await Promise.all(tasks);
+            }
+            return;
+        } else {
+            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
+            return;
+        }
+    }
+
+    async follow(id, bool) {
+        const res = await fetch(`${this.base}/organization/${id}?follow=${bool}`, this.createRequestInit("POST"));
+        if (res.status == 200) {
+            this.emit("success", `Organization ${bool ? "followed" : "unfollowed"}`);
+            return bool;
+        } else {
+            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
+            return !bool;
+        }
+    }
+
+    async getFeed() {
+        const res = await fetch(`${this.base}/organization/feed?type=${this.type}`, this.createRequestInit());
+        if (res.status == 200) {
+            const json = await res.json();
+            if (this.isIndividual) {
+                this.feed = json.events;
+                for (const event of this.feed)
+                    event.org = json.orgs[event.org];
+            } else {
+                this.feed = json;
+            }
+
+            this.feed.timestamp = Date.now();
+            return this.feed;
+        } else {
+            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
+            return [];
         }
     }
 }
