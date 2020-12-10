@@ -1,6 +1,6 @@
 import { Component } from "react";
-import DatePicker from "react-datepicker";
 import { Redirect  } from "react-router-dom";
+import DatePicker from "react-datepicker";
 import Select from 'react-select';
 import Joi from "joi";
 
@@ -56,9 +56,8 @@ const textEntry = (label, name, self, type="text") => (
     </label>
 );
 
-/** @extends {Component<{ doc: OrgEventDocument, redirect: string, title: string, button: string, doneFunc: (doc: OrgEventDocument) => boolean }, { errors: { [key: string]: string } }>} */
+/** @extends {Component<ModalProps, { errors: { [key: string]: string }>} */
 class Post extends Component {
-
 
     constructor(props) {
         super(props);
@@ -97,25 +96,34 @@ class Post extends Component {
     
     submitForm() {
         if (!this.isValid) return this.forceUpdate();
-        this.props.doneFunc(this.props.doc).then(async success => {
+        this.props.onSubmit(this.props.doc).then(success => {
             if (success) {
-                this.shouldRedirect = true;
+                this.done = true;
+                this.forceUpdate();
+            }
+        });
+    }
+
+    deleteForm() {
+        this.props.deleteFunc(this.props.doc).then(success => {
+            if (success) {
+                this.done = true;
                 this.forceUpdate();
             }
         });
     }
 
     render() {
-        if (this.shouldRedirect) {
-            console.log(`Redirecting to ${this.props.redirect}`);
-            // return <Redirect to={this.props.redirect} />;
+        if (this.done) {
+            this.props.doneFunc && this.props.doneFunc(this.props.doc);
+            if (this.props.redirect) return <Redirect to={this.props.redirect} />;
         }
 
         const doc = this.props.doc;
 
         return (
-            <div className="eventForm">
-                <h4>Create Event</h4>
+            <div>
+                <h4>{this.props.title}</h4>
                 <form>
                     {textEntry("Title", "title", this)}
                     {textEntry("Details", "details", this)}
@@ -143,6 +151,7 @@ class Post extends Component {
                         />
                     </label>
                 </form>
+                {this.props.deleteFunc && <button className="button danger" onClick={() => this.deleteForm()}>{"Delete"}</button>}
                 <button className="button" disabled={!this.isValid} onClick={() => this.submitForm()}>{this.props.button || "Button"}</button>
             </div>
         )

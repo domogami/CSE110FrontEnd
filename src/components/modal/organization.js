@@ -1,7 +1,6 @@
 import { Component } from "react";
 import Modal from "react-modal";
 
-import customStyles from "./styles";
 import "./style.css";
 
 import { PinIcon, TagIcon, XIcon } from "../../images/icons";
@@ -53,7 +52,6 @@ export default class OrgModal extends Component {
         return (
         <Modal 
             isOpen={this.props.parent.state.isOpen}
-            style={customStyles}
             contentLabel="Minimal Modal Example"
             className="profileModal fade-in"
             onAfterOpen={() => {
@@ -86,7 +84,7 @@ export default class OrgModal extends Component {
                                 </div>))
                             }
                             {
-                                doc.causes.length > 3 ? <p>More ({doc.causes.length - 3})</p> : ""
+                                doc.causes.length > 3 ? <p style={{ margin: "auto 0" }}>More ({doc.causes.length - 3})</p> : ""
                             }
                         </div> : <span>Empty</span>
                     }

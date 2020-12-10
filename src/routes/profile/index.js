@@ -12,7 +12,7 @@ class Profile extends Component {
         this.childProps = {
             doc: Object.assign({}, API.me),
             button: "Save",
-            doneFunc: API.updateProfile
+            onSubmit: API.updateProfile
         }
     }
 

@@ -6,6 +6,7 @@ body {
   color: var(--theme);
   overflow: hidden;
   margin: 0;
+  font-size: calc(10px + 2vmin);
   font-family: "Poppins", -apple-system, Roboto, BlinkMacSystemFont, "Segoe UI",
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,7 +1,6 @@
 import { Component } from "react";
 import Modal from "react-modal";
 
-import customStyles from "./styles";
 import "./style.css";
 
 import { PinIcon, TagIcon, XIcon } from "../../images/icons";
@@ -22,18 +21,15 @@ export default class EventModal extends Component {
         return (
         <Modal 
             isOpen={this.props.parent.state.isOpen}
-            style={customStyles}
             contentLabel="Minimal Modal Example"
             className="profileModal fade-in"
         >      
             <button className="closeModal" onClick={() => this.props.parent.setState({ isOpen: false })}><img src={XIcon}/></button>
             <div className="ModalProfileOrg">
                 <div className="column-right">
-                    <h1>{doc.title}</h1>
+                    <h4>{doc.title}</h4>
                     <p>Date: {output}</p>
                     <p>Details: {doc.details}</p>
-    
-                    {/* <h2> CHANGE FORMAT + Upcoming Events</h2> */}
                 </div>
                 <div style={{ width: "35%" }}>
                     <img className="ModalIcon" src={this.props.parent.props.doc.picture || DEFAULT_PIC} alt="OrgImg"/>
@@ -41,7 +37,7 @@ export default class EventModal extends Component {
                         <img src={PinIcon} />
                         <p>Zip: {doc.zip}</p>
                     </div>
-                    <h3>Skills:</h3>
+                    <h5>Skills:</h5>
                     {
                         doc.skills.length ? 
                         <div className="tagContainer">
@@ -53,7 +49,7 @@ export default class EventModal extends Component {
                                 </div>))
                             }
                             {
-                                doc.skills.length > 3 ? <p>More ({doc.skills.length - 3})</p> : ""
+                                doc.skills.length > 3 ? <p style={{ margin: "auto 0" }}>More ({doc.skills.length - 3})</p> : ""
                             }
                         </div> : <span>Empty</span>
                     }

@@ -16,7 +16,7 @@ export default class ProfileRegistration extends Component {
         this.childProps = {
             doc: this.doc,
             button: "Create",
-            doneFunc: API.createProfile
+            onSubmit: API.createProfile
         };
     }
 

@@ -44,7 +44,7 @@ const textEntry = (name, self) => (<input
     defaultValue={self.initialDoc[name]} 
 />);
 
-/** @extends {Component<{ doc: OrganizationDocument, title: string, button: string, doneFunc: (doc: IndividualDocument, type: string) => boolean }, { errors: { [key: string]: string } }>} */
+/** @extends {Component<{ doc: OrganizationDocument, title: string, button: string, onSubmit: (doc: IndividualDocument, type: string) => boolean }, { errors: { [key: string]: string } }>} */
 export default class OrganizationProfile extends Component {
 
     constructor(props) {
@@ -82,7 +82,7 @@ export default class OrganizationProfile extends Component {
 
     submitForm() {
         if (!this.isValid) return this.forceUpdate();
-        this.props.doneFunc(this.props.doc, "organization").then(async success => {
+        this.props.onSubmit(this.props.doc, "organization").then(async success => {
             if (success) {
                 await API.init();
                 this.shouldRedirect = true;

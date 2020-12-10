@@ -62,7 +62,7 @@ const textEntry = (label, name, self, type="text") => (
     </label>
 );
 
-/** @extends {Component<{ doc: IndividualDocument, title: string, button: string, doneFunc: (doc: IndividualDocument, type: string) => boolean }, { errors: { [key: string]: string } }>} */
+/** @extends {Component<{ doc: IndividualDocument, title: string, button: string, onSubmit: (doc: IndividualDocument, type: string) => boolean }, { errors: { [key: string]: string } }>} */
 export default class IndividualProfile extends Component {
 
     constructor(props) {
@@ -103,7 +103,7 @@ export default class IndividualProfile extends Component {
     
     submitForm() {
         if (!this.isValid) return this.forceUpdate();
-        this.props.doneFunc(this.props.doc, "individual").then(async success => {
+        this.props.onSubmit(this.props.doc, "individual").then(async success => {
             if (success) {
                 await API.init();
                 this.shouldRedirect = true;

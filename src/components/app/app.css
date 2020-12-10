@@ -18,13 +18,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   background-image: url(./background.svg);
   background-size: cover;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.card {
+  border-radius: 1em;
+  background-color: #ffffff;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+}
+
+.link, .link:visited {
+  font-size: 14px;
+  color: var(--theme);
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
 }
 
 @keyframes App-logo-spin {

@@ -2,37 +2,43 @@ import { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 import API from "../../../api";
+import StatsModal from "../../modal/stats";
 import { PinIcon, TagIcon } from "../../../images/icons";
 
-/** @extends {Component<{ doc: OrganizationDocument, stats: OrgStats, loaded: boolean>} */
+/** @extends {Component<{ doc: OrganizationDocument, stats: OrgStats>} */
 export default class OrganizationProfile extends Component {
 
     constructor(props) {
+        props.stats = {};
         super(props);
-        this.props.stats = {};
+
+        this.state = {
+            isOpen: false,
+            loaded: false,
+        };
         this.updateStats();
     }
 
     updateStats() {
-        this.props.loaded = false;
         API.getStats().then(stats => {
             this.props.stats = stats;
-            this.props.loaded = true;
-            this.forceUpdate();
+            this.setState({ loaded: true });
         })
     }
 
     render() {
         const doc = this.props.doc;
         const url = doc.url.match(/http(s):\/\//) ? doc.url : `https://${doc.url}`;
+        const followers = this.props.stats ? this.props.stats.followers : 0;
         return (
             <div className="homeProfileView">
                 <p>{doc.title}</p>
                 <p>{doc.contact} <a href={url} target="_blank">{doc.url}</a></p>
                 {
-                    this.props.loaded && <div>
-                        <p>Followers: {this.props.stats.followers}</p>
-                        <p>Ratings: {this.props.stats.ratingsCount}</p>
+                    this.state.loaded && <div>
+                        <p>{followers} follower{followers > 1 ? "s" : ""} &nbsp;
+                            <a className="link" onClick={() => this.setState({ isOpen: true })}>(show distribution)</a>
+                            <StatsModal parent={this} /></p>
                     </div>
                 }
                 <div className="locationGroup">
@@ -53,7 +59,7 @@ export default class OrganizationProfile extends Component {
                             </div>))
                         }
                         {
-                            doc.causes.length > 3 ? <p>More ({doc.causes.length - 3})</p> : ""
+                            doc.causes.length > 3 ? <p style={{ margin: "auto 0" }}>More ({doc.causes.length - 3})</p> : ""
                         }
                     </div> : <span>Empty</span>
                 }

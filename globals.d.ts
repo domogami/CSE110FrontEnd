@@ -44,3 +44,13 @@ declare type OrgStats =  {
     age: { [ageCategory: string]: number };
     ratings: { [rating: string]: number };
 };
+
+declare type ModalProps = { 
+    doc: OrgEventDocument;
+    redirect?: string;
+    title?: string;
+    button?: string;
+    onSubmit: (doc: OrgEventDocument) => Promise<boolean>;
+    deleteFunc?: (doc: OrgEventDocument) => Promise<boolean>;
+    doneFunc?: (doc: OrgEventDocument) => {};
+};

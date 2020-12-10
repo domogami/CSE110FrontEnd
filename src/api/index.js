@@ -1,5 +1,4 @@
 import { EventEmitter } from "events";
-import OrganizationCard from "../components/OrganizationCard";
 import app from "../components/app/base";
 import { store } from 'react-notifications-component';
 
@@ -17,7 +16,7 @@ class API extends EventEmitter {
         this.profiles = {};
 
         // Event cache
-        /** @type {{[orgID: string]: OrganizationCard}} */
+        /** @type {{[orgID: string]: OrgEventDocument}} */
         this.orgEvents = {};
 
         // Rating cache
@@ -85,6 +84,8 @@ class API extends EventEmitter {
         this.createProfile = this.createProfile.bind(this);
         this.updateProfile = this.updateProfile.bind(this);
         this.createEvent   = this.createEvent.bind(this);
+        this.updateEvent   = this.updateEvent.bind(this);
+        this.deleteEvent   = this.deleteEvent.bind(this);
 
         window.API = this;
     }
@@ -170,9 +171,9 @@ class API extends EventEmitter {
         }
     }
 
-    /** @param {string} id */
+    /** @param {string} id @returns {Promise<OrgStats>} */
     async getStats(id = "@me") {
-        if (this.stats[id] && this.isRecent(this.stats[id].timestamp)) return this.profiles[id];
+        if (this.stats[id] && this.isRecent(this.stats[id].timestamp)) return this.stats[id];
         try {
             const res = await fetch(`${this.base}/organization/stats/${id}`, this.createRequestInit());
             const json = await res.json();
@@ -208,8 +209,6 @@ class API extends EventEmitter {
     }
 
     async getFeed() {
-        if (this.isRecent(this.feed.timestamp)) return this.feed;
-
         const res = await fetch(`${this.base}/organization/feed?type=${this.type}`, this.createRequestInit());
         if (res.status == 200) {
             this.feed = await res.json();
@@ -246,10 +245,9 @@ class API extends EventEmitter {
         }
     }
 
-    /** 
-     * @param {string} eventID */
-    async updateEvent(eventID, form) {
-          
+    async updateEvent(form) {
+        const eventID = form.id;
+        delete form.id;
         const res = await fetch(`${this.base}/events/${eventID}`, this.createRequestInit("PUT", form));
         if (res.status == 200) {
             this.emit("success", "Event updated");
@@ -258,7 +256,18 @@ class API extends EventEmitter {
             this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
             return false;
         }
-        
+    }
+
+    async deleteEvent(form) {
+        const eventID = form.id;
+        const res = await fetch(`${this.base}/events/${eventID}`, this.createRequestInit("DELETE"));
+        if (res.status == 200) {
+            this.emit("success", "Event deleted");
+            return true;
+        } else {
+            this.emit("error", new Error(`Unexpected http(s) response code: ${res.status} (${res.statusText})`));
+            return false;
+        }
     }
 
     /** @param {string} orgID */

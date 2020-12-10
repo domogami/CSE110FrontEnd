@@ -18,15 +18,16 @@ class Post extends Component {
             <div className = "parent">
                 <NavHeader />
                 {/* <div className="postPage"> */}
+                <div className="eventForm">
                     <EditEvent 
                         doc={{}} 
                         title="Create Event"
                         className="profileContainer"
-                        redirect="post" 
+                        redirect="/" 
                         button="Create" 
-                        doneFunc={API.createEvent}
+                        onSubmit={API.createEvent}
                     />
-                {/* </div> */}
+                </div>
             </div>
         )
     }

@@ -8,7 +8,6 @@ import "./style.css";
 class FindEvent extends Component {
     
     render(){
-        
         return (
             <div className="findEventContainer">
                 <NavHeader parent={this}/>
@@ -19,9 +18,7 @@ class FindEvent extends Component {
                         <p1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p1>
                     </div> */}
                     <div className="eventGrid">
-                        {
-                            API.filtered.events.map(event => <EventCard doc={event} />)
-                        }
+                        {API.filtered.events.map(event => <EventCard doc={event} />)}
                     </div>
                 </div>
             </div>
