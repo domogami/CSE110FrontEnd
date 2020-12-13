@@ -116,7 +116,7 @@ class API extends EventEmitter {
     logout() { return this.auth.signOut(); }
 
     // 1 minute in-memory request caching
-    isRecent(timestamp) { return Date.now() - timestamp < 60 * 1000; }
+    isRecent(timestamp) { return Date.now() - timestamp < 500; }
 
     // Profile CRU (no delete)
     async createProfile(form, type) {
