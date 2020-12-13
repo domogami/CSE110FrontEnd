@@ -48,9 +48,9 @@ export default class OrganizationProfile extends Component {
                     </div>
                     <p>Zip: {doc.zip}</p>
                 </div>
-                <p>Causes:</p>
+                <p>Causes: {doc.causes.length ? "" : "Empty"}</p>
                 {
-                    doc.causes.length ? 
+                    !!doc.causes.length && 
                     <div className="tagContainer">
                         {
                             doc.causes.slice(0, 3).map(c => (
@@ -62,7 +62,7 @@ export default class OrganizationProfile extends Component {
                         {
                             doc.causes.length > 3 ? <p style={{ margin: "auto 0" }}>More ({doc.causes.length - 3})</p> : ""
                         }
-                    </div> : <span>Empty</span>
+                    </div>
                 }
                 <div style={{display: "inline"}}>
                     <NavLink activeClassName="active" className="menuButton" to="/profile">

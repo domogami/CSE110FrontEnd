@@ -9,7 +9,7 @@ class FindOrg extends Component {
 
     constructor(props) {
         super(props);
-        API.filter(API.me.skills, API.me.causes, 50, "organization").then(() => this.forceUpdate());
+        API.filter(API.me.skills, API.me.causes, 100, "organization").then(() => this.forceUpdate());
     }
 
     render(){
@@ -18,7 +18,6 @@ class FindOrg extends Component {
             <div className="findOrgContainer">
                 <NavHeader parent={this} />
                 <div className="OrgView fade-in">
-                    
                     <div className="featuredOrgCard">
                         <img src={OrgProfile} alt="FeaturedImage"/>
                         <h1>Featured org</h1>

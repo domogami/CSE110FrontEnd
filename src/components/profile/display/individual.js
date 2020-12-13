@@ -7,9 +7,7 @@ import { PenIcon, PinIcon, TagIcon } from "../../../images/icons";
 
 /** @extends {Component<{ doc: IndividualDocument>} */
 export default class IndividualProfile extends Component {
-    constructor(props) {
-        super(props);
-    }
+    
     render() {
         const doc = this.props.doc;
         return (
@@ -23,39 +21,33 @@ export default class IndividualProfile extends Component {
                     <p>Zip: {doc.zip}</p>
                 </div>
                 <br/>
-                {
-                    doc.causes.length &&
-                    <div className="tagContainer">
-                        <p style={{ margin: "auto 0" }}>Causes:</p>
-                        {
-                            doc.causes.slice(0, 3).map(c => (
-                            <div className="tag">
-                                <img src={TagIcon} />
-                                <p>{c}</p>
-                            </div>))
-                        }
-                        {
-                            doc.causes.length > 3 ? <p style={{ margin: "auto 0" }}>More ({doc.causes.length - 3})</p> : ""
-                        }
-                    </div>
-                }
+                <div className="tagContainer">
+                    <p style={{ margin: "auto 0" }}>Causes: {doc.causes.length ? "" : "Empty"}</p>
+                    {
+                        doc.causes.slice(0, 3).map(c => (
+                        <div className="tag">
+                            <img src={TagIcon} />
+                            <p>{c}</p>
+                        </div>))
+                    }
+                    {
+                        doc.causes.length > 3 ? <p style={{ margin: "auto 0" }}>More ({doc.causes.length - 3})</p> : ""
+                    }
+                </div>
                 <br/>
-                {
-                    doc.skills.length &&
-                    <div className="tagContainer">
-                        <p style={{ margin: "auto 0" }}>Skills:</p>
-                        {
-                            doc.skills.slice(0, 3).map(c => (
-                            <div className="tag">
-                                <img src={TagIcon} />
-                                <p>{c}</p>
-                            </div>))
-                        }
-                        {
-                            doc.skills.length > 3 ? <p style={{ margin: "auto 0" }}>More ({doc.skills.length - 3})</p> : ""
-                        }
-                    </div>
-                }
+                <div className="tagContainer">
+                    <p style={{ margin: "auto 0" }}>Skills: {doc.skills.length ? "" : "Empty"}</p>
+                    {
+                        doc.skills.slice(0, 3).map(c => (
+                        <div className="tag">
+                            <img src={TagIcon} />
+                            <p>{c}</p>
+                        </div>))
+                    }
+                    {
+                        doc.skills.length > 3 ? <p style={{ margin: "auto 0" }}>More ({doc.skills.length - 3})</p> : ""
+                    }
+                </div>
                 <br/>
                 <div style={{display: "inline"}}>
                     <NavLink activeClassName="active" className="menuButton" to="/profile">

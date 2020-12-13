@@ -54,7 +54,7 @@ export default class EventModal extends Component {
                         <p>Date: {dateString}</p>
                         <p>Details: {doc.details}</p>
                         <br/>
-                        {doc.org && <h5>Featured Organization: {doc.org.title}</h5>}
+                        {doc.org && <h5>Organization: {doc.org.title}</h5>}
                         {doc.org && <p>{doc.org.mission}</p>}
                     </div>
                 </div>
